@@ -4,11 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Isfhead; 
+use App\Models\SurveyForms; 
+use App\Models\Isfmember; 
+use App\Models\householdCondition; 
 
 class IsfController extends Controller
 {
     public function store(Request $req)
     {
+
+        $surveyValidate= $req->validate([
+
+            'houseId'=> 'required|numeric|unique',
+            'surveyDate'=> 'required|date',
+            'surveyNo'=>'required|numeric',
+            'sitioPurok'=>'required',
+            'interviewerName'=>'required|string',
+            'areaClassification'=> 'required|string'
+
+        ]);
+
+            $surveyForm = new SurveyForm($surveyValidate);
+            $surveyForm->save();
+            
+
+
+
         // Validation of incoming request data
         $validatedData = $req->validate([
             'lastName' => 'required',
@@ -51,6 +72,55 @@ class IsfController extends Controller
         // Create and save the new ISF head record
         $isfHead = new Isfhead($validatedData);
         $isfHead->save();
+
+        // Validation of incoming request data
+        $memberValidated = $req->validate([
+            'id' => 'required',
+            'lastName' => 'required',
+            'firstName' => 'required',
+            'middleName' => 'nullable',
+            'relationToHead' => 'required',
+            'age' => 'required|numeric',
+            'gender' => 'required',
+            'civilStatus' => 'required',
+            'educAttainment' => 'required',  // Corrected spelling
+        ]);
+
+        // Create a new Isfmember instance and save it
+        $isfmember = new Isfmember($memberValidated);
+        $isfmember->save();
+
+
+        $houseValidated = $req->validate([
+
+            'ownerId'=>'required|unique|numeric',
+            'houseAge'=> 'required|numeric',
+            'typeOfStructure'=>'required|string',
+            'useOfStructure'=>'required|string',
+            'NoOfFloors'=>'required|numeric',
+            'typeOfHouse'=> 'required|string',
+            'EstimatedFloorArea'=> 'required|decimal',
+            'toiletType'=> 'required|string',
+            'waterSource'=> 'required|string',
+            'garbageDisposal'=> 'required | string',
+            'electricitySource'=> 'required| string',
+            'modeOfHouse' => 'required| string',
+            'relationToOwner' => 'required |string',
+           
+        ]);
+
+        $isfHouseCondition = new householdConditions($houseValidated);
+        $isfHouseCondition->save();
+
+
+
+
+
+
+        
+        
+
+        
 
         // Redirect or return a response (optional)
         return $isfHead;

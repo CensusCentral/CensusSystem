@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class SurveyForms extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+
+        'houseId',
+        'surveyDate',
+        'surveyNo',
+        'barangay',
+        'sitioPurok',
+        'interviewerName',
+        'areaClassification'
+        
+
+
+    ];
 }
