@@ -13,15 +13,24 @@ return new class extends Migration
     {
         Schema::create('isfmembers', function (Blueprint $table) {
             $table->id('memberId');
-            $table->unsignedBigInteger('id');
-            $table->foreign('id')->references('id')->on('isfheads')->onDelete('cascade');
+            $table->unsignedBigInteger('headId');
+            $table->foreign('headId')->references('id')->on('isfheads')->onDelete('cascade');
             $table->string('lastName');
             $table->string('firstName');
-            $table->string('middleName');
-            $table->string('relationToHead');
+            $table->string('middleName')->nullable();
+            $table->string('maidenName')->nullable();
+            $table->integer('sex');
+            $table->integer('DOB');
             $table->integer('age');
-            $table->string('gender');
             $table->string('civilStatus');
+            $table->string('memberOccupation')->nullable();
+            $table->string('placeOfWork')->nullable();
+            $table->string('relationToHead');
+            $table->string('memberOfCommunityGroup');
+            $table->string('anyDisabilty')->nullable();
+            $table->string('genderIndentification');
+           
+
             $table->string('educAttaintment');
             $table->timestamps();
         });

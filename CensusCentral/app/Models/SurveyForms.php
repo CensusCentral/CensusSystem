@@ -9,9 +9,11 @@ class SurveyForms extends Model
 {
     use HasFactory;
 
+    protected $table = 'survey_forms'; 
+
     protected $fillable=[
 
-        'houseId',
+      
         'surveyDate',
         'surveyNo',
         'barangay',

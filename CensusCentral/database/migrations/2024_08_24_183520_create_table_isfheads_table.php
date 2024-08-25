@@ -13,19 +13,26 @@ return new class extends Migration
     {
         Schema::create('isfheads', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('surveyId');
+            $table->foreign('surveyId')->references('surveyId')->on('survey_forms')->onDelete('cascade');
             $table->string('lastName');
             $table->string('firstName');
-            $table->string('middleName');
-            $table->string('maidenName');
+            $table->string('middleName')->nullable();
+            $table->string('maidenName')->nullable();
             $table->date('dateOfBirth');
             $table->integer('age');
             $table->string('sex');
             $table->string('civilStatus');
             $table->string('occupation');
-            $table->string('gender');
-            $table->string('communityGroup');
-            $table->string('workplace');
+            $table->string('workplace')->nullable();
             $table->string('address');
+            $table->string('communityGroup')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('disability')->nullable();
+
+           
+           
+        
 
             $table->string('spouseLname')->nullable();
             $table->string('spouseFname')->nullable();
@@ -37,12 +44,17 @@ return new class extends Migration
             $table->string('spouseCommunityGroup')->nullable();
             $table->string('spouseGender')->nullable();
 
+           
+            $table->string('MedicalHistory')->nullable();
+           
+
+
             $table->string('HouseholdClass');
-            $table->string('MedicalHistory');
             $table->integer('householdSize');
             $table->integer('yearResidency');
-            $table->string('IndigenousOrNot');
             $table->string('doubleHousehold');
+            $table->string('indigenousOrNot')->nullable();
+         
             $table->string('placeOrigin');
             $table->text('reasonEstablishing');
             $table->string('tenurialStatus');

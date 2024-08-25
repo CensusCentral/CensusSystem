@@ -12,10 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('survey_forms', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('houseId');
+            $table->id('surveyId');
             $table->date('surveyDate');
-            $table->integer('surveyNo');
             $table->string('barangay');
             $table->string('sitioPurok')->nullable();
             $table->string('interviewerName');

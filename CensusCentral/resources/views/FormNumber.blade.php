@@ -11,20 +11,23 @@
         <div class="title">Household Number</div>
         <form id="householdForm" action="#">
 
-            
-
-
-
 
             <div class="houseMemberDetails">
+
+
+              <div class="input-box">
+                    <span class="details">Survey Form No.</span>
+                    <label id="formNo">Form No. will be displayed here</label>
+                </div>
+
+
                 <div class="input-box">
                     <span class="details">Date</span>
                     <input type="date" id="date" placeholder="Choose Date" required>   
                 </div>
-                <div class="input-box">
-                    <span class="details">Survey Form No.</span>
-                    <input type="text" id="formNo" placeholder="Enter Form No." required>
-                </div>
+
+                
+
                 <div class="input-box">
                     <label for="barangay" class="details">Barangay</label>
                     <select id="barangay" required>
@@ -32,9 +35,10 @@
                         <option value="Barangay 1">Barangay 1</option>
                         <option value="Barangay 2">Barangay 2</option>
                         <option value="Barangay 3">Barangay 3</option>
-                        <!-- Add more barangays as needed -->
+                       
                     </select>
                 </div>
+
                 <div class="input-box">
                     <label for="sitio_purok" class="details">Sitio / Purok</label>
                     <select id="sitio_purok" required>
@@ -45,11 +49,13 @@
                         <!-- Add more Sitios/Puroks as needed -->
                     </select>
                 </div>
+
                 <div class="input-box">
                     <span class="details">Interviewer</span>
                     <input type="text" id="interviewer" placeholder="Enter Interviewer Name" required>   
                 </div>
             </div>
+            
             <div class="classificationOfArea">
                 <input type="radio" name="COF" id="dot-1" value="Danger Zone" required>
                 <input type="radio" name="COF" id="dot-2" value="Waterways" required>

@@ -10,6 +10,7 @@ class Isfhead extends Model
     use HasFactory;
 
     protected $fillable = [
+        'surveyId',
         'lastName',
         'firstName',
         'middleName',
