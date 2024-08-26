@@ -41,8 +41,8 @@ return new class extends Migration
             $table->date('spouseDOB')->nullable();
             $table->integer('spouseAge')->nullable();
             $table->string('spouseSex')->nullable();
-            $table->string('spouseCommunityGroup')->nullable();
-            $table->string('spouseGender')->nullable();
+            // $table->string('spouseCommunityGroup')->nullable();
+            // $table->string('spouseGender')->nullable();
 
            
             $table->string('MedicalHistory')->nullable();

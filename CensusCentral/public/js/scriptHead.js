@@ -2,52 +2,54 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const forms = document.querySelectorAll('.form-section');
-    const nextButton = document.getElementById('nextBtn');
-    const backButton = document.getElementById('backBtn');
+    const nextButtons = document.querySelectorAll('.nextBtn');
+    const backButtons = document.querySelectorAll('.backBtn');
     let currentFormIndex = 0;
 
-    // // Function to show the current form and hide others
-    // function updateFormVisibility() {
-    //     forms.forEach((form, index) => {
-    //         if (index === currentFormIndex) {
-    //             form.style.opacity = '1';
-    //             form.style.pointerEvents = 'auto';
-    //             form.style.transform = 'translateX(0%)';
-    //         } else if (index < currentFormIndex) {
-    //             form.style.opacity = '0';
-    //             form.style.pointerEvents = 'none';
-    //             form.style.transform = 'translateX(-100%)';
-    //         } else {
-    //             form.style.opacity = '0';
-    //             form.style.pointerEvents = 'none';
-    //             form.style.transform = 'translateX(100%)';
-    //         }
-    //     });
-    // }
+    // Function to show the current form and hide others
+    function updateFormVisibility() {
+        forms.forEach((form, index) => {
+            if (index === currentFormIndex) {
+                form.classList.add('active');
+                form.classList.remove('prev');
+            } else if (index < currentFormIndex) {
+                form.classList.remove('active');
+                form.classList.add('prev');
+            } else {
+                form.classList.remove('active');
+                form.classList.remove('prev');
+            }
+        });
+    }
 
     // Initial visibility update
     updateFormVisibility();
 
-    // Event listener for the Next button
-    nextButton.addEventListener('click', () => {
-        if (currentFormIndex < forms.length - 1) {
-            currentFormIndex++;
-            updateFormVisibility();
-        }
+    // Event listener for all Next buttons
+    nextButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (currentFormIndex < forms.length - 1) {
+                currentFormIndex++;
+                updateFormVisibility();
+            }
+        });
     });
 
-    // Event listener for the Back button
-    backButton.addEventListener('click', () => {
-        if (currentFormIndex > 0) {
-            currentFormIndex--;
-            updateFormVisibility();
-        }
+    // Event listener for all Back buttons
+    backButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (currentFormIndex > 0) {
+                currentFormIndex--;
+                updateFormVisibility();
+            }
+        });
     });
 
-
-
-
+        
 });
+
+
+
 
 
 let memberIndex = 1;

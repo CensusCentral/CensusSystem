@@ -21,16 +21,43 @@ body {
     width: 100%;
     border-radius: 6px;
     padding: 30px;
-    margin: 0 15px;
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);    
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-section {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
+    margin-top: 100px;
+    position: absolute; /* Absolutely position each form section */
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Disable interaction when hidden */
+    transform: translateX(100%); /* Move out of view initially */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }
+
+.form-section.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0%); /* Bring into view */
+}
+
+/* Specific for back transition */
+.form-section.prev {
+    transform: translateX(-100%);
+}
+
+form .buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+form .buttons button, .backBtn {
+    margin-right: 14px;
+}
+
 
 .container header {
     position: relative;
@@ -54,7 +81,6 @@ body {
     margin-top: 16px;
     min-height: 830px;
     background-color: #fff;
-    overflow: hidden;
 }
 
 .container form .form {
@@ -141,6 +167,8 @@ form .fields .input-field {
     margin: 8px 0;
 }
 
+
+
 .container form button , .backBtn {
     display: flex;
     align-items: center;
@@ -186,7 +214,15 @@ form .buttons button , .backBtn {
     margin-right: 14px;
 }
 
+
+
+
 @media (max-width: 750px) {
+
+    .container {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
     .container form {
         overflow-y: scroll;
     }
@@ -194,7 +230,7 @@ form .buttons button , .backBtn {
         display: none;
     }
     form .fields .input-field {
-        width: calc(100% / 2 - 15px);
+        width: calc(100% / 2 - 10px);
     }
 }
 

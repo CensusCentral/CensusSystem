@@ -9,11 +9,13 @@
 </head>
 <body>
     <div class="container">
+
+
         <header>INFORMATION ON THE HOUSEHOLD</header>
 
         <form method="post" action="{{route('Isfhead.store')}}">
-            @csrf
-            @method('post')
+         
+
                 <!-- FIRST FORM --->
                 <div class="form-section">
                     <div class="details">
@@ -21,20 +23,20 @@
                 
                         <div class="fields">
                             <!-- Survey Number (Survey ID) Display -->
-                            <div class="input-fields">
-                                <label for="surveyId">Survey Number</label>
+                            <div class="input-field">
+                                <label>Survey Number</label>
                                 <label id="formNo">This is where the survey Id will be displayed</label>
                             </div>
                 
                             <!-- Survey Date -->
-                            <div class="input-fields">
-                                <label for="surveyDate">Date</label>
-                                <input type="date" name="surveyDate" id="date" placeholder="Choose Date" required>   
+                            <div class="input-field">
+                                <label>Date</label>
+                                <input type="date" placeholder="Select Date" name="surveyDate" required>
                             </div>
                 
                             <!-- Barangay Selection -->
-                            <div class="input-fields">
-                                <label for="barangay">Barangay</label>
+                            <div class="input-field">
+                                <label for="barangay" class="details">Barangay</label>
                                 <select id="barangay" name="barangay" required>
                                     <option value="" disabled selected>Select Barangay</option>
                                     <option value="Barangay 1">Barangay 1</option>
@@ -42,39 +44,38 @@
                                     <option value="Barangay 3">Barangay 3</option>
                                 </select>
                             </div>
-                
-                            <!-- Sitio/Purok Selection -->
-                            <div class="input-fields">
-                                <label for="sitioPurok">Sitio/Purok</label>
-                                <select id="sitio_purok" name="sitioPurok" required>
+
+                            <div class="input-field">
+                                <label for="sitioPurok" class="details">Sitio/Purok</label>
+                                <select id="sitio_purok" name="sitioPurok" >
                                     <option value="" disabled selected>Select Sitio/Purok</option>
-                                    <option value="Sitio 1">Sitio 1</option>
-                                    <option value="Sitio 2">Sitio 2</option>
-                                    <option value="Sitio 3">Sitio 3</option>
+                                    <option value="1">Sitio 1</option>
+                                    <option value="2">Sitio 2</option>
                                 </select>
                             </div>
                 
                             <!-- Interviewer Name -->
-                            <div class="input-fields">
-                                <label for="interviewerName">Interviewer Name</label>
-                                <input type="text" id="interviewer" name="interviewerName" placeholder="Enter Interviewer Name" required>   
+                            <div class="input-field">
+                                <label>Interviewer Name</label>
+                                <input type="text" placeholder="Enter Interviewer Name" name="interviewerName"required>
                             </div>
                 
                             <!-- Area Classification -->
-                            <div class="input-fields">
-                                <label for="areaClassification">Area Classification</label>
-                                <div>
-                                    <input type="radio" name="areaClassification" id="dot-1" value="Danger Zone" required>
-                                    <label for="dot-1">Danger Zone</label>
-                                    <input type="radio" name="areaClassification" id="dot-2" value="Waterways" required>
-                                    <label for="dot-2">Waterways</label>
-                                </div>
+                            <div class="input-field">
+                                <label for="areaClassification" class="details">Area Classification</label>
+                                <select id="areaClassification" name="areaClassification" required>
+                                    <option value="" disabled selected>Select Classification</option>
+                                    <option value="1">Danger Zone</option>
+                                    <option value="2">Waterways</option>
+                                </select>
                             </div>
+
+
                         </div>
                 
                         <!-- Next Button -->
                         <div class="buttons">
-                            <button type="button" class="nextBtn">
+                            <button type="button" id="nextBtn" class="nextBtn">
                                 <span class="btnText">Next</span>
                                 <i class="uil uil-navigator"></i>
                             </button>
@@ -224,22 +225,19 @@
                             </select>
                         </div>
                     </div>
-                    <div class="buttons">
-                         <button type="button" class="backBtnToFormNumber" onclick="goBackToFormNumber()">
-                              <span class="btnText">Back</span>
-                              <i class="uil uil-navigator"></i>
-                         </button>
-                    <button type="button" class="nextBtn">
-                        <span class="btnText">Next</span>
-                        <i class="uil uil-navigator"></i>
-                    </button>
-                     </div>
 
-                    <script>
-                        function goBackToFormNumber() {
-                            window.location.href = '{{url('FormNumber')}}'; // Redirect to FormNumber.html
-                        }
-                    </script>
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>
+    
+                        <button class="nextBtn">
+                            <span class="btnText">Next</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                   
 
                 </div>
             </div>
@@ -320,7 +318,7 @@
 
                         <div class="input-field">
                             <label>Reason for Establishing residence in the area</label>
-                            <input type="text" placeholder="Enter Reason" name="reasonEstablishing" required>
+                            <input type="text" placeholder="Enter Reason" name="reasonEstablishing" >
                         </div>
 
                         <div class="input-field">
@@ -527,15 +525,7 @@
                             </select>
                         </div>
 
-                        {{-- <div class="input-field">
-                            <label for="member" class="details">Type of Structure</label>
-                            <select id="member" required>
-                                <option value="" disabled selected>Select Structure</option>
-                                <option value="Sitio 1">Residential</option>
-                                <option value="Sitio 2">Commercial</option>
-                                <option value="Sitio 3">Appartment</option>
-                            </select>
-                        </div> --}}
+                       
                     </div>
 
                     <div class="buttons">
@@ -552,134 +542,7 @@
                 </div>
             </div>
 
-                <!--5th section-->
-
-            {{-- <div class="form-section">
-                <header>GENERAL INFORMATION ON THE HOUSEHOLD</header>
-
-                <div class="details member">
-
-                    <span class="title">Name of Household Member</span>
-
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>Last Name</label>
-                            <input type="text" placeholder="Enter Last name" name="lastName" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>First Name</label>
-                            <input type="text" placeholder="Enter First name" name="firstName" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Middle Name</label>
-                            <input type="text" placeholder="Enter Middle name" name="middleName" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Maiden Name</label>
-                            <input type="text" placeholder="Enter Maiden name" name="maidenName" >
-                        </div>
-
-                        <div class="input-field">
-                            <label>Date of Birth</label>
-                            <input type="date" placeholder="Enter birth date" name="DOB" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Age</label>
-                            <input type="number" placeholder="Enter Age" name="age" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label for="sex" class="details">Sex</label>
-                            <select id="sex" name="sex" required>
-                                <option value="" disabled selected>Choose Sex</option>
-                                <option value="Sitio 1">Male</option>
-                                <option value="Sitio 2">Female</option>
-                            </select>
-                        </div>
-
-                        <div class="input-field">
-                            <label for="civil" class="details">Civil Status</label>
-                            <select id="civil" name="civilStatus" required>
-                                <option value="" disabled selected>Select Civil Status</option>
-                                <option value="Sitio 1">Single</option>
-                                <option value="Sitio 2">Married</option>
-                            </select>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Occupation</label>
-                            <input type="text" placeholder="Enter Occupation" name="memberOccupation" required>
-                        </div>  
-
-                        <div class="input-field">
-                            <label>Relation to Household head</label>
-                            <input type="text" placeholder="Enter relation" name="relationToHead" required>
-                        </div>  
-
-                        <div class="input-field">
-                            <label>Place of Work</label>
-                            <input type="text" placeholder="Enter Place of Work" name="placeOfWork">
-                        </div>
-
-                        <div class="input-field">
-                            <label for="member" class="details">Member of vunerable community group</label>
-                            <select id="member" name="memberOfCommunityGroup">
-                                <option value="" disabled selected>Select Group</option>
-                                <option value="1">PWD</option>
-                                <option value="2">Senior Citizen</option>
-                                <option value="3">Solo parent</option>
-                                <option value="4">LGTBQI</option>
-                            </select>
-                        </div>
-
-                        <div class="input-field">
-                            <label>If a PWD, specify disability</label>
-                            <input type="text" placeholder="Enter disability" name="anyDisabilty">
-                        </div>
-
-                        <div class="input-field">
-                            <label>If Member of LGBTQI, Gender Identification</label>
-                            <input type="text" placeholder="Enter Identification" name="genderIndentification">
-                        </div>                   
-                    </div>
-                </div>
-
-                <div class="details education">
-                    <span class="title">Educational Background</span>
-                    
-                    <div class="input-field">
-                        <label for="member" class="details">Highest Educational Attainment</label>
-                        <select id="member" name="educAttaintment">
-                            <option value="" disabled selected>Select Educational Attainment</option>
-                            <option value="1">Elementary</option>
-                            <option value="2">Highschool</option>
-                            <option value="3">Undergrad</option>
-                            <option value="4">College</option>
-                        </select>
-                    </div>
-
-                </div>
-                <div class="buttons">
-
-                    <button class="backBtn">
-                        <i class="uil uil-navigator"></i>
-                        <span class="btnText">Back</span>
-                    </button>
-
-                    <button class="nextBtn">
-                        <span class="btnText">Next</span>
-                        <i class="uil uil-navigator"></i>
-                    </button>
-
-                    <button type="button" class="addBtn">
-                        <span class="btnText">+</span>
-                    </button>
-                </div>
-            </div>   --}}
+             
 
                 <!--LAST SECTION-->
 
@@ -804,18 +667,25 @@
                 
                         <button type="button" class="addBtn" onclick="addMember()">
                             <span class="btnText">Add Member</span>
-                        </button>
+                        </button>          
                     </div>
-                </div>  
 
-            <button type="submit">
-                <span class="btnText">Submit</span>
-                <i class="uil uil-navigator"></i>
-            </button>
 
-            {{-- <div>
-                <input type="submit" value="SUBMIT">
-            </div> --}}
+                  
+                    
+
+                </div>
+                
+                
+                <button type="submit"  >
+                    <span class="btnText">Submit</span>
+                </button>  
+              
+               
+                
+
+            
+          
 
         </form>
         </div>

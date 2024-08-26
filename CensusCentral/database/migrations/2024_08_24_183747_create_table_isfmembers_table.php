@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('placeOfWork')->nullable();
             $table->string('relationToHead');
             $table->string('memberOfCommunityGroup');
-            $table->string('anyDisabilty')->nullable();
+            $table->string('anyDisability')->nullable();
             $table->string('genderIdentification');
             $table->string('educAttaintment');
             $table->decimal('estimatedIncome')->nullable();

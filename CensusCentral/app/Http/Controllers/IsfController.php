@@ -94,7 +94,7 @@ class IsfController extends Controller
             'isfmembers.*.placeOfWork' => 'nullable|string|max:255',
             'isfmembers.*.relationToHead' => 'required|string|max:255',
             'isfmembers.*.memberOfCommunityGroup' => 'required|string|max:255',
-            'isfmembers.*.anyDisabilty' => 'nullable|string|max:255',
+            'isfmembers.*.anyDisability' => 'nullable|string|max:255',
             'isfmembers.*.genderIdentification' => 'required|string|max:20',
             'isfmembers.*.educAttaintment' => 'required|string|max:255',
             'isfmembers.*.estimatedIncome' => 'nullable|decimal:2'
@@ -143,6 +143,8 @@ class IsfController extends Controller
                 $isfmember->estimatedIncome = $memberData['estimatedIncome'] ?? null;
                 $isfmember->save();
             }
+
+            return response()->json(['message' => 'Data Insertion Successful'], 200);
     
            
         } catch (\Exception $e) {
@@ -185,8 +187,7 @@ class IsfController extends Controller
             'spouseDOB' => 'nullable|date',
             'spouseAge' => 'nullable|numeric',
             'spouseSex' => 'nullable',
-            'spouseCommunityGroup' => 'nullable',
-            'spouseGender' => 'nullable',
+           
     
             'HouseholdClass' => 'required',
             'MedicalHistory' => 'required',

@@ -11,6 +11,9 @@
         <div class="title">Household Number</div>
         <form  method="post" action="{{route('Isfhead.store')}}" id="householdForm">
 
+            @csrf
+            @method('POST')
+
 
             <div class="houseMemberDetails">
 

@@ -20,7 +20,7 @@ class isfmember extends Model
         'placeOfWork',
         'relationToHead',
         'memberOfCommunityGroup',
-        'anyDisabilty',
+        'anyDisability',
         'genderIdentification',
         'educAttaintment',
     ];
