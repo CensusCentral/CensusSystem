@@ -10,6 +10,7 @@ class Isfhead extends Model
     use HasFactory;
 
     protected $fillable = [
+
         'surveyId',
         'lastName',
         'firstName',
@@ -20,10 +21,11 @@ class Isfhead extends Model
         'sex',
         'civilStatus',
         'occupation',
-        'gender',
-        'communityGroup',
         'workplace',
         'address',
+        'communityGroup',
+        'gender',
+        'disability',
 
         'spouseLname',
         'spouseFname',
@@ -34,13 +36,14 @@ class Isfhead extends Model
         'spouseSex',
         'spouseCommunityGroup',
         'spouseGender',
-
-        'HouseholdClass',
+        
         'MedicalHistory',
+        'HouseholdClass',
+        
         'householdSize',
         'yearResidency',
-        'IndigenousOrNot',
         'doubleHousehold',
+        'indigenousOrNot',
         'placeOrigin',
         'reasonEstablishing',
         'tenurialStatus',

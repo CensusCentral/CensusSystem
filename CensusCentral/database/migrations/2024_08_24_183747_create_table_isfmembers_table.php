@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('firstName');
             $table->string('middleName')->nullable();
             $table->string('maidenName')->nullable();
-            $table->integer('sex');
-            $table->integer('DOB');
+            $table->string('sex');
+            $table->date('DOB');
             $table->integer('age');
             $table->string('civilStatus');
             $table->string('memberOccupation')->nullable();
@@ -28,10 +28,10 @@ return new class extends Migration
             $table->string('relationToHead');
             $table->string('memberOfCommunityGroup');
             $table->string('anyDisabilty')->nullable();
-            $table->string('genderIndentification');
-           
-
+            $table->string('genderIdentification');
             $table->string('educAttaintment');
+            $table->decimal('estimatedIncome')->nullable();
+
             $table->timestamps();
         });
     }

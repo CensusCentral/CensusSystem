@@ -7,15 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class isfmember extends Model
 {
     protected $fillable = [
-        'id',
+        'headId',
         'lastName',
         'firstName',
         'middleName',
-        'relationToHead',
+        'maidenName',
+        'sex',
+        'DOB',
         'age',
-        'gender',
         'civilStatus',
-        'educAttainment',
+        'memberOccupation',
+        'placeOfWork',
+        'relationToHead',
+        'memberOfCommunityGroup',
+        'anyDisabilty',
+        'genderIdentification',
+        'educAttaintment',
     ];
 }
 

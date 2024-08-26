@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\Isfhead; 
 use App\Models\SurveyForms; 
@@ -11,117 +11,150 @@ use App\Models\householdCondition;
 
 class IsfController extends Controller
 {
-    public function store(Request $req)
+   
+    public function store(Request $request)
     {
-        // Wrap in a transaction
-    DB::beginTransaction();
-
-    try {
-        // Validation rules
-        $surveyValidate = $req->validate([
-            
-            'headId' => 'required|numeric|unique:survey_forms,headId',
+        // Custom validation messages
+        $messages = [
+            'surveyDate.required' => 'Survey Date is required.',
+            'barangay.required' => 'Barangay is required.',
+            // Add more custom messages as needed
+        ];
+    
+        // Validate the request data
+        $validatedData = $request->validate([
+            // survey_forms validation
             'surveyDate' => 'required|date',
-            'surveyNo' => 'required|numeric',
-            'barangay' => 'required| string',
-            'sitioPurok' => 'required|string',
-            'interviewerName' => 'required|string',
-            'areaClassification' => 'required|string',
-        ]);
-
-        $validatedData = $req->validate([
-
-            'lastName' => 'required|string',
-            'firstName' => 'required|string',  
-            'middleName' => 'nullable|string',
-            'maidenName' => 'nullable|string',
+            'barangay' => 'required|string|max:255',
+            'sitioPurok' => 'nullable|string|max:255',
+            'interviewerName' => 'required|string|max:255',
+            'areaClassification' => 'required|string|max:255',
+            
+            // isfheads validation
+            'lastName' => 'required|string|max:255',
+            'firstName' => 'required|string|max:255',
+            'middleName' => 'nullable|string|max:255',
+            'maidenName' => 'nullable|string|max:255',
             'dateOfBirth' => 'required|date',
-            'age' => 'required|numeric',
-            'sex' => 'required|string',
-            'civilStatus' => 'required|string',
-            'occupation' => 'required|string',
-            'gender' => 'required|string',
-            'communityGroup' => 'required|string',
-            'workplace' => 'nullable|string',
-            'address' => 'required|string',
-
-            'spouseLname' => 'nullable|string',
-            'spouseFname' => 'nullable|string',
-            'spouseMname' => 'nullable|string',
-            'spouseMaidenName' => 'nullable|string',
+            'age' => 'required|integer',
+            'sex' => 'required|string|max:10',
+            'civilStatus' => 'required|string|max:50',
+            'occupation' => 'nullable|string|max:255',
+            'workplace' => 'nullable|string|max:255',
+            'address' => 'required|string|max:255',
+            'communityGroup' => 'nullable|string|max:255',
+            'gender' => 'nullable|string|max:20',
+            'disability' => 'nullable|string|max:255',
+            'spouseLname' => 'nullable|string|max:255',
+            'spouseFname' => 'nullable|string|max:255',
+            'spouseMname' => 'nullable|string|max:255',
+            'spouseMaidenName' => 'nullable|string|max:255',
             'spouseDOB' => 'nullable|date',
-            'spouseAge' => 'nullable|numeric',
-            'spouseSex' => 'nullable|string',
-            'spouseCommunityGroup' => 'nullable|string',
-            'spouseGender' => 'nullable|string',
-
-            'HouseholdClass' => 'required|string',
-            'MedicalHistory' => 'required|string',
-            'householdSize' => 'required|numeric',
-            'yearResidency' => 'required|numeric',
-            'IndigenousOrNot' => 'required|string',
-            'doubleHousehold' => 'required|string',
-            'placeOrigin' => 'required|string',
-            'reasonEstablishing' => 'required|string',
-            'tenurialStatus' => 'required|string',
-            'governmentResettelment' => 'required|string',
-            'whichProgram' => 'required|string'
-        ]);
-
-        $memberValidated = $req->validate([
-            'id' => 'required|numeric',
-            'lastName' => 'required|string',
-            'firstName' => 'required|string',
-            'middleName' => 'nullable|string',
-            'relationToHead' => 'required|string',
-            'age' => 'required|numeric',
-            'gender' => 'required|string',
-            'civilStatus' => 'required|string',
-            'educAttainment' => 'required|string',
-        ]);
-
-        $houseValidated = $req->validate([
-            'ownerId' => 'required|unique:household_conditions,ownerId|numeric',
-            'houseAge' => 'required|numeric',
-            'typeOfStructure' => 'required|string',
-            'useOfStructure' => 'required|string',
-            'NoOfFloors' => 'required|numeric',
-            'typeOfHouse' => 'required|string',
-            'EstimatedFloorArea' => 'required|numeric',
-            'toiletType' => 'required|string',
-            'waterSource' => 'required|string',
-            'garbageDisposal' => 'required|string',
-            'electricitySource' => 'required|string',
-            'modeOfHouse' => 'required|string',
-            'relationToOwner' => 'required|string',
-        ]);
-
-        // Create and save models
-        $surveyForm = SurveyForms::create($surveyValidate);
-        $isfHead = Isfhead::create($validatedData);
-        $isfmember = Isfmember::create($memberValidated);
-        $isfHouseCondition = householdConditions::create($houseValidated);
-
-        // Commit the transaction
-        DB::commit();
-
-        // Redirect or return a response (optional)
-        return response()->json([
-            'surveyForm' => $surveyForm,
-            'isfHead' => $isfHead,
-            'isfmember' => $isfmember,
-            'isfHouseCondition' => $isfHouseCondition,
-        ]);
-
-    } catch (\Exception $e) {
-        // Rollback the transaction in case of error
-        DB::rollBack();
-        return response()->json(['error' => $e->getMessage()], 500);
+            'spouseAge' => 'nullable|integer',
+            'spouseSex' => 'nullable|string|max:10',
+            'spouseCommunityGroup' => 'nullable|string|max:255',
+            'spouseGender' => 'nullable|string|max:20',
+            'MedicalHistory' => 'nullable|string|max:255',
+            'HouseholdClass' => 'required|string|max:255',
+            'householdSize' => 'required|integer',
+            'yearResidency' => 'required|integer',
+            'doubleHousehold' => 'nullable|string|max:10',
+            'indigenousOrNot' => 'nullable|string|max:50',
+            'placeOrigin' => 'required|string|max:255',
+            'reasonEstablishing' => 'required|string|max:255',
+            'tenurialStatus' => 'required|string|max:50',
+            'governmentResettelment' => 'required|string|max:255',
+            'whichProgram' => 'required|string|max:255',
+    
+            // household_conditions validation
+            'houseAge' => 'required|integer',
+            'typeOfStructure' => 'required|string|max:255',
+            'useOfStructure' => 'required|string|max:255',
+            'NoOfFloors' => 'required|integer',
+            'typeOfHouse' => 'required|string|max:255',
+            'EstimatedFloorArea' => 'required|integer',
+            'toiletType' => 'required|string|max:255',
+            'waterSource' => 'required|string|max:255',
+            'garbageDisposal' => 'required|string|max:255',
+            'electricitySource' => 'required|string|max:255',
+            'modeOfHouse' => 'required|string|max:255',
+            'relationToOwner' => 'required|string|max:255',
+    
+            // isfmembers validation (multiple datasets)
+            'isfmembers' => 'array',
+            'isfmembers.*.lastName' => 'required|string|max:255',
+            'isfmembers.*.firstName' => 'required|string|max:255',
+            'isfmembers.*.middleName' => 'nullable|string|max:255',
+            'isfmembers.*.maidenName' => 'nullable|string|max:255',
+            'isfmembers.*.sex' => 'required|string',
+            'isfmembers.*.DOB' => 'required|date',
+            'isfmembers.*.age' => 'required|integer',
+            'isfmembers.*.civilStatus' => 'required|string|max:50',
+            'isfmembers.*.memberOccupation' => 'nullable|string|max:255',
+            'isfmembers.*.placeOfWork' => 'nullable|string|max:255',
+            'isfmembers.*.relationToHead' => 'required|string|max:255',
+            'isfmembers.*.memberOfCommunityGroup' => 'required|string|max:255',
+            'isfmembers.*.anyDisabilty' => 'nullable|string|max:255',
+            'isfmembers.*.genderIdentification' => 'required|string|max:20',
+            'isfmembers.*.educAttaintment' => 'required|string|max:255',
+            'isfmembers.*.estimatedIncome' => 'nullable|decimal:2'
+        ], $messages);
+    
+        try {
+            // Insert data into `survey_forms`
+            $surveyForm = new SurveyForms([
+                'surveyDate' => $validatedData['surveyDate'],
+                'barangay' => $validatedData['barangay'],
+                'sitioPurok' => $validatedData['sitioPurok'],
+                'interviewerName' => $validatedData['interviewerName'],
+                'areaClassification' => $validatedData['areaClassification'],
+            ]);
+            $surveyForm->save();
+    
+            // Insert data into `isfheads`
+            $isfheads = new Isfhead($validatedData);
+            $isfheads->surveyId = $surveyForm->id; // Assign the `surveyId` to `isfheads`
+            $isfheads->save();
+    
+            $headId = $isfheads->id;
+    
+            // Insert data into `household_conditions`
+            $householdCondition = new HouseholdCondition([
+                'ownerId' => $headId, // Foreign key to `isfheads`
+                'houseAge' => $validatedData['houseAge'],
+                'typeOfStructure' => $validatedData['typeOfStructure'],
+                'useOfStructure' => $validatedData['useOfStructure'],
+                'NoOfFloors' => $validatedData['NoOfFloors'],
+                'typeOfHouse' => $validatedData['typeOfHouse'],
+                'EstimatedFloorArea' => $validatedData['EstimatedFloorArea'],
+                'toiletType' => $validatedData['toiletType'],
+                'waterSource' => $validatedData['waterSource'],
+                'garbageDisposal' => $validatedData['garbageDisposal'],
+                'electricitySource' => $validatedData['electricitySource'],
+                'modeOfHouse' => $validatedData['modeOfHouse'],
+                'relationToOwner' => $validatedData['relationToOwner'],
+            ]);
+            $householdCondition->save();
+    
+            // Insert multiple datasets into `isfmembers`
+            foreach ($validatedData['isfmembers'] as $memberData) {
+                $isfmember = new Isfmember($memberData);
+                $isfmember->headId = $headId; // Foreign key to `isfheads`
+                $isfmember->estimatedIncome = $memberData['estimatedIncome'] ?? null;
+                $isfmember->save();
+            }
+    
+           
+        } catch (\Exception $e) {
+            Log::error('Error saving data: ' . $e->getMessage());
+            return response()->json([
+                'message' => 'Data Insertion Failed',
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ], 500);
+        }
     }
-       
-    }
-
-
+    
 
 
     public function update($id, Request $req)

@@ -15,7 +15,6 @@ class SurveyForms extends Model
 
       
         'surveyDate',
-        'surveyNo',
         'barangay',
         'sitioPurok',
         'interviewerName',

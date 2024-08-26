@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="title">Household Number</div>
-        <form id="householdForm" action="#">
+        <form  method="post" action="{{route('Isfhead.store')}}" id="householdForm">
 
 
             <div class="houseMemberDetails">
@@ -17,20 +17,20 @@
 
               <div class="input-box">
                     <span class="details">Survey Form No.</span>
-                    <label id="formNo">Form No. will be displayed here</label>
+                    <label name="surveyId "id="formNo"></label>
                 </div>
 
 
                 <div class="input-box">
                     <span class="details">Date</span>
-                    <input type="date" id="date" placeholder="Choose Date" required>   
+                    <input type="date" name="surveyDate" id="date" placeholder="Choose Date" required>   
                 </div>
 
                 
 
                 <div class="input-box">
                     <label for="barangay" class="details">Barangay</label>
-                    <select id="barangay" required>
+                    <select id="barangay" name="barangay"required>
                         <option value="" disabled selected>Select Barangay</option>
                         <option value="Barangay 1">Barangay 1</option>
                         <option value="Barangay 2">Barangay 2</option>
@@ -41,7 +41,7 @@
 
                 <div class="input-box">
                     <label for="sitio_purok" class="details">Sitio / Purok</label>
-                    <select id="sitio_purok" required>
+                    <select id="sitio_purok" name="sitioPurok" required>
                         <option value="" disabled selected>Select Sitio/Purok</option>
                         <option value="Sitio 1">Sitio 1</option>
                         <option value="Sitio 2">Sitio 2</option>
@@ -52,13 +52,13 @@
 
                 <div class="input-box">
                     <span class="details">Interviewer</span>
-                    <input type="text" id="interviewer" placeholder="Enter Interviewer Name" required>   
+                    <input type="text" id="interviewer" name="interviewerName" placeholder="Enter Interviewer Name" required>   
                 </div>
             </div>
             
             <div class="classificationOfArea">
-                <input type="radio" name="COF" id="dot-1" value="Danger Zone" required>
-                <input type="radio" name="COF" id="dot-2" value="Waterways" required>
+                <input type="radio" name="areaClassification" id="dot-1" value="Danger Zone" required>
+                <input type="radio" name="areaClassification" id="dot-2" value="Waterways" required>
                 <span class="classificationOfArea">Classification of Area</span>
                 <div class="category">
                     <label for="dot-1">
@@ -83,6 +83,19 @@
     </div>
 
     <script>
+        /// THIS SCRIPT GENERATES UNIQUE SURVEY ID
+    function generateUniqueId() {
+        return Date.now() + Math.floor(Math.random() * 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var uniqueId = generateUniqueId();
+            document.getElementById('formNo').textContent = uniqueId;
+        });
+
+
+
+
         document.getElementById("confirmButton").addEventListener("click", function() {
             var date = document.getElementById("date").value;
             var formNo = document.getElementById("formNo").value;

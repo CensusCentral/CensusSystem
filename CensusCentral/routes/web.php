@@ -5,7 +5,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IsfController;
 Route::get('/', function () {
-    return view('FormNumber');
+    return view('dashboard/dashboard');
 });
 
 Route::get('/FormA', function () {
@@ -16,4 +16,4 @@ Route::get('/FormNumber', function () {
     return view('FormNumber');
 });
 
-Route::post('/isfheads', [IsfController::class, 'store']);
+Route::post('/isfhead', [IsfController::class, 'store'])->name('isfhead.store');

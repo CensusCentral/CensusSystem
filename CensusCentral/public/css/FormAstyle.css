@@ -26,6 +26,12 @@ body {
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);    
 }
 
+.form-section {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .container header {
     position: relative;
     font-size: 20px;
