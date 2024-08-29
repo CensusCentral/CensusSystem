@@ -23,9 +23,13 @@ body {
     padding: 30px;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent content overflow */
+    transition: height 0.3s ease; /* Smooth transition for height changes */
 }
 
 .form-section {
+    display: none; /* Initially hides all form sections */
+
     margin-top: 100px;
     position: absolute; /* Absolutely position each form section */
     top: 0;
@@ -38,6 +42,8 @@ body {
 }
 
 .form-section.active {
+    display: block; /* Initially hides all form sections */
+
     opacity: 1;
     pointer-events: auto;
     transform: translateX(0%); /* Bring into view */
@@ -79,7 +85,7 @@ form .buttons button, .backBtn {
 .container form {
     position: relative;
     margin-top: 16px;
-    min-height: 830px;
+    min-height: 530px;
     background-color: #fff;
 }
 
@@ -214,7 +220,18 @@ form .buttons button , .backBtn {
     margin-right: 14px;
 }
 
+.container::-webkit-scrollbar {
+    width: 8px;
+}
 
+.container::-webkit-scrollbar-thumb {
+    background-color: #0093CB;
+    border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background-color: #007bb5;
+}
 
 
 @media (max-width: 750px) {

@@ -1,10 +1,18 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('.container');
     const forms = document.querySelectorAll('.form-section');
     const nextButtons = document.querySelectorAll('.nextBtn');
     const backButtons = document.querySelectorAll('.backBtn');
     let currentFormIndex = 0;
+
+    // Function to adjust container height based on the visible form section
+    function adjustContainerHeight() {
+        const activeForm = forms[currentFormIndex];
+        const activeFormHeight = activeForm.scrollHeight;
+        container.style.height = `${activeFormHeight + 200}px`; // Add some padding to prevent overflow
+    }
 
     // Function to show the current form and hide others
     function updateFormVisibility() {
@@ -20,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 form.classList.remove('prev');
             }
         });
+        adjustContainerHeight(); // Adjust the container height after visibility update
     }
 
     // Initial visibility update
@@ -45,26 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-        
+    // Adjust container height when a member is added
+    container.addEventListener('DOMNodeInserted', function() {
+        adjustContainerHeight();
+    });
+
+    // Initial container height adjustment
+    adjustContainerHeight();
 });
 
 
 
 
-
-let memberIndex = 1;
-
-function addMember() {
-    const container = document.getElementById('members-container');
-    const newMember = document.querySelector('.details.member').cloneNode(true);
-    
-    newMember.setAttribute('data-index', memberIndex);
-    
-    newMember.querySelectorAll('input, select').forEach(input => {
-        const name = input.getAttribute('name');
-        input.setAttribute('name', name.replace(/\[\d+\]/, `[${memberIndex}]`));
-    });
-    
-    container.appendChild(newMember);
-    memberIndex++;
-}

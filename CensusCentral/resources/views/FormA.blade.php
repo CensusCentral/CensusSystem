@@ -663,30 +663,15 @@
                         <div class="backBtn">
                             <i class="uil uil-navigator"></i>
                             <span class="btnText">Back</span>
-                        </div>
-                
+                        </div>           
                         <button type="button" class="addBtn" onclick="addMember()">
                             <span class="btnText">Add Member</span>
                         </button>          
                     </div>
-
-
-                  
-                    
-
                 </div>
-                
-                
                 <button type="submit"  >
                     <span class="btnText">Submit</span>
                 </button>  
-              
-               
-                
-
-            
-          
-
         </form>
         </div>
 
