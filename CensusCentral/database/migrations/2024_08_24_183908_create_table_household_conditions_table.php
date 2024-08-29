@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {  
         Schema::create('household_conditions', function (Blueprint $table) {
-            $table->id('houseId');  // Primary key for this table
+            $table->id('houseId'); 
+             // Primary key for this table
             $table->unsignedBigInteger('ownerId');  // Foreign key column
             $table->foreign('ownerId')->references('id')->on('isfheads')->onDelete('cascade');  // Ensure the foreign key is correct
+            
             $table->integer('houseAge');
             $table->string('typeOfStructure');
             $table->string('useOfStructure');
             $table->integer('NoOfFloors');
             $table->string('typeOfHouse');
-            $table->integer('EstimatedFloorArea');
+            $table->decimal('EstimatedFloorArea');
             $table->string('toiletType');
             $table->string('waterSource');
             $table->string('garbageDisposal');
