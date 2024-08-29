@@ -371,25 +371,312 @@
                                 <span class="btnText">Next</span>
                                 <i class="uil uil-navigator"></i>
                             </button>
-
-                            <button type="submit"  >
-                                <span class="btnText">Submit</span>
-                            </button>   
                         </div>
                         
+                    </div>
                 </div>
 
 
-                
-
-
-            <!--ADDING MEMBERS SECTION-->
+ <!--FOURTH  SECTION-->    
 
             <div class="form-section">
-                    
+                <header>HOUSING/COMMUNITY CONDITION/STRUCTURE DESCRIPTION</header>
 
-                <!--End of FORM MEMBERS-->
+                <div class="details med">
+                    <span class="title">Household Info</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Age of Structure</label>
+                            <input type="number" placeholder="Enter Age" name="houseAge" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="housetype" class="details">Type of Structure</label>
+                            <select id="housetype" name="typeOfStructure" required>
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="1">Single-Detached</option>
+                                <option value="2">Duplex</option>
+                                <option value="3">Commercial/Industrial</option>
+                                <option value="4">Apartment/Condo/Townhouse/Row House</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>If Other type of Structure, specify</label>
+                            <input type="text" placeholder="Enter Structure" name="typeOfStructure">
+                        </div>
+
+                        <div class="input-field">
+                            <label for="housetype" class="details">Use of Structure</label>
+                            <select id="housetype" name="useOfStructure" required>
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="1">Residential</option>
+                                <option value="2">Residential-Commercial</option>
+                                <option value="3">Residential-Institutional</option>
+                                <option value="4">Residential-Industrial</option>
+                                <option value="5">Commercial</option>
+                                <option value="6">Institutional</option>
+                                <option value="7">Industrial</option>
+                                <option value="8">Others</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="housetype" class="details">Type of House/Structure</label>
+                            <select id="housetype" name="typeOfHouse" required>
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="1">Type I - Salvaged (plastic, tin, cardboard)</option>
+                                <option value="2">Type II - Light (nipa, cogon, bamboo, light wood)</option>
+                                <option value="3">Type III - Semi-concrete</option>
+                                <option value="4">Type IV - Concrete</option>
+                                <option value="5">Type V - Mixed materials</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="numberstorey" class="details">Number of Storey</label>
+                            <select id="numberstorey" name="NoOfFloors" required>
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="1">1 Story</option>
+                                <option value="2">2 Story</option>
+                                <option value="3">3 Story</option>
+
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Est/Flr area(sq mtrs)</label>
+                            <input type="text" placeholder="Enter Est Floor Area" name="EstimatedFloorArea" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="toilet" class="details">Type of toilet facility that household use</label>
+                            <select id="toilet" name="toiletType" required>
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="1">1 Water-sealed(flush or pour/flush) connected to sewerage system</option>
+                                <option value="2">2 Water-sealed(flush or pour/flush) connected to septic tank</option>
+                                <option value="3">3 Water-sealed(flush or pour/flush) connected to pit</option>
+                                <option value="4">4 Water-sealed(flush or pour/flush) connected to drainage</option>
+                                <option value="5">5 Non-water-sealed(ventilated improved pit, sanitary pit privy)</option>
+                                <option value="6">6 Non-water-sealed(open pit privy, overhang)</option>
+                                <option value="7">7 Shared toilet</option>
+                                <option value="8">8 Public toilet</option>
+                                <option value="9">9 No toilet (wrap and throw, arinola, closed pit, bush, lake, creek, river)</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="water" class="details">Primary Source(s) of Water for domestic use:</label>
+                            <select id="water" name="waterSource" required>
+                                <option value="" disabled selected>Select Water Source</option>
+                                <option value="1">Piped connection</option>
+                                <option value="2">Public/Street faucet</option>
+                                <option value="3">Deep or shallow well</option>
+                                <option value="4">Spring/River/Pond/Stream</option>
+                                <option value="5">Rain</option>
+                                <option value="6">Water vendors(e.g. bottled water, container, peddlers)</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Others, Specify</label>
+                            <input type="text" placeholder="Enter Water Source" name="waterSource" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="garbage" class="details">Garbage Disposal/Management</label>
+                            <select id="garbage" name="garbageDisposal" required>
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="1">Collected by LGU but no separation of garbage/solid waste at the household</option>
+                                <option value="2">Collected by LGU/solid waste segregated between biodegrable and non-biodegradable</option>
+                                <option value="3">Composting</option>
+                                <option value="4">Recycle and re-use as part of a livelihood/business activity</option>
+                                <option value="5">Burning</option>
+                                <option value="6">Throw it in the river/anywhere</option>
+
+                            </select>
+                        </div>     
+
+                        <div class="input-field">
+                            <label for="electric" class="details">Electricity/Lightning Facilities</label>
+                            <select id="electric" name="electricitySource" required>
+                                <option value="" disabled selected>Select type</option>
+                                <option value="1">Connected to MERALCO</option>
+                                <option value="2">Sub-connect to a neighbor</option>
+                                <option value="3">Not connected/instead user kerosene lamp</option>
+                                <option value="4">LPG lamp</option>
+
+                            </select>
+                        </div>       
+
+                        <div class="input-field">
+                            <label for="mode" class="details">Mode of House/Structure Acquisition</label>
+                            <select id="mode" name="modeOfHouse" required>
+                                <option value="" disabled selected>Select Mode of House</option>
+                                <option value="1">Sold rights</option>
+                                <option value="2">Transfer of Rights</option>
+                                <option value="3">Constructed</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="member" class="details">Relationship with the Lot Owner</label>
+                            <select id="member" name="relationToOwner" required>
+                                <option value="" disabled selected>Select Relationship</option>
+                                <option value="Sitio 1">Lot Owner</option>
+                                <option value="Sitio 2">Child</option>
+                                <option value="Sitio 3">Parent</option>
+                                <option value="Sitio 3">Relative</option>
+                            </select>
+                        </div>
+
+                       
+                    </div>
+
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>
+    
+                        <button class="nextBtn">
+                            <span class="btnText">Next</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
+
+             
+
+                <!--LAST SECTION-->
+
+                <div class="form-section">
+                    <header>INFORMATION OF HOUSEHOLD MEMBERS</header>
+                
+                    <div id="members-container">
+                        <!-- Template for a single member -->
+                        <div class="details member" data-index="0">
+                            <span class="title">Name of Household Member</span>
+                
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Last Name</label>
+                                    <input type="text" placeholder="Enter Last name" name="isfmembers[0][lastName]" required>
+                                </div>
+                
+                                <div class="input-field">
+                                    <label>First Name</label>
+                                    <input type="text" placeholder="Enter First name" name="isfmembers[0][firstName]" required>
+                                </div>
+                
+                                <div class="input-field">
+                                    <label>Middle Name</label>
+                                    <input type="text" placeholder="Enter Middle name" name="isfmembers[0][middleName]">
+                                </div>
+                
+                                <div class="input-field">
+                                    <label>Maiden Name</label>
+                                    <input type="text" placeholder="Enter Maiden name" name="isfmembers[0][maidenName]">
+                                </div>
+                
+                                <div class="input-field">
+                                    <label>Date of Birth</label>
+                                    <input type="date" placeholder="Enter birth date" name="isfmembers[0][DOB]" required>
+                                </div>
+                
+                                <div class="input-field">
+                                    <label>Age</label>
+                                    <input type="number" placeholder="Enter Age" name="isfmembers[0][age]" required>
+                                </div>
+                
+                                <div class="input-field">
+                                    <label for="sex" class="details">Sex</label>
+                                    <select id="sex" name="isfmembers[0][sex]" required>
+                                        <option value="" disabled selected>Choose Sex</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                
+                                <div class="input-field">
+                                    <label for="civil" class="details">Civil Status</label>
+                                    <select id="civil" name="isfmembers[0][civilStatus]" required>
+                                        <option value="" disabled selected>Select Civil Status</option>
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                    </select>
+                                </div>
+                
+                                <div class="input-field">
+                                    <label>Occupation</label>
+                                    <input type="text" placeholder="Enter Occupation" name="isfmembers[0][memberOccupation]">
+                                </div>  
+                
+                                <div class="input-field">
+                                    <label>Relation to Household head</label>
+                                    <input type="text" placeholder="Enter relation" name="isfmembers[0][relationToHead]" required>
+                                </div>  
+                
+                                <div class="input-field">
+                                    <label>Place of Work</label>
+                                    <input type="text" placeholder="Enter Place of Work" name="isfmembers[0][placeOfWork]">
+                                </div>
+                
+                                <div class="input-field">
+                                    <label for="member" class="details">Highest Educational Attainment</label>
+                                    <select id="member" name="isfmembers[0][educAttaintment]">
+                                        <option value="" disabled selected>Select Educational Attainment</option>
+                                        <option value="Elementary">Elementary</option>
+                                        <option value="Highschool">Highschool</option>
+                                        <option value="Undergrad">Undergrad</option>
+                                        <option value="College">College</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-field">
+                                    <label for="member" class="details">Member of vulnerable community group</label>
+                                    <select id="member" name="isfmembers[0][memberOfCommunityGroup]">
+                                        <option value="" disabled selected>Select Group</option>
+                                        <option value="PWD">PWD</option>
+                                        <option value="Senior Citizen">Senior Citizen</option>
+                                        <option value="Solo parent">Solo parent</option>
+                                        <option value="LGBTQI">LGBTQI</option>
+                                    </select>
+                                </div>
+                
+                                <div class="input-field">
+                                    <label>If a PWD, specify disability</label>
+                                    <input type="text" placeholder="Enter disability" name="isfmembers[0][anyDisabilty]">
+                                </div>
+                
+                                <div class="input-field">
+                                    <label>If Member of LGBTQI, Gender Identification</label>
+                                    <input type="text" placeholder="Enter Identification" name="isfmembers[0][genderIndentification]">
+                                </div>  
+                                
+                                <div class="input-field">
+                                    <label>Estimated Monthly Income</label>
+                                    <input type="text" placeholder="Enter Estimated Income" name="isfmembers[0][estimatedIncome]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>      
+                        <button type="submit"  >
+                                <span class="btnText">Submit</span>
+                        </button>               
+                    </div>
+                </div>
+               
+             
+
 
 
 
