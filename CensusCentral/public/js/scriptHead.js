@@ -43,14 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateFormVisibility();
             }
         });
-    });
-
-        
+    });     
 });
-
-
-
-
 
 let memberIndex = 1;
 

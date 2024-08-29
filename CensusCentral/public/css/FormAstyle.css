@@ -17,33 +17,33 @@ body {
 
 .container {
     position: relative;
-    max-width: 900px;
+    max-width: 950px;
     width: 100%;
     border-radius: 6px;
     padding: 30px;
+    margin: 0 15px;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-section {
-    margin-top: 100px;
-    position: absolute; /* Absolutely position each form section */
+    margin-top: 70px;
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
-    opacity: 0; /* Initially hidden */
-    pointer-events: none; /* Disable interaction when hidden */
-    transform: translateX(100%); /* Move out of view initially */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    opacity: 0; 
+    pointer-events: none; 
+    transform: translateX(100%); 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
 }
 
 .form-section.active {
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(0%); /* Bring into view */
+    transform: translateX(0%); 
 }
 
-/* Specific for back transition */
 .form-section.prev {
     transform: translateX(-100%);
 }
@@ -57,7 +57,6 @@ form .buttons {
 form .buttons button, .backBtn {
     margin-right: 14px;
 }
-
 
 .container header {
     position: relative;
@@ -79,7 +78,7 @@ form .buttons button, .backBtn {
 .container form {
     position: relative;
     margin-top: 16px;
-    min-height: 830px;
+    min-height: 900px;
     background-color: #fff;
 }
 
@@ -135,6 +134,7 @@ form .fields .input-field {
     font-weight: 500;
     color: #2e2e2e;
 }
+
 .input-field input {
     outline: none;
     font-size: 14px;
@@ -154,6 +154,7 @@ form .fields .input-field {
 .input-field input[type="date"] {
     color: #707070;
 }
+
 .input-field input[type="date"]:valid {
     color: #333;
 }
@@ -166,8 +167,6 @@ form .fields .input-field {
     height: 42px;
     margin: 8px 0;
 }
-
-
 
 .container form button , .backBtn {
     display: flex;
@@ -214,13 +213,10 @@ form .buttons button , .backBtn {
     margin-right: 14px;
 }
 
-
-
-
-@media (max-width: 750px) {
+@media (max-width: 950px) {
 
     .container {
-        padding: 20px; /* Adjust padding for smaller screens */
+        padding: 20px; 
     }
 
     .container form {

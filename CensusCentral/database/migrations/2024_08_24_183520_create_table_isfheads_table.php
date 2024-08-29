@@ -15,51 +15,68 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('surveyId');
             $table->foreign('surveyId')->references('surveyId')->on('survey_forms')->onDelete('cascade');
+            //NAME NG HEAD
             $table->string('lastName');
             $table->string('firstName');
             $table->string('middleName')->nullable();
+            // if female ang head
             $table->string('maidenName')->nullable();
+
             $table->date('dateOfBirth');
             $table->integer('age');
             $table->string('sex');
             $table->string('civilStatus');
+
+            //WORK IF MERON
             $table->string('occupation');
             $table->string('workplace')->nullable();
+          
+            
             $table->string('address');
-            $table->string('communityGroup')->nullable();
+
+            $table->string('communityGroup');
+            //if pwd 
             $table->string('gender')->nullable();
+            //if lgbtq
             $table->string('disability')->nullable();
 
            
            
         
+            //IF MAY PARTNER
 
             $table->string('spouseLname')->nullable();
             $table->string('spouseFname')->nullable();
             $table->string('spouseMname')->nullable();
             $table->string('spouseMaidenName')->nullable();
             $table->date('spouseDOB')->nullable();
+
+            //naka disabled to enable depende sa choice
             $table->integer('spouseAge')->nullable();
             $table->string('spouseSex')->nullable();
-            // $table->string('spouseCommunityGroup')->nullable();
-            // $table->string('spouseGender')->nullable();
+            
 
-           
+           //IF MERON 
             $table->string('MedicalHistory')->nullable();
+
            
 
 
             $table->string('HouseholdClass');
-            $table->integer('householdSize');
             $table->integer('yearResidency');
+            $table->integer('householdSize');
+           
             $table->string('doubleHousehold');
-            $table->string('indigenousOrNot')->nullable();
-         
+
+            $table->string('indigenousOrNot');
+            
             $table->string('placeOrigin');
+
             $table->text('reasonEstablishing');
             $table->string('tenurialStatus');
+            
             $table->string('governmentResettelment');
-            $table->text('whichProgram');
+            $table->text('whichProgram')->nullable();
 
             $table->timestamps();
         });
