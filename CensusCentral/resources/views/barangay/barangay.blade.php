@@ -28,7 +28,7 @@
         
         <div class="side-content">
             <div class="profile">
-                <div class="profile-img bg-img" style="background-image: url(img/cudhaoLogo.png)"></div>
+                <div class="profile-img bg-img" style="background-image: url(images/cudhaoLogo.png)"></div>
                 <h4>CUDHAO</h4>
                 <small>Administrator</small>
             </div>
@@ -36,7 +36,7 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                       <a href="" class="active">
+                       <a href="{{url('dashboard')}}" class="active">
                             <span class="fas fa-desktop"></span>
                             <small>Dashboard</small>
                         </a>
@@ -48,31 +48,31 @@
                         </a>
                     </li>
                     <li>
-                       <a href="">
+                       <a href="{{url('barangay')}}">
                             <span class="fas fa-table"></span>
-                            <small>Barangay</small>
+                            <small>Members</small>
                         </a>
                     </li>
                     <li>
-                       <a href="">
+                       <a href="{{url('reports')}}">
                             <span class="fas fa-chart-bar"></span>
                             <small>Reports</small>
                         </a>
                     </li>
                     <li>
-                       <a href="">
+                       <a href="{{url('penalties')}}">
                             <span class="fas fa-exclamation-triangle"></span>
                             <small>Penalties</small>
                         </a>
                     </li>
                     <li>
-                       <a href="">
+                       <a href="{{url('analysis')}}">
                             <span class="fas fa-clipboard"></span>
                             <small>Analysis</small>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{url('accounts')}}">
                              <span class="fas fa-address-book"></span>
                              <small>Accounts</small>
                          </a>
@@ -94,10 +94,10 @@
                 <div class="header-menu">
                     
                     <div class="user">
-                        <div class="bg-img" style="background-image: url(img/cudhaoLogo.png)"></div>
+                        <div class="bg-img" style="background-image: url(images/cudhaoLogo.png)"></div>
                         
                         <span class="las la-power-off"></span>
-                        <span>Logout</span>
+                        <a href="{{url('login')}}"><span class="logout" >Logout</span></a>
                     </div>
                 </div>
             </div>
@@ -107,8 +107,8 @@
         <main>
             
             <div class="page-header">
-                <h1>Barangay</h1>
-                <small>Home / Barangay</small>
+                <h1>Members</h1>
+                <small>Home / Members</small>
             </div>
             
             <div class="page-content">
@@ -119,6 +119,29 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <h2>Barangay <b>Uno</b></h2>
+                                    <div class="dropdown">
+                                        <button id="barangay-btn" class="btn" onclick="highlightButton('barangay')">Barangay</button>
+                                        <div class="dropdown-content">
+                                            <a href="#" onclick="selectBarangay('Baclaran')">Baclaran</a>
+                                            <a href="#" onclick="selectBarangay('Banay-Banay')">Banay-Banay</a>
+                                            <a href="#" onclick="selectBarangay('Banlic')">Banlic</a>
+                                            <a href="#" onclick="selectBarangay('Bigaa')">Bigaa</a>
+                                            <a href="#" onclick="selectBarangay('Butong')">Butong</a>
+                                            <a href="#" onclick="selectBarangay('Casile')">Casile</a>
+                                            <a href="#" onclick="selectBarangay('Diezmo')">Diezmo</a>
+                                            <a href="#" onclick="selectBarangay('Gulod')">Gulod</a>
+                                            <a href="#" onclick="selectBarangay('Mamatid')">Mamatid</a>
+                                            <a href="#" onclick="selectBarangay('Marinig')">Marinig</a>
+                                            <a href="#" onclick="selectBarangay('Niugan')">Niugan</a>
+                                            <a href="#" onclick="selectBarangay('Pittland')">Pittland</a>
+                                            <a href="#" onclick="selectBarangay('Pulo')">Pulo</a>
+                                            <a href="#" onclick="selectBarangay('Sala')">Sala</a>
+                                            <a href="#" onclick="selectBarangay('San Isidro')">San Isidro</a>
+                                            <a href="#" onclick="selectBarangay('Barangay I Poblacion')">Barangay I Poblacion</a>
+                                            <a href="#" onclick="selectBarangay('Barangay II Poblacion')">Barangay II Poblacion</a>
+                                            <a href="#" onclick="selectBarangay('Barangay III Poblacion')">Barangay III Poblacion</a>   
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                         <div class="search-box">
@@ -163,7 +186,7 @@
                                         <td>+123456789</td>
                                         <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
                                     <td>
-                                        <a href="" class="show" data-toggle="modal"><i class="fa-regular fa-eye" data-toggle="tooltip" title="Info"></i></a>
+                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
                                         <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>
@@ -182,7 +205,7 @@
                                         <td>+123456789</td>
                                         <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
                                     <td>
-                                        <a href="" class="show" data-toggle="modal"><i class="fa-regular fa-eye" data-toggle="tooltip" title="Info"></i></a>
+                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
                                         <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>
@@ -201,7 +224,7 @@
                                         <td>+123456789</td>
                                         <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
                                     <td>
-                                        <a href="" class="show" data-toggle="modal"><i class="fa-regular fa-eye" data-toggle="tooltip" title="Info"></i></a>
+                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
                                         <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>
@@ -220,7 +243,7 @@
                                         <td>+123456789</td>
                                         <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
                                     <td>
-                                        <a href="" class="show" data-toggle="modal"><i class="fa-regular fa-eye" data-toggle="tooltip" title="Info"></i></a>
+                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
                                         <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>
@@ -239,7 +262,7 @@
                                         <td>+123456789</td>
                                         <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
                                     <td>
-                                        <a href="" class="show" data-toggle="modal"><i class="fa-regular fa-eye" data-toggle="tooltip" title="Info"></i></a>
+                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
                                         <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>CUDHAO</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/analysis.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
@@ -96,89 +96,71 @@
         <main>
             
             <div class="page-header">
-                <h1>Dashboard</h1>
-                <small>Home / Dashboard</small>
+                <h1>Analysis</h1>
+                <small>Home / Analysis</small>
             </div>
             
-            <div class="page-content">
-            
-                <div class="analytics">
-
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>107,200</h2>
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>Person with Disabilities</small>
-                            <div class="card-indicator">
-                                <div class="indicator one" style="width: 60%"></div>
+            <div class="page-content"> 
+                <!-- Content here -->
+                <div class="content-header">
+                    <div class="buttons">
+                        <button id="overall-btn" class="btn active" onclick="highlightButton('overall')">Overall</button>
+                        <div class="dropdown">
+                            <button id="barangay-btn" class="btn" onclick="highlightButton('barangay')">Barangay</button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="selectBarangay('Baclaran')">Baclaran</a>
+                                <a href="#" onclick="selectBarangay('Banay-Banay')">Banay-Banay</a>
+                                <a href="#" onclick="selectBarangay('Banlic')">Banlic</a>
+                                <a href="#" onclick="selectBarangay('Bigaa')">Bigaa</a>
+                                <a href="#" onclick="selectBarangay('Butong')">Butong</a>
+                                <a href="#" onclick="selectBarangay('Casile')">Casile</a>
+                                <a href="#" onclick="selectBarangay('Diezmo')">Diezmo</a>
+                                <a href="#" onclick="selectBarangay('Gulod')">Gulod</a>
+                                <a href="#" onclick="selectBarangay('Mamatid')">Mamatid</a>
+                                <a href="#" onclick="selectBarangay('Marinig')">Marinig</a>
+                                <a href="#" onclick="selectBarangay('Niugan')">Niugan</a>
+                                <a href="#" onclick="selectBarangay('Pittland')">Pittland</a>
+                                <a href="#" onclick="selectBarangay('Pulo')">Pulo</a>
+                                <a href="#" onclick="selectBarangay('Sala')">Sala</a>
+                                <a href="#" onclick="selectBarangay('San Isidro')">San Isidro</a>
+                                <a href="#" onclick="selectBarangay('Barangay I Poblacion')">Barangay I Poblacion</a>
+                                <a href="#" onclick="selectBarangay('Barangay II Poblacion')">Barangay II Poblacion</a>
+                                <a href="#" onclick="selectBarangay('Barangay III Poblacion')">Barangay III Poblacion</a>   
                             </div>
                         </div>
                     </div>
-
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>340,230</h2>
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>4P’s  Pre-Qualified Beneficiaries</small>
-                            <div class="card-indicator">
-                                <div class="indicator two" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>653,200</h2>
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>Senior Citizen</small>
-                            <div class="card-indicator">
-                                <div class="indicator three" style="width: 65%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>47,500</h2>
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>Informal Settlers Family</small>
-                            <div class="card-indicator">
-                                <div class="indicator four" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div class="charts">
-                    <div class="chart">
-                        <h2>Total ISF</h2>
-                        <canvas id="myChart"></canvas>
+                        <div class="chart">
+                            <h2>Population</h2>
+                            <canvas id="myChart" ></canvas>
+                        </div>
+                        <div class="chart">
+                            <h2>4P's Beneficiaries</h2>
+                            <canvas id="myChart2" ></canvas>
+                        </div>
+                        <div class="chart">
+                            <h2>Persons with Disabilities</h2>
+                            <canvas id="myChart3" ></canvas>
+                        </div>
+                        <div class="chart">
+                            <h2>Senior Citizens</h2>
+                            <canvas id="myChart4" ></canvas>
+                        </div>
                     </div>
-                    <div class="chart">
-                        <h2>Total ISF</h2>
-                        <canvas id="myChart"></canvas>
-                    </div>
-                </div>
-            
+
+
             </div>
             
         </main>
         
     </div>
 
-
-
     <!-- javascript for charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="js/analysis.js"></script>
+    <!-- javascript for animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>

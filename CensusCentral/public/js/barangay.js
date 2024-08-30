@@ -1,5 +1,5 @@
 
-	// Select/Deselect checkboxes
+	// Select/Deselect checkboxe
 	var checkbox = $('table tbody input[type="checkbox"]');
 	$("#selectAll").click(function(){
 		if(this.checked){
@@ -38,3 +38,5 @@
             });
         });
     });
+
+	

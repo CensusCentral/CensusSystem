@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CUDHAO</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accounts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
-   <input type="checkbox" id="menu-toggle">
+    <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
             <h3>C<span>abuyao</span></h3>
@@ -73,7 +73,6 @@
     </div>
     
     <div class="main-content">
-        
         <header>
             <div class="header-content">
                 <label for="menu-toggle">
@@ -81,7 +80,6 @@
                 </label>
                 
                 <div class="header-menu">
-                    
                     <div class="user">
                         <div class="bg-img" style="background-image: url(images/cudhaoLogo.png)"></div>
                         
@@ -92,93 +90,90 @@
             </div>
         </header>
         
-        
         <main>
-            
             <div class="page-header">
-                <h1>Dashboard</h1>
-                <small>Home / Dashboard</small>
+                <h1>Accounts</h1>
+                <small>Home / Accounts</small>
             </div>
             
             <div class="page-content">
-            
-                <div class="analytics">
-
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>107,200</h2>
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>Person with Disabilities</small>
-                            <div class="card-indicator">
-                                <div class="indicator one" style="width: 60%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>340,230</h2>
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>4P’s  Pre-Qualified Beneficiaries</small>
-                            <div class="card-indicator">
-                                <div class="indicator two" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>653,200</h2>
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>Senior Citizen</small>
-                            <div class="card-indicator">
-                                <div class="indicator three" style="width: 65%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>47,500</h2>
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>Informal Settlers Family</small>
-                            <div class="card-indicator">
-                                <div class="indicator four" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="table-header">
+                    <h2>Accounts List</h2>
+                    <button class="add-account-btn">Add Account</button>
                 </div>
-
-                <div class="charts">
-                    <div class="chart">
-                        <h2>Total ISF</h2>
-                        <canvas id="myChart"></canvas>
-                    </div>
-                    <div class="chart">
-                        <h2>Total ISF</h2>
-                        <canvas id="myChart"></canvas>
-                    </div>
-                </div>
-            
+                
+                <table class="accounts-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="accountsTableBody">
+                        <!-- Account rows will be added here dynamically -->
+                    </tbody>
+                </table>
             </div>
-            
         </main>
-        
     </div>
 
+    <!-- Add Account Modal -->
+    <div id="addAccountModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add Account</h2>
+            <form id="addAccountForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                
+                <label for="password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" required>
+                    <button type="button" class="toggle-password-visibility"><i class="fas fa-eye"></i></button>
+                </div>
+                
+                <label for="confirm-password">Confirm Password:</label>
+                <div class="password-container">
+                    <input type="password" id="confirm-password" required>
+                    <button type="button" class="toggle-password-visibility"><i class="fas fa-eye"></i></button>
+                </div>
+                
+                <button type="submit">Add</button>
+                <button type="button" class="cancel-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
 
+    <!-- Edit Account Modal -->
+    <div id="editAccountModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Edit Account</h2>
+            <form id="editAccountForm">
+                <label for="edit-username">Username:</label>
+                <input type="text" id="edit-username" required>
+                
+                <label for="edit-password">New Password:</label>
+                <div class="password-container">
+                    <input type="password" id="edit-password">
+                    <button type="button" class="toggle-password-visibility"><i class="fas fa-eye"></i></button>
+                </div>
+                
+                <label for="edit-confirm-password">Confirm New Password:</label>
+                <div class="password-container">
+                    <input type="password" id="edit-confirm-password">
+                    <button type="button" class="toggle-password-visibility"><i class="fas fa-eye"></i></button>
+                </div>
+                
+                <button type="submit">Update</button>
+                <button type="button" class="cancel-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
 
-    <!-- javascript for charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/accounts.js"></script>
 </body>
 </html>
