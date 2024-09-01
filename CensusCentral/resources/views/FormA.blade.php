@@ -347,7 +347,7 @@
                             </div>
 
                             <div class="input-field">
-                                <label for="recipient" class="details">Recipient of Any Government Resettlement Program?</label>
+                                <label for="recipient" class="details">Recipient of Any Gov. Resettlement Program?</label>
                                 <select id="recipient" name="governmentResettelment" required>
                                     <option value="" disabled selected>Select type</option>
                                     <option value="Yes">Yes</option>
