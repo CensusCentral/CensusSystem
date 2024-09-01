@@ -30,7 +30,7 @@ body {
 
 .form-section {
     display: none; /* Initially hides all form sections */
-    margin-top: 100px;
+    margin-top: 15px;
     position: absolute; /* Absolutely position each form section */
     top: 0;
     left: 0;
@@ -43,7 +43,6 @@ body {
 
 .form-section.active {
     display: block; /* Initially hides all form sections */
-
     opacity: 1;
     pointer-events: auto;
     transform: translateX(0%); 

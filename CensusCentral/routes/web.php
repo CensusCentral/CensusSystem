@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IsfController;
 
 Route::get('/', function () {
-    return view('login/login');
+    return view('FormA');
 });
 
 Route::get('/login', function () {
