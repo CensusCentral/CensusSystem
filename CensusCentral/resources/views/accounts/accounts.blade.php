@@ -108,6 +108,7 @@
                             <th>User ID</th>
                             <th>Username</th>
                             <th>Password</th>
+                            <th>User Type</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -140,6 +141,13 @@
                     <input type="password" id="confirm-password" required>
                     <button type="button" class="toggle-password-visibility"><i class="fas fa-eye"></i></button>
                 </div>
+
+                <label for="user-type">User Type:</label>
+            <select id="user-type" name="user-type" required>
+                <option value="Admin">Admin</option>
+                <option value="Survey Team">Survey Team</option>
+                <option value="4Ps Admin">4Ps Admin</option>
+            </select>
                 
                 <button type="submit">Add</button>
                 <button type="button" class="cancel-btn">Cancel</button>
@@ -154,7 +162,7 @@
             <h2>Edit Account</h2>
             <form id="editAccountForm">
                 <label for="edit-username">Username:</label>
-                <input type="text" id="edit-username" required>
+                <input type="text" id="edit-username" required readonly>
                 
                 <label for="edit-password">New Password:</label>
                 <div class="password-container">
@@ -167,6 +175,9 @@
                     <input type="password" id="edit-confirm-password">
                     <button type="button" class="toggle-password-visibility"><i class="fas fa-eye"></i></button>
                 </div>
+
+                <label for="edit-user-type">User Type:</label>
+                <input type="text" id="edit-user-type" name="edit-user-type" readonly>
                 
                 <button type="submit">Update</button>
                 <button type="button" class="cancel-btn">Cancel</button>

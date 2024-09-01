@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('addAccountModal');
     const addAccountBtn = document.querySelector('.add-account-btn');
@@ -62,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirm-password').value;
+        const userType = document.getElementById('user-type').value; // Get user type
 
         if (password !== confirmPassword) {
             alert('Passwords do not match!');
@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="password-text" data-password="${hashedPassword}">******</span>
                 <button class="toggle-password">Show</button>
             </td>
+            <td>${userType}</td> <!-- Display user type -->
             <td>
                 <div class="status-indicator inactive"></div>
             </td>
@@ -108,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newRow.querySelector('.edit-btn').addEventListener('click', function() {
             currentEditRow = newRow;
             document.getElementById('edit-username').value = currentEditRow.children[1].textContent;
+            document.getElementById('edit-user-type').value = currentEditRow.children[3].textContent; // Set user type
             editAccountModal.style.display = 'block';
         });
 
@@ -134,9 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         passwordText.dataset.password = hashedPassword;
         passwordText.textContent = '******';
 
-        // Update the "Show/Hide" button text and functionality
-        const toggleButton = currentEditRow.querySelector('.toggle-password');
-        toggleButton.textContent = 'Show';
+        // User type is read-only and does not need updating in the table row
 
         editAccountForm.reset();
         editAccountModal.style.display = 'none';
@@ -144,5 +144,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addTogglePasswordListeners();
 });
-
-
