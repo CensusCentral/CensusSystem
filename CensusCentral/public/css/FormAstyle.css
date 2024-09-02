@@ -7,6 +7,9 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+
+
 body {
     min-height: 100vh;
     display: flex;
@@ -35,22 +38,26 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    opacity: 0; 
-    pointer-events: none; 
-    transform: translateX(100%); 
-    transition: opacity 0.3s ease, transform 0.3s ease; 
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+
 .form-section.active {
-    display: block; /* Initially hides all form sections */
+    display: block;
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(0%); 
+    transform: translateX(0%);
 }
 
 .form-section.prev {
     transform: translateX(-100%);
-}
+}   
+
+.form-section.next {
+    transform: translateX(100%);}
 
 form .buttons {
     display: flex;
@@ -170,6 +177,8 @@ form .fields .input-field {
     padding: 0 10px;
     height: 42px;
     margin: 8px 0;
+    display: inline-block;
+    visibility: visible;
 }
 
 .container form button , .backBtn {
@@ -253,3 +262,134 @@ form .buttons button , .backBtn {
         width: 100%;
     }
 }
+
+
+/* THIS CSS IS FOR THE MODALS */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.form-section-member {
+    margin-bottom: 20px;
+}
+.form-section-member header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#resultsTableContainer {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#resultsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#resultsTable th, #resultsTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#resultsTable th {
+    background-color: #f2f2f2;
+}
+
+#resultsTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#resultsTableContainer button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resultsTableContainer button:hover {
+    background-color: #45a049;
+}
+
+.table-wrapper {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    width: 100%; /* Make sure it takes up the full width of the container */
+}
+
+
+.button-group {
+    display: flex; /* Use flexbox to align buttons side by side */
+    gap: 5px; /* Optional: Adds space between the buttons */
+}
+
+.button-group button {
+    padding: 6px 12px; /* Adjust padding as needed */
+    margin: 0; /* Remove any default margins */
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    flex-grow: 1; /* Optional: Makes buttons the same size */
+    text-align: center;
+}
+
+.button-group button:hover {
+    background-color: #ddd; /* Change color on hover */
+}
+
+.action-button {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 4px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+

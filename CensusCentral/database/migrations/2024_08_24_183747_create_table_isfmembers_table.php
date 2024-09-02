@@ -12,25 +12,27 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('isfmembers', function (Blueprint $table) {
+            
             $table->id('memberId');
-            $table->unsignedBigInteger('headId');
-            $table->foreign('headId')->references('id')->on('isfheads')->onDelete('cascade');
-            $table->string('lastName');
-            $table->string('firstName');
-            $table->string('middleName')->nullable();
-            $table->string('maidenName')->nullable();
-            $table->string('sex');
-            $table->date('DOB');
-            $table->integer('age');
-            $table->string('civilStatus');
+            
+             $table->unsignedBigInteger('headId');
+             $table->foreign('headId')->references('id')->on('isfheads')->onDelete('cascade');
+            $table->string('memberlastName');
+            $table->string('memberfirstName');
+            $table->string('memberMiddleName')->nullable();
+            $table->string('memberMaidenName')->nullable();
+            $table->string('memberSex');
+            $table->date('memberDOB');
+            $table->integer('memberAge');
+            $table->string('memberCivilStatus');
             $table->string('memberOccupation')->nullable();
-            $table->string('placeOfWork')->nullable();
-            $table->string('relationToHead');
+            $table->string('memberPlaceOfWork')->nullable();
+            $table->string('memberRelationToHead');
             $table->string('memberOfCommunityGroup');
-            $table->string('anyDisability')->nullable();
-            $table->string('genderIdentification');
-            $table->string('educAttaintment');
-            $table->decimal('estimatedIncome')->nullable();
+            $table->string('memberAnyDisability')->nullable();
+            $table->string('memberGenderIdentification');
+            $table->string('memberEducAttaintment');
+            $table->decimal('memberEstimatedIncome')->nullable();
 
             $table->timestamps();
         });

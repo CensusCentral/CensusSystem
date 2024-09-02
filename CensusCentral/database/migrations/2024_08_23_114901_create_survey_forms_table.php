@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('survey_forms', function (Blueprint $table) {
-            $table->id('surveyId');
-            $table->date('surveyDate');
-            $table->string('barangay');
-            $table->string('sitioPurok')->nullable();
-            $table->string('interviewerName');
-            $table->string('areaClassification');
-            $table->timestamps();
-        });
+            Schema::create('survey_forms', function (Blueprint $table) {
+                $table->id('surveyId');
+                $table->date('surveyDate');
+                $table->string('barangay');
+                $table->string('sitioPurok')->nullable();
+                $table->string('interviewerName');
+                $table->string('areaClassification');
+                $table->timestamps();
+            });
     }
 
     /**

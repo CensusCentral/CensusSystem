@@ -6,23 +6,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class isfmember extends Model
 {
+
+    protected $table = "isfmembers";
+
     protected $fillable = [
         'headId',
-        'lastName',
-        'firstName',
-        'middleName',
-        'maidenName',
-        'sex',
-        'DOB',
-        'age',
-        'civilStatus',
+        'memberlastName',
+        'memberfirstName',
+        'memberMiddleName',
+        'memberMaidenName',
+        'memberSex',
+        'memberDOB',
+        'memberAge',
+        'memberCivilStatus',
         'memberOccupation',
-        'placeOfWork',
-        'relationToHead',
+        'memberPlaceOfWork',
+        'memberRelationToHead',
         'memberOfCommunityGroup',
-        'anyDisability',
-        'genderIdentification',
-        'educAttaintment',
+        'memberAnyDisability',
+        'memberGenderIdentification',
+        'memberEducAttaintment',
+        'memberEstimatedIncome'
+    ];
+    protected $casts = [
+        'memberEstimatedIncome' => 'decimal:2',
     ];
 }
 

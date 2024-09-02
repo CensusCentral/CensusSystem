@@ -11,9 +11,14 @@ use App\Models\householdCondition;
 
 class IsfController extends Controller
 {
+
    
     public function store(Request $request)
 {
+    // Decode JSON membersData and merge it back into the request
+    $membersData = json_decode($request->input('membersData'), true);
+    $request->merge(['membersData' => $membersData]);
+   
     $validatedData = $request->validate([
         'surveyDate' => 'required|date',
         'barangay' => 'required|string|max:255',
@@ -62,11 +67,47 @@ class IsfController extends Controller
         'governmentResettelment' => 'required|string|max:255',
         'whichProgram' => 'nullable|string|max:255',
 
-    ]);
+
+        // Household Conditions validation
+        'houseAge' => 'required|integer',
+        'typeOfStructure' => 'required|string|max:255',
+        'useOfStructure' => 'required|string|max:255',
+        'NoOfFloors' => 'required|integer',
+        'typeOfHouse' => 'required|string|max:255',
+        'EstimatedFloorArea' => 'required|numeric',
+        'toiletType' => 'required|string|max:255',
+        'waterSource' => 'required|string|max:255',
+        'garbageDisposal' => 'required|string|max:255',
+        'electricitySource' => 'required|string|max:255',
+        'modeOfHouse' => 'required|string|max:255',
+        'relationToOwner' => 'required|string|max:255',
+
+
+        'membersData' => 'required|array',
+        
+        'membersData.*.memberlastName' => 'required|string|max:255',
+        'membersData.*.memberfirstName' => 'required|string|max:255',
+        'membersData.*.memberMiddleName' => 'nullable|string|max:255',
+        'membersData.*.memberMaidenName' => 'nullable|string|max:255',
+        'membersData.*.memberSex' => 'required|string|max:10',
+        'membersData.*.memberDOB' => 'required|date',
+        'membersData.*.memberAge' => 'required|integer',
+        'membersData.*.memberCivilStatus' => 'required|string|max:50',
+        'membersData.*.memberOccupation' => 'nullable|string|max:255',
+        'membersData.*.memberPlaceOfWork' => 'nullable|string|max:255',
+        'membersData.*.memberRelationToHead' => 'required|string|max:255',
+        'membersData.*.memberOfCommunityGroup' => 'required|string|max:255',
+        'membersData.*.memberAnyDisability' => 'nullable|string|max:255',
+        'membersData.*.memberGenderIdentification' => 'required|string|max:50',
+        'membersData.*.memberEducAttaintment' => 'required|string|max:255',
+        'membersData.*.memberEstimatedIncome' => 'nullable|numeric',
+            ]);
 
     DB::beginTransaction();
 
     try {
+
+
         $surveyForm = SurveyForms::create([
             'surveyDate' => $validatedData['surveyDate'],
             'barangay' => $validatedData['barangay'],
@@ -76,7 +117,7 @@ class IsfController extends Controller
         ]);
 
         $isfhead = Isfhead::create([
-            'surveyId' => $surveyForm->id,  // Link to the survey_forms table
+            'surveyId' => $surveyForm->id, 
             'lastName' => $validatedData['lastName'],
             'firstName' => $validatedData['firstName'],
             'middleName' => $validatedData['middleName']?? null,
@@ -117,10 +158,50 @@ class IsfController extends Controller
             'whichProgram' => $validatedData['whichProgram'] ?? null,
         ]);
 
-        // If you need to perform any additional operations, do them here
+
+        $householdCondition = householdCondition::create([
+            'ownerId' => $isfhead->id, // This assumes $isfhead is available in this context
+            'houseAge' => $validatedData['houseAge'],
+            'typeOfStructure' => $validatedData['typeOfStructure'],
+            'useOfStructure' => $validatedData['useOfStructure'],
+            'NoOfFloors' => $validatedData['NoOfFloors'],
+            'typeOfHouse' => $validatedData['typeOfHouse'],
+            'EstimatedFloorArea' => $validatedData['EstimatedFloorArea'],
+            'toiletType' => $validatedData['toiletType'],
+            'waterSource' => $validatedData['waterSource'],
+            'garbageDisposal' => $validatedData['garbageDisposal'],
+            'electricitySource' => $validatedData['electricitySource'],
+            'modeOfHouse' => $validatedData['modeOfHouse'],
+            'relationToOwner' => $validatedData['relationToOwner'],
+        ]);
+
+
+        foreach ($validatedData['membersData'] as $memberData) {
+            Isfmember::create([
+                'headId'=>$isfhead->id,
+                'memberlastName' => $memberData['memberlastName'],
+                'memberfirstName' => $memberData['memberfirstName'],
+                'memberMiddleName' => $memberData['memberMiddleName'] ?? null,
+                'memberMaidenName' => $memberData['memberMaidenName'] ?? null,
+                'memberSex' => $memberData['memberSex'],
+                'memberDOB' => $memberData['memberDOB'],
+                'memberAge' => $memberData['memberAge'],
+                'memberCivilStatus' => $memberData['memberCivilStatus'],
+                'memberOccupation' => $memberData['memberOccupation'] ?? null,
+                'memberPlaceOfWork' => $memberData['memberPlaceOfWork'] ?? null,
+                'memberRelationToHead' => $memberData['memberRelationToHead'],
+                'memberOfCommunityGroup' => $memberData['memberOfCommunityGroup'],
+                'memberAnyDisability' => $memberData['memberAnyDisability'] ?? null,
+                'memberGenderIdentification' => $memberData['memberGenderIdentification'],
+                'memberEducAttaintment' => $memberData['memberEducAttaintment'],
+                'memberEstimatedIncome' => $memberData['memberEstimatedIncome'] ?? null,
+            ]);
+        }
+
+        
 
         DB::commit();
-        return response()->json(['message' => 'Data Insertion Successful', 'survey_id' => $surveyForm->id], 200);
+        return response()->json(['message' => 'Data Insertion Successful' ], 200);
 
     } catch (\Exception $e) {
         DB::rollBack();
