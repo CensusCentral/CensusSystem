@@ -277,6 +277,23 @@ main {
     font-weight: 600;
 }
 
+.chart-container {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding-bottom: 20px;
+}
+
+.chart-scroll-container {
+    width: 100%;          /* Full width of the container */
+    overflow-x: auto;     /* Enable horizontal scrolling */
+    margin-top: 20px;     /* Space between chart and other elements */
+}
+
+#myChart {
+    min-width: 800px;     /* Minimum width to trigger scrolling */
+    width: 100%;          /* Stretch the chart */
+}
+
 .card-indicator {
     margin: .7rem 0rem;
     height: 10px;
@@ -285,35 +302,17 @@ main {
     overflow: hidden;
 }
 
-.indicator {
-    height: 10px;
-    border-radius: 4px;
-}
-
-.indicator.one {
-    background: #22baa0;
-}
-
-.indicator.two {
-    background: #11a8c3;
-}
-
-.indicator.three {
-    background: #f6d433;
-}
-
-.indicator.four {
-    background: #f25656;
-}
-
 .charts{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
     grid-template-columns: 2fr 1fr;
     grid-gap: 20px;
     width: 100%;
     padding: 20px;
     padding-top: 0;
     color: #000000;
+    
 }
 
 .chart{
@@ -323,6 +322,8 @@ main {
     box-shadow: 0 7px 25px 0 rgb(0, 0, 0, 0.08);
     cursor: pointer;
     width: 100%;
+    flex: 1;
+    min-width: 1000px;
 }
 
 .chart h2{
