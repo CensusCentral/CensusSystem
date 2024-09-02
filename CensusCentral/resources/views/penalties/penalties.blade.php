@@ -115,7 +115,6 @@
             <div class="page-content">
                 <div class="table-responsive">
                     <div class="table-wrapper">
-                        
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
@@ -228,7 +227,21 @@
                             </ul>
                         </div>
                     </div>
-                </div>        
+                </div>
+                
+                <div class="contentPenaltiesView">
+                    <div class="buttons">
+                        <button id="backBtn" class="btn">Back</button>
+                        <button id="generateNoticeBtn" class="btn" >Generate Notice</button>
+
+                        <div class="charts">
+                                <div class="chart">
+                                    <h2>Population</h2>
+                                    <canvas id="populationChart" ></canvas>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- Edit Modal HTML -->
@@ -272,6 +285,8 @@
                     </div>
                 </div>
             </div>
+
+            
                 
 
             </div>   
@@ -280,7 +295,7 @@
         
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script src="js/penalties.js"></script>
     <!-- javascript for animation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

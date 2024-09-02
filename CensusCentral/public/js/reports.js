@@ -186,16 +186,16 @@ document.getElementById('logout-button').addEventListener('click', function() {
 
 // MENU
 // MENU
-const allMenu = document.querySelectorAll('main .chart .head .menu');
+// const allMenu = document.querySelectorAll('main .chart .head .menu');
 
-allMenu.forEach(item=> {
-	const icon = item.querySelector('.icon');
-	const menuLink = item.querySelector('.menu-link');
+// allMenu.forEach(item=> {
+// 	const icon = item.querySelector('.icon');
+// 	const menuLink = item.querySelector('.menu-link');
 
-	icon.addEventListener('click', function () {
-		menuLink.classList.toggle('show');
-	})
-})//DI PA TO NAGANA
+// 	icon.addEventListener('click', function () {
+// 		menuLink.classList.toggle('show');
+// 	})
+// })//DI PA TO NAGANA
 
 
 

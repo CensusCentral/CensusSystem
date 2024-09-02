@@ -251,12 +251,6 @@ main {
     margin-bottom: 20px;
     }
     
-    .content-header h1 {
-    font-size: 24px;
-    color: #000;
-    margin-bottom: 10px;
-    }
-    
     .buttons {
     display: flex;
     align-items: center;
@@ -273,15 +267,9 @@ main {
     transition: background-color 0.3s;
     }
 
-    .generate-reports {
-        background-color: #a8a8a8; /* Blue color for Generate Reports button */
-    }
-
-    .generate-reports:hover {
-        background-color: #007BFF; /* Darker blue on hover */
-    }
     
-    .dropdown {
+    
+    .dropdownBarangay {
     
     position: relative;
     display: inline-block;
@@ -309,11 +297,11 @@ main {
     background-color: #f1f1f1;
     }
     
-    .dropdown:hover .dropdown-content {
+    .dropdownBarangay:hover .dropdown-content {
     display: block;
     }
     
-    .dropdown:hover .btn {
+    .dropdownBarangay:hover .btn {
     background-color: #007BFF;
     }
     
@@ -321,8 +309,7 @@ main {
     background-color: #007BFF;
     }
 
-    /* May Problem pa dito */
-    main .charts{
+    .charts{
         display:grid;
         grid-template-columns: 2fr 2fr;
         grid-gap: 20px;
@@ -332,66 +319,63 @@ main {
         color: #000000;
       }
       
-    main .chart{
+      .chart {
         background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
         padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 7px 25px 0 rgb(0, 0, 0, 0.08);
-        cursor: pointer;
-        width: 100%;
-      }
-      
-    main .chart .head h2{
-        font-size: 20px;
-	    font-weight: 600;
-      }
-
-    main .chart .head{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 24px;
-      }
-    main .chart .head .menu{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    main .chart .head .menu .icon{
-        cursor: pointer;
-      }
-    main .chart .head .menu-link{
-        position: absolute;
-        top: calc(100% + 10px);
-        right: 0;
-        width: 140px;
-        background: #ffffff;
-        border-radius: 10px;
-        box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
-        padding: 10px 0;
-        z-index: 100;
-        /* opacity: 0; */
-        pointer-events: none;
-        transition: all .3s ease;
-      }
-    main .chart .head .menu-link.show{
-        top: 100%;
-        opacity: 1;
-        pointer-events: visible;
-      }
-
-    main .chart .head .menu-link a{
-        display: block;
-        padding: 6px 16px;
-        font-size: 14px;
-        color: #005ACD;
-        transition: all .3s ease;
-      }
-    main .chart .head .menu-link a:hover {
-        background: #74767d;
+        margin-bottom: 20px;
     }
 
+    .chart h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+        display: inline-block;
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: inline-block;
+    }
+
+    .dropdown i {
+        cursor: pointer;
+        font-size: 20px;
+        color: #333;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #fff;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    .dropdown-menu .dropdown-item {
+        padding: 10px;
+        color: #333;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown-menu.show {
+        display: block;
+    }
 @media only screen and (max-width: 768px) {
     .analytics {
         grid-template-columns: 100%;
