@@ -110,10 +110,9 @@
             <div class="page-content">
             
                 <div class="content-header">
-                    <h1>Reports</h1>
                     <div class="buttons">
                         <button id="overall-btn" class="btn active" onclick="highlightButton('overall')">Overall</button>
-                        <div class="dropdown">
+                        <div class="dropdownBarangay">
                             <button id="barangay-btn" class="btn" onclick="highlightButton('barangay')">Barangay</button>
                             <div class="dropdown-content">
                                 <a href="#" onclick="selectBarangay('Baclaran')">Baclaran</a>
@@ -136,7 +135,6 @@
                                 <a href="#" onclick="selectBarangay('Barangay III Poblacion')">Barangay III Poblacion</a>   
                             </div>
                         </div>
-                        <button id="generate-reports-btn" class="btn generate-reports">Generate Reports</button>
                     </div>
                     </div>
 
@@ -144,38 +142,89 @@
                         <div class="chart">
                             <div class="head">
                                 <h2>Population</h2>
-                                <div class="menu">
-                                    <i class="fa-solid fa-ellipsis icon"></i>
-                                            <ul class="menu-link">
-                                                <li><a href="#">Edit</a></li>
-                                                <li><a href="#">Save</a></li>
-                                                <li><a href="#">Remove</a></li>
-                                            </ul>
+                                <div class="dropdown">
+                                    <i class="fas fa-ellipsis-vertical dropdown-icon"></i>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-pen mx-2"></i> Update
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-trash mx-2"></i> Delete
+                                            </span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>  
-                            <canvas id="populationChart" ></canvas>
+                            <canvas id="populationChart"></canvas>
                         </div>
+
                         <div class="chart">
                             <div class="head">
                                 <h2>Population</h2>
-                                <div class="menu">
-                                    <i class="fa-solid fa-ellipsis icon"></i>
-                                            <ul class="menu-link">
-                                                <li><a href="#">Edit</a></li>
-                                                <li><a href="#">Save</a></li>
-                                                <li><a href="#">Remove</a></li>
-                                            </ul>
+                                <div class="dropdown">
+                                    <i class="fas fa-ellipsis-vertical dropdown-icon"></i>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-pen mx-2"></i> Update
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-trash mx-2"></i> Delete
+                                            </span>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </div>  
-                            <canvas id="beneficiariesChart" ></canvas>
+                            </div> 
+                            <canvas id="beneficiariesChart"></canvas>
                         </div>
+
                         <div class="chart">
-                            <h2>Persons with Disabilities</h2>
-                            <canvas id="pwdChart" ></canvas>
+                            <div class="head">
+                                <h2>Population</h2>
+                                <div class="dropdown">
+                                    <i class="fas fa-ellipsis-vertical dropdown-icon"></i>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-pen mx-2"></i> Update
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-trash mx-2"></i> Delete
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <canvas id="pwdChart"></canvas>
                         </div>
+
                         <div class="chart">
-                            <h2>Senior Citizens</h2>
-                            <canvas id="seniorChart" ></canvas>
+                            <div class="head">
+                                <h2>Population</h2>
+                                <div class="dropdown">
+                                    <i class="fas fa-ellipsis-vertical dropdown-icon"></i>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-pen mx-2"></i> Update
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-trash mx-2"></i> Delete
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <canvas id="seniorChart"></canvas>
                         </div>
                     </div>
                 </div>   
@@ -186,14 +235,31 @@
             <!-- javascript for animation -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         
-            <script>
-                $(document).ready(function(){
-             
-            $('.sub-btn').click(function(){
-              $(this).next('.sub-menu').slideToggle();
-              $(this).find('.dropdown').toggleClass('rotate');
+            
+               <script>
+                 document.addEventListener('DOMContentLoaded', function() {
+            const dropdownIcons = document.querySelectorAll('.dropdown-icon');
+
+            dropdownIcons.forEach(function(icon) {
+                icon.addEventListener('click', function() {
+                    const menu = icon.nextElementSibling;
+                    menu.classList.toggle('show');
+                });
             });
-          })
-           </script>
+
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(event) {
+                if (!event.target.matches('.dropdown-icon')) {
+                    const dropdowns = document.querySelectorAll('.dropdown-menu');
+                    dropdowns.forEach(function(dropdown) {
+                        if (dropdown.classList.contains('show')) {
+                            dropdown.classList.remove('show');
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+           
 </body>
 </html>

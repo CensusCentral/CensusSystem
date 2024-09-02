@@ -12,7 +12,7 @@
    <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
-            <h3>C<span>abuyao</span></h3>
+            <h3><span>Cabuyao</span></h3>
         </div>
         
         <div class="side-content">
@@ -111,9 +111,6 @@
                         </div>
                         <div class="card-progress">
                             <small>Person with Disabilities</small>
-                            <div class="card-indicator">
-                                <div class="indicator one" style="width: 60%"></div>
-                            </div>
                         </div>
                     </div>
 
@@ -124,9 +121,6 @@
                         </div>
                         <div class="card-progress">
                             <small>4P’s  Pre-Qualified Beneficiaries</small>
-                            <div class="card-indicator">
-                                <div class="indicator two" style="width: 80%"></div>
-                            </div>
                         </div>
                     </div>
 
@@ -137,9 +131,6 @@
                         </div>
                         <div class="card-progress">
                             <small>Senior Citizen</small>
-                            <div class="card-indicator">
-                                <div class="indicator three" style="width: 65%"></div>
-                            </div>
                         </div>
                     </div>
 
@@ -150,32 +141,21 @@
                         </div>
                         <div class="card-progress">
                             <small>Informal Settlers Family</small>
-                            <div class="card-indicator">
-                                <div class="indicator four" style="width: 90%"></div>
-                            </div>
                         </div>
                     </div>
 
                 </div>
 
                 <div class="charts">
-                    <div class="chart">
-                        <h2>Total ISF</h2>
+                    <div class="chart-scroll-container">
+                        <h2>Total Population per Barangay</h2>
                         <canvas id="myChart"></canvas>
                     </div>
-                    <div class="chart">
-                        <h2>Total ISF</h2>
-                        <canvas id="myChart"></canvas>
-                    </div>
-                </div>
-            
-            </div>
-            
-        </main>
-        
+
+                </div> 
+            </div>     
+        </main>  
     </div>
-
-
 
     <!-- javascript for charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>

@@ -244,6 +244,58 @@ main {
     background: #f1f4f9;
 }
 /* Content here */
+.contentPenaltiesView {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 40px;
+    background-color: #a8a8a8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.contentPenaltiesView {
+    display: none; /* Hide by default */
+}
+.charts{
+    display:grid;
+    grid-template-columns: 2fr 2fr;
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+    color: #000000;
+  }
+  
+  .chart {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.chart h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    display: inline-block;
+}
+
 .table-responsive {
     margin: 10px 0;
     width: 100%;

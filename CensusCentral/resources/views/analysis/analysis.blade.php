@@ -104,9 +104,9 @@
                 <!-- Content here -->
                 <div class="content-header">
                     <div class="buttons">
-                        <button id="overall-btn" class="btn active" onclick="highlightButton('overall')">Overall</button>
+                        <button id="overall-btn" class="btn active">Overall</button>
                         <div class="dropdown">
-                            <button id="barangay-btn" class="btn" onclick="highlightButton('barangay')">Barangay</button>
+                            <button id="barangay-btn" class="btn">Barangay</button>
                             <div class="dropdown-content">
                                 <a href="#" onclick="selectBarangay('Baclaran')">Baclaran</a>
                                 <a href="#" onclick="selectBarangay('Banay-Banay')">Banay-Banay</a>
