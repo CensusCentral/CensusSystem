@@ -44,25 +44,44 @@
                                     <label for="barangay" class="details">Barangay</label>
                                     <select id="barangay" name="barangay" required>
                                         <option value="" disabled selected>Select Barangay</option>
-                                        <option value="Barangay 1">Barangay 1</option>
-                                        <option value="Barangay 2">Barangay 2</option>
-                                        <option value="Barangay 3">Barangay 3</option>
+                                        <option value="Banay-Banay">Banay-Banay</option>
+                                        <option value="Banlic">Banlic</option>
+                                        <option value="Bigaa">Bigaa</option>
+                                        <option value="Butong">Butong</option>
+                                        <option value="Casile">Casile</option>
+                                        <option value="Diezmo">Diezmo</option>
+                                        <option value="Gulod">Gulod</option>
+                                        <option value="Mamatid">Mamatid</option>
+                                        <option value="Marinig">Marinig</option>
+                                        <option value="Niugan">Niugan</option>
+                                        <option value="Pittland">Pittland</option>
+                                        <option value="Pulo">Pulo</option>
+                                        <option value="Sala">Sala</option>
+                                        <option value="San Isidro">San Isidro</option>
+                                        <option value="Barangay I Poblacion">Barangay I Poblacion</option>
+                                        <option value="Barangay II Poblacion">Barangay II Poblacion</option>
+                                        <option value="Barangay III Poblacion">Barangay III Poblacion</option>   
                                     </select>
                                 </div>
     
                                 <div class="input-field">
                                     <label for="sitioPurok" class="details">Sitio/Purok</label>
-                                    <select id="sitio_purok" name="sitioPurok" >
-                                        <option value="" disabled selected>Select Sitio/Purok</option>
-                                        <option value="1">Sitio 1</option>
-                                        <option value="2">Sitio 2</option>
+                                    <select id="sitioPurok" name="sitioPurok" disabled>
+                                        <option value="" disabled selected>Select Purok</option>
+                                        <option value="Purok 1">Purok 1</option>
+                                        <option value="Purok 2">Purok 2</option>
+                                        <option value="Purok 3">Purok 3</option>
+                                        <option value="Purok 4">Purok 4</option>
+                                        <option value="Purok 5">Purok 5</option>
+                                        <option value="Purok 6">Purok 6</option>
+
                                     </select>
                                 </div>
                     
                                 <!-- Interviewer Name -->
                                 <div class="input-field">
                                     <label>Interviewer Name</label>
-                                    <input type="text" placeholder="Enter Interviewer Name" name="interviewerName"required>
+                                    <input type="text" placeholder="Enter Interviewer Name" name="interviewerName"required minlength="2" maxlength="50">
                                 </div>
                     
                                 <!-- Area Classification -->
@@ -70,8 +89,8 @@
                                     <label for="areaClassification" class="details">Area Classification</label>
                                     <select id="areaClassification" name="areaClassification" required>
                                         <option value="" disabled selected>Select Classification</option>
-                                        <option value="1">Danger Zone</option>
-                                        <option value="2">Waterways</option>
+                                        <option value="Danger Zone">Danger Zone</option>
+                                        <option value="Waterways">Waterways</option>
                                     </select>
                                 </div>
                             </div>
@@ -307,24 +326,9 @@
                                     <select name="indigenousOrNot" id="EthnicityChoice"required>
                                             <option value=""disabled selected>Did you come from an Indigenous Group</option>
                                             <option value="Yes">Yes</option>
-                                            <option value="No"></option>
+                                            <option value="No">No</option>
                                     </select>
                                 </div>
-                                        <!--
-                                                                    
-    
-                                        <div class="input-field">
-                                                                        <label for="ethnicity" class="details">If Non-Indigenous</label>
-                                                                        <select id="ethnicity" name="placeOrigin" required>
-                                                                            <option value="" disabled selected>Select place of origin</option>
-                                                                            <option value="1">Outside LGU but within Metro Manila</option>
-                                                                            <option value="2">Luzon</option>
-                                                                            <option value="3">Visayas</option>
-                                                                            <option value="4">Mindanao</option>
-                                                                        </select>
-                                                                    </div>
-    
-                                        -->
                                
     
                                 <div class="input-field">
@@ -558,19 +562,28 @@
                     <div class="members-container">
 
                             
-                        <textarea id="membersData" name="membersData" style="display:none;"></textarea>
+                        <textarea id="membersData" name="membersData" style="display:block;"></textarea>
 
+                            <div class="buttons">
 
-                            <div class="btnText" id="openModal">
-                                <i class="uil uil-navigator"></i>
-                                <span class="btnText">Add Member</span>
-                            </div> 
+                                <div class="backBtn" id="openModal">
+                                    <i class="uil uil-navigator"></i>
+                                    <span class="btnText">Add Member</span>
+                                </div> 
+    
+                                <button type="submit"  >
+                                    <span class="btnText">Submit</span>
+                                </button>
+    
+                                <div class="backBtn">
+                                    <i class="uil uil-navigator"></i>
+                                    <span class="btnText">Back</span>
+                                </div>  
 
-                            <button type="submit"  >
-                                <span class="btnText">Submit</span>
-                            </button>
+                            </div>
+                            
 
-                            <div class="table-wrapper">
+                            <div id="table-wrapper">
                                 <div id="resultsTableContainer" style="display: none;">
                                     <h2>Household Member Details</h2>
                                     <table id="resultsTable">
@@ -594,18 +607,7 @@
                                 
                             </div>
 
-                           
-
-                            <div class="buttons">
-
-                                <div class="backBtn">
-                                    <i class="uil uil-navigator"></i>
-                                    <span class="btnText">Back</span>
-                                </div>  
-
-                              
-                                         
-                            </div>
+                        
                     </div>
                 </div>
                 
@@ -623,35 +625,35 @@
             <header>INFORMATION OF HOUSEHOLD MEMBERS</header>
             <form id="householdForm">
                 <div class="details member">
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>Last Name</label>
-                        <input type="text" placeholder="Enter Last name" name="memberlastName" required>
+                        <input type="text" placeholder="Enter Last name" name="memberlastName" required >
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>First Name</label>
                         <input type="text" placeholder="Enter First name" name="memberfirstName" required>
                     </div>
 
 
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>Middle Name</label>
                         <input type="text" placeholder="Enter Middle name" name="memberMiddleName">
                     </div>
 
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>Maiden Name</label>
                         <input type="text" placeholder="Enter Maiden name" name="memberMaidenName">
                     </div>
 
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>Date of Birth</label>
                         <input type="date" placeholder="Enter birth date" name="memberDOB" required>
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>Age</label>
                         <input type="number" placeholder="Enter Age" name="memberAge" required>
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label for="sex">Sex</label>
                         <select id="sex" name="memberSex" required>
                             <option value="" disabled selected>Choose Sex</option>
@@ -659,11 +661,11 @@
                             <option value="Female">Female</option>
                         </select>
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>Relation to Household head</label>
                         <input type="text" placeholder="Enter relation" name="memberRelationToHead" required>
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label for="civil" class="details">Civil Status</label>
                         <select id="civil" name="memberCivilStatus" required>
                             <option value="" disabled selected>Select Civil Status</option>
@@ -671,15 +673,15 @@
                             <option value="Married">Married</option>
                         </select>
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>Occupation</label>
                         <input type="text" placeholder="Enter Occupation" name="memberOccupation">
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>Place of Work</label>
                         <input type="text" placeholder="Enter Place of Work" name="memberPlaceOfWork">
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label for="member" class="details">Highest Educational Attainment</label>
                         <select id="member" name="memberEducAttaintment">
                             <option value="" disabled selected>Select Educational Attainment</option>
@@ -689,7 +691,7 @@
                             <option value="College">College</option>
                         </select>
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label for="member" class="details">Member of vulnerable community group</label>
                         <select id="member" name="memberOfCommunityGroup">
                             <option value="" disabled selected>Select Group</option>
@@ -699,23 +701,25 @@
                             <option value="LGBTQI">LGBTQI</option>
                         </select>
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>If a PWD, specify disability</label>
                         <input type="text" placeholder="Enter disability" name="memberAnyDisability">
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>If Member of LGBTQI, Gender Identification</label>
                         <input type="text" placeholder="Enter Identification" name="memberGenderIdentification">
                     </div>
-                    <div class="input-field">
+                    <div class="pop-input-field">
                         <label>Estimated Monthly Income</label>
-                        <input type="text" placeholder="Enter Estimated Income" name="memberEstimatedIncome">
+                        <input type="number" placeholder="Enter Estimated Income" name="memberEstimatedIncome">
                     </div>
                 </div>
-                <div class="buttons">
+
+                <div class="pop-buttons">
                     <button type="button" id="closeModal">Close</button>
                     <button type="submit">Add Member</button>
                 </div>
+
             </form>
         </div>
     </div>

@@ -12,8 +12,7 @@ class SurveyForms extends Model
     protected $table = 'survey_forms'; 
 
     protected $fillable=[
-
-      
+        
         'surveyDate',
         'barangay',
         'sitioPurok',

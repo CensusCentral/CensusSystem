@@ -123,8 +123,8 @@
                                     <div class="dropdown">
                                         <button id="barangay-btn" class="btn" onclick="highlightButton('barangay')">Barangay</button>
                                         <div class="dropdown-content">
-                                            <a href="#" onclick="selectBarangay('Baclaran')">Baclaran</a>
-                                            <a href="#" onclick="selectBarangay('Banay-Banay')">Banay-Banay</a>
+                                            <a href="for" onclick="selectBarangay('Baclaran')">Baclaran</a>
+                                            <a href="{{url('dashboard')}}" onclick="selectBarangay('Banay-Banay')">Banay-Banay</a>
                                             <a href="#" onclick="selectBarangay('Banlic')">Banlic</a>
                                             <a href="#" onclick="selectBarangay('Bigaa')">Bigaa</a>
                                             <a href="#" onclick="selectBarangay('Butong')">Butong</a>
@@ -163,16 +163,17 @@
                                             <label for="selectAll"></label>
                                         </span>
                                     </th>
-                                    <th>#</th>
-                                        <th>Family Head</th>
-                                        <th>Date <i class="fa fa-sort"></i></th>
-                                        <th>Age <i class="fa fa-sort"></i></th>
-                                        <th>Mobile No</th>
-                                        <th>Address</th>
-                                        <th>Action</th>
+                                    <th>ID</th> 
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Middle Name</th>
+                                    <th>Maiden Name</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
+
+                                @foreach($isfheads as $isfhead)
                                 <tr>
                                     <td>
                                         <span class="custom-checkbox">
@@ -180,108 +181,57 @@
                                             <label for="checkbox1"></label>
                                         </span>
                                     </td>
-                                    <td>1</td>
-                                        <td>Thomas Hardy</td>
-                                        <td>01/01/1980</td>
-                                        <td>44</td>
-                                        <td>+123456789</td>
-                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                    <td>{{ $isfhead->id }}</td>
+                                    <td>{{ $isfhead->lastName }}</td>
+                                    <td>{{ $isfhead->firstName }}</td>
+                                    <td>{{ $isfhead->middleName }}</td>
+                                    <td>{{ $isfhead->maidenName }}</td>
+                                       
                                     <td>
                                         <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
                                         <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                         <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                                            <label for="checkbox2"></label>
-                                        </span>
-                                    </td>
-                                    <td>2</td>
-                                        <td>Jedcel Hardy</td>
-                                        <td>01/01/1980</td>
-                                        <td>44</td>
-                                        <td>+123456789</td>
-                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
-                                    <td>
-                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
-                                        <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox3" name="options[]" value="1">
-                                            <label for="checkbox3"></label>
-                                        </span>
-                                    </td>
-                                    <td>3</td>
-                                        <td>Raziel Hardy</td>
-                                        <td>01/01/1980</td>
-                                        <td>44</td>
-                                        <td>+123456789</td>
-                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
-                                    <td>
-                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
-                                        <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox4" name="options[]" value="1">
-                                            <label for="checkbox4"></label>
-                                        </span>
-                                    </td>
-                                    <td>4</td>
-                                        <td>Ellord Hardy</td>
-                                        <td>01/01/1980</td>
-                                        <td>44</td>
-                                        <td>+123456789</td>
-                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
-                                    <td>
-                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
-                                        <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </td>
-                                </tr>					
-                                <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox5" name="options[]" value="1">
-                                            <label for="checkbox5"></label>
-                                        </span>
-                                    </td>
-                                    <td>5</td>
-                                        <td>Joshua Hardy</td>
-                                        <td>01/01/1980</td>
-                                        <td>44</td>
-                                        <td>+123456789</td>
-                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
-                                    <td>
-                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
-                                        <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </td>
-                                </tr> 
+                        
+
+                                
+
+                                @endforeach
                             </tbody>
                         </table>
+
+                        {{-- FOR NAVIGATION OF PAGINATION --}}
                         <div class="clearfix">
-                            <div class="hint-text">Showing <b>5</b> out of <b>10</b> entries</div>
+                            <div class="hint-text">
+                                Showing <b>{{ $isfheads->firstItem() }}</b> to <b>{{ $isfheads->lastItem() }}</b> of <b>{{ $isfheads->total() }}</b> entries
+                            </div>
                             <ul class="pagination">
-                                <li class="page-item disabled"><a href="#">Previous</a></li>
-                                <li class="page-item active" ><a href="#" class="page-link">1</a></li>
-                                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                                <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                                {{-- Previous Page Link --}}
+                                @if ($isfheads->onFirstPage())
+                                    <li class="page-item disabled"><a href="#" class="page-link">Previous</a></li>
+                                @else
+                                    <li class="page-item"><a href="{{ $isfheads->previousPageUrl() }}" class="page-link">Previous</a></li>
+                                @endif
+                        
+                                {{-- Pagination Elements --}}
+                                @foreach ($isfheads->links()->elements[0] as $page => $url)
+                                    @if ($page == $isfheads->currentPage())
+                                        <li class="page-item active"><a href="#" class="page-link">{{ $page }}</a></li>
+                                    @else
+                                        <li class="page-item"><a href="{{ $url }}" class="page-link">{{ $page }}</a></li>
+                                    @endif
+                                @endforeach
+                        
+                                {{-- Next Page Link --}}
+                                @if ($isfheads->hasMorePages())
+                                    <li class="page-item"><a href="{{ $isfheads->nextPageUrl() }}" class="page-link">Next</a></li>
+                                @else
+                                    <li class="page-item disabled"><a href="#" class="page-link">Next</a></li>
+                                @endif
                             </ul>
                         </div>
+                        
                     </div>
                 </div>
                 <!-- Edit Modal HTML -->
@@ -319,6 +269,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <!-- Delete Modal HTML -->
                 <div id="deleteMember" class="modal fade">
                     <div class="modal-dialog">

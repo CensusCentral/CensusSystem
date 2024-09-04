@@ -61,7 +61,6 @@ window.onclick = function(event) {
 
 
 
-// ... (previous code remains the same)
 
 // Form submission
 
@@ -118,7 +117,7 @@ document.querySelector("input[name='memberEstimatedIncome']").value = memberData
     const inputs = document.querySelectorAll("#householdForm input, #householdForm select");
     inputs.forEach(input => input.disabled = true);
 
-    document.querySelector("#householdForm .buttons").style.display = "none";
+    document.querySelector("#householdForm .pop-buttons").style.display = "none";
 
     // Open the modal
     document.getElementById("householdModal").style.display = "block";
@@ -133,26 +132,27 @@ document.querySelector("input[name='memberEstimatedIncome']").value = memberData
 function resetForm() {
     const inputs = document.querySelectorAll("#householdForm input, #householdForm select");
     inputs.forEach(input => input.disabled = false);
+    document.querySelector("#householdForm .pop-buttons").style.display = "block";
     document.getElementById("householdForm").reset(); // Optionally reset the form
 }
 
 // Make sure the close button also resets the form
 document.getElementById("closeModal").onclick = function() {
     document.getElementById("householdModal").style.display = "none";
-    document.querySelector("#householdForm .buttons").style.display = "block";
+    document.querySelector("#householdForm .pop-buttons").style.display = "block";
     resetForm(); // Re-enable fields
 };
 
 span.onclick= function() {
     document.getElementById("householdModal").style.display = "none";
-    document.querySelector("#householdForm .buttons").style.display = "block";
+    document.querySelector("#householdForm .pop-buttons").style.display = "block";
     resetForm(); // Re-enable fields
 };
 
 window.onclick = function(event) {
     if (event.target == document.getElementById("householdModal")) {
         document.getElementById("householdModal").style.display = "none";
-        document.querySelector("#householdForm .buttons").style.display = "block";
+        document.querySelector("#householdForm .pop-buttons").style.display = "block";
         resetForm(); // Re-enable fields
     }
 };
@@ -188,11 +188,10 @@ function collectMemberData() {
 }
 
 
-
-
-
 document.getElementById("householdForm").onsubmit = function(e) {
     e.preventDefault();
+
+  
 
     collectMemberData();
     
@@ -243,13 +242,14 @@ document.getElementById("householdForm").onsubmit = function(e) {
     `;
     
     // Clear the form fields
-    this.reset();
+    resetForm();
     
     // Hide the modal
     modal.style.display = "none";
     
     // Show the results table
     document.getElementById("resultsTableContainer").style.display = "block";
+   
     
     console.log("Form submitted and new table row created");
 }
@@ -269,4 +269,108 @@ document.addEventListener('DOMContentLoaded', function() {
     if (viewMemberData.length > 0) {
         refreshTable();
     }
+
+    const sexField = document.querySelector('select[name="sex"]');
+
 });
+
+
+document.getElementById('householdForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Clear previous errors
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(function(message) {
+        message.remove();
+    });
+
+    // Validate all required fields are filled
+    if (!validateFormFields()) {
+        // If not all required fields are filled, return without submitting
+        return;
+    }
+
+    // If form passes the validateFormFields check, continue with additional specific validations
+    const lastName = document.querySelector('input[name="memberlastName"]');
+    const firstName = document.querySelector('input[name="memberfirstName"]');
+    const dob = document.querySelector('input[name="memberDOB"]');
+    const age = document.querySelector('input[name="memberAge"]');
+    const sex = document.querySelector('select[name="memberSex"]');
+    const relationToHead = document.querySelector('input[name="memberRelationToHead"]');
+    const civilStatus = document.querySelector('select[name="memberCivilStatus"]');
+    
+    let isValid = true;
+
+    // Validation logic
+    if (lastName.value.trim() === '') {
+        isValid = false;
+        displayError(lastName, 'Last Name is required.');
+    }
+
+    if (firstName.value.trim() === '') {
+        isValid = false;
+        displayError(firstName, 'First Name is required.');
+    }
+
+    if (dob.value === '') {
+        isValid = false;
+        displayError(dob, 'Date of Birth is required.');
+    } else {
+        const dobDate = new Date(dob.value);
+        const today = new Date();
+        if (dobDate > today) {
+            isValid = false;
+            displayError(dob, 'Date of Birth cannot be in the future.');
+        }
+    }
+
+    if (age.value.trim() === '' || age.value <= 0) {
+        isValid = false;
+        displayError(age, 'Age is required and must be a positive number.');
+    }
+
+    if (sex.value === '') {
+        isValid = false;
+        displayError(sex, 'Sex is required.');
+    }
+
+    if (relationToHead.value.trim() === '') {
+        isValid = false;
+        displayError(relationToHead, 'Relation to Household Head is required.');
+    }
+
+    if (civilStatus.value === '') {
+        isValid = false;
+        displayError(civilStatus, 'Civil Status is required.');
+    }
+
+    // If the form is valid, submit it
+    if (isValid) {
+        this.submit();
+    }
+});
+
+function validateFormFields() {
+    const fields = document.querySelectorAll('#householdForm input[required], #householdForm select[required]');
+    let allFilled = true;
+
+    fields.forEach(field => {
+        if (!field.value) {
+            allFilled = false;
+            field.style.borderColor = 'red'; // Highlight empty fields
+        } else {
+            field.style.borderColor = ''; // Reset border color if filled
+        }
+    });
+
+    return allFilled;
+}
+
+function displayError(element, message) {
+    const errorMessage = document.createElement('div');
+    errorMessage.classList.add('error-message');
+    errorMessage.style.color = 'red';
+    errorMessage.innerText = message;
+    element.parentNode.appendChild(errorMessage);
+}
+

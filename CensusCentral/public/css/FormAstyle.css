@@ -198,6 +198,12 @@ form .fields .input-field {
     cursor: pointer;
 }
 
+
+
+
+
+
+
 .container form button,
 .container form .backBtn {
     font-size: 14px;
@@ -266,6 +272,8 @@ form .buttons button , .backBtn {
 
 /* THIS CSS IS FOR THE MODALS */
 
+/* MODAL STYLING */
+
 .modal {
     display: none;
     position: fixed;
@@ -277,13 +285,14 @@ form .buttons button , .backBtn {
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
 }
+
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: 3% auto; /* Adjusted to reduce top margin for better fit */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
+    width: 90%; /* Increased the width of the modal */
+    max-width: 900px; /* Increased max width */
 }
 
 .close {
@@ -292,23 +301,83 @@ form .buttons button , .backBtn {
     font-size: 28px;
     font-weight: bold;
 }
-.close:hover,
 
+.close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
+/* FORM SECTION MEMBER */
 
 .form-section-member {
     margin-bottom: 20px;
 }
+
 .form-section-member header {
-    font-size: 18px;
+    font-size: 20px; /* Slightly larger font size */
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+/* FLEXBOX STYLING FOR INPUT FIELDS */
+
+.details.member {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between the input fields */
+}
+
+.pop-input-field {
+    flex: 1 1 calc(50% - 20px); /* Each field takes up roughly 50% width minus the gap */
+    min-width: 300px; /* Ensures that fields don’t shrink too much */
+}
+
+.pop-input-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.pop-input-field input,
+.pop-input-field select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* BUTTONS */
+
+.pop-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pop-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50; /* Example button color */
+    color: white;
+    cursor: pointer;
+}
+
+.pop-buttons button#closeModal {
+    background-color: #f44336; /* Different color for the close button */
+}
+
+.pop-buttons button:hover {
+    opacity: 0.9;
+}
+
+
+
+/* THIS IS FOR THE TABLE DESIGN */
 
 #resultsTableContainer {
     margin-top: 20px;
@@ -350,7 +419,7 @@ form .buttons button , .backBtn {
     background-color: #45a049;
 }
 
-.table-wrapper {
+#table-wrapper {
     overflow-x: auto; /* Enable horizontal scrolling */
     width: 100%; /* Make sure it takes up the full width of the container */
 }

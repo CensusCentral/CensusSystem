@@ -11,18 +11,29 @@ use App\Models\householdCondition;
 
 class IsfController extends Controller
 {
+    public function index()
+    {
+        // Fetch all Isfhead records
+        $isfheads = Isfhead::paginate(5);
+        // Return the records to the view
+        return view('barangay.barangay', ['isfheads' => $isfheads]);
+    }
+    
 
-   
+
+    // FUNCTION TO PARA SA CENSUSFORM
     public function store(Request $request)
 {
     // Decode JSON membersData and merge it back into the request
-    $membersData = json_decode($request->input('membersData'), true);
-    $request->merge(['membersData' => $membersData]);
+    // $membersData = json_decode($request->input('membersData'), true);
+    // $request->merge(['membersData' => $membersData]);
    
     $validatedData = $request->validate([
+
         'surveyDate' => 'required|date',
         'barangay' => 'required|string|max:255',
-        'sitioPurok' => 'nullable|string|max:255',
+
+         'sitioPurok' => 'nullable|string|max:255',
         'interviewerName' => 'required|string|max:255',
         'areaClassification' => 'required|string|max:255',
 
@@ -103,6 +114,10 @@ class IsfController extends Controller
         'membersData.*.memberEstimatedIncome' => 'nullable|numeric',
             ]);
 
+        //    dd($validatedData);
+
+           
+
     DB::beginTransaction();
 
     try {
@@ -111,7 +126,7 @@ class IsfController extends Controller
         $surveyForm = SurveyForms::create([
             'surveyDate' => $validatedData['surveyDate'],
             'barangay' => $validatedData['barangay'],
-            'sitioPurok' => $validatedData['sitioPurok'],
+            'sitioPurok' => $validatedData['sitioPurok']?? null,
             'interviewerName' => $validatedData['interviewerName'],
             'areaClassification' => $validatedData['areaClassification'],
         ]);
@@ -201,8 +216,9 @@ class IsfController extends Controller
         
 
         DB::commit();
-        return response()->json(['message' => 'Data Insertion Successful' ], 200);
 
+        return response()->json(['message' => 'Data Insertion Successful' ], 200);
+        dd($validatedData);
     } catch (\Exception $e) {
         DB::rollBack();
         Log::error('Error saving data: ' . $e->getMessage());
