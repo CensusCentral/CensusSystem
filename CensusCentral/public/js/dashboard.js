@@ -8,7 +8,7 @@ new Chart(ctx, {
             'Pulo', 'Sala', 'San Isidro', 'Brgy. I', 'Brgy. II', 'Brgy. III'
         ],
         datasets: [{
-            label: '# of Informal Settler Families',
+            label: '# of Population',
             data: [
                 0, 1, 10, 20, 30, 40, 50, 
                 60, 70, 80, 90, 100, 110,

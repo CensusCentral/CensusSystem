@@ -236,7 +236,7 @@
 
                         <div class="charts">
                                 <div class="chart">
-                                    <h2>Population</h2>
+                                    <h2>Informal Settlers Families</h2>
                                     <canvas id="populationChart" ></canvas>
                                 </div>
                         </div>

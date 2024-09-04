@@ -147,7 +147,7 @@
                                     <ul class="dropdown-menu">
                                         <li>
                                             <span class="dropdown-item">
-                                                <i class="fas fa-pen mx-2"></i> Update
+                                                <i class="fas fa-eye mx-2"></i> View
                                             </span>
                                         </li>
                                         <li>
@@ -163,13 +163,13 @@
 
                         <div class="chart">
                             <div class="head">
-                                <h2>Population</h2>
+                                <h2>Person with Disabilities</h2>
                                 <div class="dropdown">
                                     <i class="fas fa-ellipsis-vertical dropdown-icon"></i>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <span class="dropdown-item">
-                                                <i class="fas fa-pen mx-2"></i> Update
+                                                <i class="fas fa-eye mx-2"></i> View
                                             </span>
                                         </li>
                                         <li>
@@ -180,18 +180,18 @@
                                     </ul>
                                 </div>
                             </div> 
-                            <canvas id="beneficiariesChart"></canvas>
+                            <canvas id="pwdChart"></canvas>
                         </div>
 
                         <div class="chart">
                             <div class="head">
-                                <h2>Population</h2>
+                                <h2>4P's Beneficiaries</h2>
                                 <div class="dropdown">
                                     <i class="fas fa-ellipsis-vertical dropdown-icon"></i>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <span class="dropdown-item">
-                                                <i class="fas fa-pen mx-2"></i> Update
+                                                <i class="fas fa-eye mx-2"></i> View
                                             </span>
                                         </li>
                                         <li>
@@ -202,18 +202,18 @@
                                     </ul>
                                 </div>
                             </div>
-                            <canvas id="pwdChart"></canvas>
+                            <canvas id="beneficiariesChart"></canvas>
                         </div>
 
                         <div class="chart">
                             <div class="head">
-                                <h2>Population</h2>
+                                <h2>Senior Citizens</h2>
                                 <div class="dropdown">
                                     <i class="fas fa-ellipsis-vertical dropdown-icon"></i>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <span class="dropdown-item">
-                                                <i class="fas fa-pen mx-2"></i> Update
+                                                <i class="fas fa-eye mx-2"></i> View
                                             </span>
                                         </li>
                                         <li>
@@ -225,6 +225,28 @@
                                 </div>
                             </div>
                             <canvas id="seniorChart"></canvas>
+                        </div>
+
+                        <div class="chart">
+                            <div class="head">
+                                <h2>Informal Settlers Families</h2>
+                                <div class="dropdown">
+                                    <i class="fas fa-ellipsis-vertical dropdown-icon"></i>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-eye mx-2"></i> View
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="dropdown-item">
+                                                <i class="fas fa-trash mx-2"></i> Delete
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <canvas id="ISFChart"></canvas>
                         </div>
                     </div>
                 </div>   

@@ -121,9 +121,9 @@ document.addEventListener('DOMContentLoaded', autoFillAge);
     });
 
     // Adjust container height when a member is added
-    container.addEventListener('DOMNodeInserted', function() {
-        adjustContainerHeight();
-    });
+    // container.addEventListener('DOMNodeInserted', function() {
+    //     adjustContainerHeight();
+    // });
 
     // Initial visibility update
     updateFormVisibility();

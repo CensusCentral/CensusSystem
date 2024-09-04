@@ -3,9 +3,9 @@ const ctx1 = document.getElementById('populationChart');
 new Chart(ctx1, {
   type: 'bar',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
     datasets: [{
-      label: '# of Votes',
+      label: '# of Informal Settlers Families',
       data: [12, 19, 3, 5, 2, 3],
       borderWidth: 1
     }]
