@@ -193,78 +193,7 @@
                                         <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                                            <label for="checkbox2"></label>
-                                        </span>
-                                    </td>
-                                    <td>2</td>
-                                        <td>Jedcel Hardy</td>
-                                        <td>01/01/1980</td>
-                                        <td>44</td>
-                                        <td>+123456789</td>
-                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
-                                    <td>
-                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
-                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox3" name="options[]" value="1">
-                                            <label for="checkbox3"></label>
-                                        </span>
-                                    </td>
-                                    <td>3</td>
-                                        <td>Raziel Hardy</td>
-                                        <td>01/01/1980</td>
-                                        <td>44</td>
-                                        <td>+123456789</td>
-                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
-                                    <td>
-                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
-                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox4" name="options[]" value="1">
-                                            <label for="checkbox4"></label>
-                                        </span>
-                                    </td>
-                                    <td>4</td>
-                                        <td>Ellord Hardy</td>
-                                        <td>01/01/1980</td>
-                                        <td>44</td>
-                                        <td>+123456789</td>
-                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
-                                    <td>
-                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
-                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </td>
-                                </tr>					
-                                <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox5" name="options[]" value="1">
-                                            <label for="checkbox5"></label>
-                                        </span>
-                                    </td>
-                                    <td>5</td>
-                                        <td>Joshua Hardy</td>
-                                        <td>01/01/1980</td>
-                                        <td>44</td>
-                                        <td>+123456789</td>
-                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
-                                    <td>
-                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
-                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </td>
-                                </tr> 
+                                @endforeach
                             </tbody>
                         </table>
 
