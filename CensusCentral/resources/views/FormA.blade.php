@@ -25,7 +25,7 @@
                             <span class="title">Household Head</span>
     
     
-                        <!---asdasdasdasd-->
+                         <!---asdasdasdasd-->
                             <div class="fields">
                                 <!-- Survey Number (Survey ID) Display -->
                                 <div class="input-field">
@@ -100,9 +100,7 @@
                                 <button type="button" id="nextBtn" class="nextBtn">
                                     <span class="btnText">Next</span>
                                     <i class="uil uil-navigator"></i>
-                                </button>
-    
-                               
+                                </button>   
                             </div>
                         </div>
                     </div>

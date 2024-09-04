@@ -244,6 +244,114 @@ main {
 }
 
 /* CONTENT HERE */
+.viewInformation {
+    display: none; /* Hide by default */
+}
+
+/* .viewInformation{
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 3px;
+    min-width: 1000px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+} */
+
+.tblHouseMembers{
+    margin: 5px 0;
+    width: 100%;
+    overflow: auto;
+}
+
+.table-wrapperMembers{
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 3px;
+    min-width: 900px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.householdInfo{
+    margin-top: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.viewInformation .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.householdInfo .fields .input-field{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+.input-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #2e2e2e;
+}
+
+.input-field input {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.viewInformation .buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin: 10px;
+}
+
+.viewInformation .householdInfo button, .backBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #0093CB;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.viewInformation .householdInfo button, .editBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #0093CB;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
 .table-responsive {
   margin: 5px 0;
   width: 100%;

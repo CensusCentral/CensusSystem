@@ -111,42 +111,43 @@
                 <h1>Members</h1>
                 <small>Home / Members</small>
             </div>
-            
+            <!-- Content here -->
             <div class="page-content">
-                <!-- Content here -->
+                
                 <div class="table-responsive">
                     <div class="table-wrapper">
                         <div class="table-title">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <h2>Barangay <b>Uno</b></h2>
-                                    <div class="dropdown">
-                                        <button id="barangay-btn" class="btn" onclick="highlightButton('barangay')">Barangay</button>
-                                        <div class="dropdown-content">
-                                            <a href="for" onclick="selectBarangay('Baclaran')">Baclaran</a>
-                                            <a href="{{url('dashboard')}}" onclick="selectBarangay('Banay-Banay')">Banay-Banay</a>
-                                            <a href="#" onclick="selectBarangay('Banlic')">Banlic</a>
-                                            <a href="#" onclick="selectBarangay('Bigaa')">Bigaa</a>
-                                            <a href="#" onclick="selectBarangay('Butong')">Butong</a>
-                                            <a href="#" onclick="selectBarangay('Casile')">Casile</a>
-                                            <a href="#" onclick="selectBarangay('Diezmo')">Diezmo</a>
-                                            <a href="#" onclick="selectBarangay('Gulod')">Gulod</a>
-                                            <a href="#" onclick="selectBarangay('Mamatid')">Mamatid</a>
-                                            <a href="#" onclick="selectBarangay('Marinig')">Marinig</a>
-                                            <a href="#" onclick="selectBarangay('Niugan')">Niugan</a>
-                                            <a href="#" onclick="selectBarangay('Pittland')">Pittland</a>
-                                            <a href="#" onclick="selectBarangay('Pulo')">Pulo</a>
-                                            <a href="#" onclick="selectBarangay('Sala')">Sala</a>
-                                            <a href="#" onclick="selectBarangay('San Isidro')">San Isidro</a>
-                                            <a href="#" onclick="selectBarangay('Barangay I Poblacion')">Barangay I Poblacion</a>
-                                            <a href="#" onclick="selectBarangay('Barangay II Poblacion')">Barangay II Poblacion</a>
-                                            <a href="#" onclick="selectBarangay('Barangay III Poblacion')">Barangay III Poblacion</a>   
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="col-sm-6">
                                         <div class="search-box">
-                                            <div class="input-group">								
+                                            <div class="input-group">
+                                                <div class="dropdown">
+                                                    <button id="barangay-btn" class="btn" onclick="highlightButton('barangay')">Barangay</button>
+                                                    <div class="dropdown-content">
+                                                        <a href="#" onclick="selectBarangay('Baclaran')">Baclaran</a>
+                                                        <a href="#" onclick="selectBarangay('Banay-Banay')">Banay-Banay</a>
+                                                        <a href="#" onclick="selectBarangay('Banlic')">Banlic</a>
+                                                        <a href="#" onclick="selectBarangay('Bigaa')">Bigaa</a>
+                                                        <a href="#" onclick="selectBarangay('Butong')">Butong</a>
+                                                        <a href="#" onclick="selectBarangay('Casile')">Casile</a>
+                                                        <a href="#" onclick="selectBarangay('Diezmo')">Diezmo</a>
+                                                        <a href="#" onclick="selectBarangay('Gulod')">Gulod</a>
+                                                        <a href="#" onclick="selectBarangay('Mamatid')">Mamatid</a>
+                                                        <a href="#" onclick="selectBarangay('Marinig')">Marinig</a>
+                                                        <a href="#" onclick="selectBarangay('Niugan')">Niugan</a>
+                                                        <a href="#" onclick="selectBarangay('Pittland')">Pittland</a>
+                                                        <a href="#" onclick="selectBarangay('Pulo')">Pulo</a>
+                                                        <a href="#" onclick="selectBarangay('Sala')">Sala</a>
+                                                        <a href="#" onclick="selectBarangay('San Isidro')">San Isidro</a>
+                                                        <a href="#" onclick="selectBarangay('Barangay I Poblacion')">Barangay I Poblacion</a>
+                                                        <a href="#" onclick="selectBarangay('Barangay II Poblacion')">Barangay II Poblacion</a>
+                                                        <a href="#" onclick="selectBarangay('Barangay III Poblacion')">Barangay III Poblacion</a>   
+                                                    </div>
+                                                </div>								
                                                 <input type="text" id="search" class="form-control" placeholder="Search by Name">
                                                 <a href="" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Member</span></a>
                                             </div>
@@ -189,15 +190,81 @@
                                        
                                     <td>
                                         <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
-                                        <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                         <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>
                                 </tr>
-                        
-
-                                
-
-                                @endforeach
+                                <tr>
+                                    <td>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="checkbox2" name="options[]" value="1">
+                                            <label for="checkbox2"></label>
+                                        </span>
+                                    </td>
+                                    <td>2</td>
+                                        <td>Jedcel Hardy</td>
+                                        <td>01/01/1980</td>
+                                        <td>44</td>
+                                        <td>+123456789</td>
+                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                    <td>
+                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
+                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="checkbox3" name="options[]" value="1">
+                                            <label for="checkbox3"></label>
+                                        </span>
+                                    </td>
+                                    <td>3</td>
+                                        <td>Raziel Hardy</td>
+                                        <td>01/01/1980</td>
+                                        <td>44</td>
+                                        <td>+123456789</td>
+                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                    <td>
+                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
+                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="checkbox4" name="options[]" value="1">
+                                            <label for="checkbox4"></label>
+                                        </span>
+                                    </td>
+                                    <td>4</td>
+                                        <td>Ellord Hardy</td>
+                                        <td>01/01/1980</td>
+                                        <td>44</td>
+                                        <td>+123456789</td>
+                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                    <td>
+                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
+                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    </td>
+                                </tr>					
+                                <tr>
+                                    <td>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="checkbox5" name="options[]" value="1">
+                                            <label for="checkbox5"></label>
+                                        </span>
+                                    </td>
+                                    <td>5</td>
+                                        <td>Joshua Hardy</td>
+                                        <td>01/01/1980</td>
+                                        <td>44</td>
+                                        <td>+123456789</td>
+                                        <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                    <td>
+                                        <a href=" " class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
+                                        <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    </td>
+                                </tr> 
                             </tbody>
                         </table>
 
@@ -231,9 +298,187 @@
                                 @endif
                             </ul>
                         </div>
-                        
                     </div>
                 </div>
+                <!-- View Information -->
+                <div id="viewInfo" class="viewInformation">
+                    <div class="viewInfoWrapper">
+                        <div class="houseHeadInfo">
+                            <div class="details">
+                                <div class="header">
+                                    <div class="buttons">
+                                        <button type="button" id="back" class="backBtn">
+                                            <span class="btnText">Back</span>
+                                        </button>
+                                        <a href="#editHousehold" data-toggle="modal"><button type="button" id="edit" class="editBtn">
+                                            <span class="btnText">Edit</span>
+                                            <i class="material-icons">&#xE254;</i>
+                                        </button></a>  
+                                    </div>
+                                    <span class="title">Infomation of the Household Head</span>
+                                </div>
+                                    
+                                <div class="fields">
+                                        
+                                    <div class="input-field">
+                                        <label>Last Name</label>
+                                        <input type="text" name="lastName"required>
+                                    </div>
+                            
+                                    <div class="input-field">
+                                        <label>First Name</label>
+                                        <input type="text" name="firstName"required>
+                                    </div>
+                            
+                                    <div class="input-field">
+                                        <label>Middle Name</label>
+                                        <input type="text" name="middleName"required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label>Age</label>
+                                        <input type="number" name="age"required>
+                                    </div>
+            
+                                    <div class="input-field">
+                                        <label>Address</label>
+                                        <input type="text" name="address"required>
+                                    </div>
+                            
+                                    <div class="input-field">
+                                        <label>Occupation</label>
+                                        <input type="text" name="occupation"required>
+                                    </div>
+                            
+                                    <div class="input-field">
+                                        <label>Classification of Surveyed Household</label>
+                                        <input type="text" name="classificationHousehold"required>
+                                    </div>
+                                </div>
+                                    
+                            </div>
+
+                        </div>
+                        <div class="tblHouseMembers">
+                            <div class="table-wrapperMembers">
+                                <div class="table-title">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span class="title">Infomation of the Household Members</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <span class="custom-checkbox">
+                                                    <input type="checkbox" id="selectAll">
+                                                    <label for="selectAll"></label>
+                                                </span>
+                                            </th>
+                                                <th>Name of Household Member</th>
+                                                <th>Relation to Household Head <i class="fa fa-sort"></i></th>
+                                                <th>Age <i class="fa fa-sort"></i></th>
+                                                <th>Gender</th>
+                                                <th>Civil Status</th>
+                                                <th>Educational Attainment</th>
+                                                <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="custom-checkbox">
+                                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                                    <label for="checkbox1"></label>
+                                                </span>
+                                            </td>
+                                                <td>Thomas Hardy</td>
+                                                <td>01/01/1980</td>
+                                                <td>44</td>
+                                                <td>+123456789</td>
+                                                <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                                <td>College</td>
+                                            <td>
+                                                <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="custom-checkbox">
+                                                    <input type="checkbox" id="checkbox2" name="options[]" value="1">
+                                                    <label for="checkbox2"></label>
+                                                </span>
+                                            </td>
+                                                <td>Jedcel Hardy</td>
+                                                <td>01/01/1980</td>
+                                                <td>44</td>
+                                                <td>+123456789</td>
+                                                <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                                <td>College</td>
+                                            <td>
+                                                <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="custom-checkbox">
+                                                    <input type="checkbox" id="checkbox3" name="options[]" value="1">
+                                                    <label for="checkbox3"></label>
+                                                </span>
+                                            </td>
+                                                <td>Raziel Hardy</td>
+                                                <td>01/01/1980</td>
+                                                <td>44</td>
+                                                <td>+123456789</td>
+                                                <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                                <td>College</td>
+                                            <td>
+                                                <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="custom-checkbox">
+                                                    <input type="checkbox" id="checkbox4" name="options[]" value="1">
+                                                    <label for="checkbox4"></label>
+                                                </span>
+                                            </td>
+                                                <td>Ellord Hardy</td>
+                                                <td>01/01/1980</td>
+                                                <td>44</td>
+                                                <td>+123456789</td>
+                                                <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                                <td>College</td>
+                                            <td>
+                                                <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                            </td>
+                                        </tr>					
+                                        <tr>
+                                            <td>
+                                                <span class="custom-checkbox">
+                                                    <input type="checkbox" id="checkbox5" name="options[]" value="1">
+                                                    <label for="checkbox5"></label>
+                                                </span>
+                                            </td>
+                                                <td>Joshua Hardy</td>
+                                                <td>01/01/1980</td>
+                                                <td>44</td>
+                                                <td>+123456789</td>
+                                                <td>89 Chiaroscuro Rd., Portland, 97219, USA</td>
+                                                <td>College</td>
+                                            <td>
+                                                <a href="#editMember" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                            </td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Edit Modal HTML -->
                 <div id="editMember" class="modal fade">
                     <div class="modal-dialog">
@@ -245,11 +490,75 @@
                                 </div>
                                 <div class="modal-body">					
                                     <div class="form-group">
-                                        <label>Name</label>
+                                        <label>Last Name</label>
                                         <input type="text" class="form-control" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Email</label>
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Middle Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Relation to Household Head</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Age</label>
+                                        <input type="number" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <select id="gender" name="gender" required>
+                                            <option value="" disabled selected>Select Gender</option>
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Civil Status</label>
+                                        <select id="civilStatus" name="civilStatus" required>
+                                            <option value="" disabled selected>Select Status</option>
+                                            <option value="1">Single</option>
+                                            <option value="2">Married</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="member" class="details">Highest Educational Attainment</label>
+                                        <select id="member" name="memberEducAttaintment">
+                                            <option value="" disabled selected>Select Educational Attainment</option>
+                                            <option value="Elementary">Elementary</option>
+                                            <option value="Highschool">Highschool</option>
+                                            <option value="Undergrad">Undergrad</option>
+                                            <option value="College">College</option>
+                                        </select>
+                                    </div>						
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                    <input type="submit" class="btn btn-info" value="Save">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="editHousehold" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form>
+                                <div class="modal-header">						
+                                    <h4 class="modal-title">Edit Household Head</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                </div>
+                                <div class="modal-body">					
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>First Name</label>
                                         <input type="email" class="form-control" required>
                                     </div>
                                     <div class="form-group">
@@ -257,7 +566,23 @@
                                         <textarea class="form-control" required></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone</label>
+                                        <label>Middle Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Age</label>
+                                        <input type="number" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Occupation</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Classification of Surveyed Household</label>
                                         <input type="text" class="form-control" required>
                                     </div>					
                                 </div>
@@ -293,7 +618,6 @@
                     </div>
                 </div>
 
-            
             </div>
             
         </main>

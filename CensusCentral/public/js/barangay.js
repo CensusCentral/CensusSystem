@@ -39,4 +39,21 @@
         });
     });
 
-	
+	// switch panel 
+	$(document).ready(function() {
+		// When the view icon is clicked
+		$('.view').click(function() {
+			$('.table-responsive').hide();
+			$('.viewInformation').show();
+		});
+	  
+		// When the back button is clicked
+		$('#back').click(function() {
+			$('.table-responsive').show();
+			$('.viewInformation').hide();
+		});
+	  });
+
+	  
+	  
+	  
