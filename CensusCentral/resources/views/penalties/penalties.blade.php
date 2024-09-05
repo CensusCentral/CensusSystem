@@ -118,12 +118,6 @@
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="selectAll">
-                                            <label for="selectAll"></label>
-                                        </span>
-                                    </th>
                                         <th>Barangay</th>
                                         <th>Status</th>
                                         <th>Date</th>
@@ -133,12 +127,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                            <label for="checkbox1"></label>
-                                        </span>
-                                    </td>
                                         <td>Thomas Hardy</td>
                                         <td>Settled</td>
                                         <td>01/01/1980</td>
@@ -149,12 +137,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                                            <label for="checkbox2"></label>
-                                        </span>
-                                    </td>
                                         <td>Thomas Hardy</td>
                                         <td>Settled</td>
                                         <td>01/01/1980</td>
@@ -165,12 +147,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox3" name="options[]" value="1">
-                                            <label for="checkbox3"></label>
-                                        </span>
-                                    </td>
                                         <td>Thomas Hardy</td>
                                         <td>Settled</td>
                                         <td>01/01/1980</td>
@@ -181,12 +157,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox4" name="options[]" value="1">
-                                            <label for="checkbox4"></label>
-                                        </span>
-                                    </td>
                                         <td>Thomas Hardy</td>
                                         <td>Settled</td>
                                         <td>01/01/1980</td>
@@ -197,12 +167,6 @@
                                     </td>
                                 </tr>					
                                 <tr>
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox5" name="options[]" value="1">
-                                            <label for="checkbox5"></label>
-                                        </span>
-                                    </td>
                                         <td>Thomas Hardy</td>
                                         <td>Settled</td>
                                         <td>01/01/1980</td>
@@ -214,18 +178,6 @@
                                 </tr> 
                             </tbody>
                         </table>
-                        <div class="clearfix">
-                            <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                            <ul class="pagination">
-                                <li class="page-item disabled"><a href="#">Previous</a></li>
-                                <li class="page-item"><a href="#" class="page-link">1</a></li>
-                                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                                <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 
@@ -233,58 +185,59 @@
                     <div class="buttons">
                         <button id="backBtn" class="btn">Back</button>
                         <button id="generateNoticeBtn" class="btn" >Generate Notice</button>
-
-                        <div class="charts">
+                    </div>
+                    <div class="charts">
                                 <div class="chart">
                                     <h2>Informal Settlers Families</h2>
                                     <canvas id="populationChart" ></canvas>
                                 </div>
-                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Edit Modal HTML -->
-            <div id="editEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
+                    <!-- Edit Modal HTML -->
+            <div id="editEmployeeModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form>
-                            <div class="modal-header">						
-                                <h4 class="modal-title">Edit Offense</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editEmployeeModalLabel">Edit Offense</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div class="modal-body">					
+                            <div class="modal-body">
                                 <div class="form-group">
-                                    <label>Barangay</label>
-                                    <input type="text" class="form-control" required>
+                                    <label for="barangay">Barangay</label>
+                                    <input type="text" class="form-control" id="barangay" name="barangay" required readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label>Status</label>
-                                    <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="mercedes">Mercedes</option>
-                                        <option value="audi">Audi</option>
+                                    <label for="status">Status</label>
+                                    <select class="form-control" id="status" name="status" required>
+                                        <option value="" disabled selected>Select Status</option>
+                                        <option value="settled">Settled</option>
+                                        <option value="unsettled">Unsettled</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Offense</label>
-                                    <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="mercedes">Mercedes</option>
-                                        <option value="audi">Audi</option>
+                                    <label for="offense">Offense</label>
+                                    <select class="form-control" id="offense" name="offense" required>
+                                        <option value="" disabled selected>Select Offense</option>
+                                        <option value="1">1st Offense</option>
+                                        <option value="2">2nd Offense</option>
+                                        <option value="3">3rd Offense</option>
                                     </select>
-                                </div>				
+                                </div>
                             </div>
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                <input type="submit" class="btn btn-info" value="Save">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
 
             
                 

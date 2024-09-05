@@ -243,17 +243,35 @@ main {
     padding: 1.3rem 1rem;
     background: #f1f4f9;
 }
-/* Content here */
 .contentPenaltiesView {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 20px;
+    display: none; /* Hide by default */
 }
+
+
 .buttons {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    justify-content: space-between; /* Positions buttons at the edges */
+    width: 100%; /* Full width to accommodate the button spacing */
+    margin-bottom: 20px; /* Space below the buttons */
+}
+
+.buttons .btn {
+    background-color: #007bff; /* Blue background */
+    color: #ffffff; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Add padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.buttons .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 .btn {
@@ -266,27 +284,37 @@ main {
     transition: background-color 0.3s;
 }
 
-.contentPenaltiesView {
-    display: none; /* Hide by default */
-}
-.charts{
-    display:grid;
-    grid-template-columns: 2fr 2fr;
-    grid-gap: 20px;
-    width: 100%;
+.charts {
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Arrange children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    width: 100%; /* Full width to utilize available space */
     padding: 20px;
     padding-top: 0;
     color: #000000;
-  }
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
   
-  .chart {
+.chart {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 20px;
+    padding: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    margin-bottom: 20px;
+    width: 100%; /* Full width of its container */
+    max-width: 1000px; /* Optional: Set a max-width if needed */
+    height: 500px; /* Set a fixed height or adjust as needed */
+    display: flex; /* Use flexbox for content alignment */
+    flex-direction: column; /* Align content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.chart canvas {
+    width: 100% !important; /* Ensure canvas fills the container width */
+    height: 100% !important; /* Ensure canvas fills the container height */
 }
 
 .chart h2 {
@@ -348,6 +376,9 @@ main {
   padding: 12px 15px;
   vertical-align: middle;
   }
+  table.table th, table.table td {
+    width: 1%; /* Ensure columns expand equally */
+}
   table.table tr th:first-child {
   width: 60px;
   }
@@ -386,6 +417,8 @@ main {
   table.table td a.delete {
   color: #F44336;
   }
+
+  
   table.table td i {
   font-size: 19px;
   }
@@ -394,38 +427,7 @@ main {
   vertical-align: middle;
   margin-right: 10px;
   }
-  .pagination {
-  float: right;
-  margin: 0 0 5px;
-  }
-  .pagination li a {
-  border: none;
-  font-size: 13px;
-  min-width: 30px;
-  min-height: 30px;
-  color: #999;
-  margin: 0 2px;
-  line-height: 30px;
-  border-radius: 2px !important;
-  text-align: center;
-  padding: 0 6px;
-  }
-  .pagination li a:hover {
-  color: #666;
-  }	
-  .pagination li.active a, .pagination li.active a.page-link {
-  background: #03A9F4;
-  }
-  .pagination li.active a:hover {        
-  background: #0397d6;
-  }
-  .pagination li.disabled i {
-  color: #ccc;
-  }
-  .pagination li i {
-  font-size: 16px;
-  padding-top: 6px
-  }
+
   .hint-text {
   float: left;
   margin-top: 10px;
