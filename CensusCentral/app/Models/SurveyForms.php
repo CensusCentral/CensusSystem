@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Isfhead; 
+
 
 class SurveyForms extends Model
 {
@@ -18,8 +20,12 @@ class SurveyForms extends Model
         'sitioPurok',
         'interviewerName',
         'areaClassification'
-        
-
+    
 
     ];
+
+    public function isfhead()
+    {
+        return $this->hasOne(Isfhead::class, 'surveyId', 'surveyId');
+    }
 }

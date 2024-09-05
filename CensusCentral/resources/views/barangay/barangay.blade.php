@@ -120,41 +120,51 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <h2>Barangay <b>Uno</b></h2>
+
+                                    <div class="search-box">
+                                        <input type="text" id="search" class="form-control" placeholder="Search by Name">
+                                        <a href="" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Member</span></a>
+                                    </div>
+
+
+                                    <div class="input-group">
+                                        <form id="barangay-form" method="GET" action="{{ route('barangay.index') }}">
+                                            <input type="hidden" name="barangay" id="selected-barangay" value="{{ $selectedBarangay }}">
+                                            <div class="dropdown">
+                                                <button id="barangay-btn" class="btn" type="button">Barangay</button>
+                                                <div class="dropdown-content">
+                                                    <a href="#" onclick="selectBarangay('Baclaran')">Baclaran</a>
+                                                    <a href="#" onclick="selectBarangay('Banay-Banay')">Banay-Banay</a>
+                                                    <a href="#" onclick="selectBarangay('Banlic')">Banlic</a>
+                                                    <a href="#" onclick="selectBarangay('Bigaa')">Bigaa</a>
+                                                    <a href="#" onclick="selectBarangay('Butong')">Butong</a>
+                                                    <a href="#" onclick="selectBarangay('Casile')">Casile</a>
+                                                    <a href="#" onclick="selectBarangay('Diezmo')">Diezmo</a>
+                                                    <a href="#" onclick="selectBarangay('Gulod')">Gulod</a>
+                                                    <a href="#" onclick="selectBarangay('Mamatid')">Mamatid</a>
+                                                    <a href="#" onclick="selectBarangay('Marinig')">Marinig</a>
+                                                    <a href="#" onclick="selectBarangay('Niugan')">Niugan</a>
+                                                    <a href="#" onclick="selectBarangay('Pittland')">Pittland</a>
+                                                    <a href="#" onclick="selectBarangay('Pulo')">Pulo</a>
+                                                    <a href="#" onclick="selectBarangay('Sala')">Sala</a>
+                                                    <a href="#" onclick="selectBarangay('San Isidro')">San Isidro</a>
+                                                    <a href="#" onclick="selectBarangay('Barangay I Poblacion')">Barangay I Poblacion</a>
+                                                    <a href="#" onclick="selectBarangay('Barangay II Poblacion')">Barangay II Poblacion</a>
+                                                    <a href="#" onclick="selectBarangay('Barangay III Poblacion')">Barangay III Poblacion</a>   
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+
                                     
                                 </div>
-                                <div class="col-sm-6">
-                                        <div class="search-box">
-                                            <div class="input-group">
-                                                <div class="dropdown">
-                                                    <button id="barangay-btn" class="btn" onclick="highlightButton('barangay')">Barangay</button>
-                                                    <div class="dropdown-content">
-                                                        <a href="#" onclick="selectBarangay('Baclaran')">Baclaran</a>
-                                                        <a href="#" onclick="selectBarangay('Banay-Banay')">Banay-Banay</a>
-                                                        <a href="#" onclick="selectBarangay('Banlic')">Banlic</a>
-                                                        <a href="#" onclick="selectBarangay('Bigaa')">Bigaa</a>
-                                                        <a href="#" onclick="selectBarangay('Butong')">Butong</a>
-                                                        <a href="#" onclick="selectBarangay('Casile')">Casile</a>
-                                                        <a href="#" onclick="selectBarangay('Diezmo')">Diezmo</a>
-                                                        <a href="#" onclick="selectBarangay('Gulod')">Gulod</a>
-                                                        <a href="#" onclick="selectBarangay('Mamatid')">Mamatid</a>
-                                                        <a href="#" onclick="selectBarangay('Marinig')">Marinig</a>
-                                                        <a href="#" onclick="selectBarangay('Niugan')">Niugan</a>
-                                                        <a href="#" onclick="selectBarangay('Pittland')">Pittland</a>
-                                                        <a href="#" onclick="selectBarangay('Pulo')">Pulo</a>
-                                                        <a href="#" onclick="selectBarangay('Sala')">Sala</a>
-                                                        <a href="#" onclick="selectBarangay('San Isidro')">San Isidro</a>
-                                                        <a href="#" onclick="selectBarangay('Barangay I Poblacion')">Barangay I Poblacion</a>
-                                                        <a href="#" onclick="selectBarangay('Barangay II Poblacion')">Barangay II Poblacion</a>
-                                                        <a href="#" onclick="selectBarangay('Barangay III Poblacion')">Barangay III Poblacion</a>   
-                                                    </div>
-                                                </div>								
-                                                <input type="text" id="search" class="form-control" placeholder="Search by Name">
-                                                <a href="" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Member</span></a>
-                                            </div>
-                                        </div>
-                                </div>
+                               
+
+                                   
                             </div>
                         </div>
+                        
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
@@ -202,6 +212,8 @@
                             <div class="hint-text">
                                 Showing <b>{{ $isfheads->firstItem() }}</b> to <b>{{ $isfheads->lastItem() }}</b> of <b>{{ $isfheads->total() }}</b> entries
                             </div>
+
+                            
                             <ul class="pagination">
                                 {{-- Previous Page Link --}}
                                 @if ($isfheads->onFirstPage())
@@ -229,6 +241,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 <!-- View Information -->
                 <div id="viewInfo" class="viewInformation">
                     <div class="viewInfoWrapper">

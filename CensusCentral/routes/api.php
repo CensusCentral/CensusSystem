@@ -15,7 +15,7 @@ Route::put('/update/{id}', [IsfController::class, 'update']);
 Route::delete('/delete/{id}', [IsfController::class, 'delete']);
 Route::get('/Isfhead/index', [IsfController::class, 'index'])->name('Isfhead.index');
 
-Route::get('/barangay/barangay', [IsfController::class, 'barangayIndex']);
+Route::get('/barangay', [IsfController::class, 'index']);
 
 
 
