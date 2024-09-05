@@ -11,13 +11,34 @@ use App\Models\householdCondition;
 
 class IsfController extends Controller
 {
-    public function index()
+
+
+    public function index(Request $request)
     {
-        // Fetch all Isfhead records
-        $isfheads = Isfhead::paginate(5);
-        // Return the records to the view
-        return view('barangay.barangay', ['isfheads' => $isfheads]);
+        $barangay = $request->input('barangay');
+    
+        $query = Isfhead::query();
+    
+        if ($barangay) {
+            $query->whereHas('surveyform', function($q) use ($barangay) {
+                $q->where('barangay', $barangay);
+            });
+        }
+    
+        $isfheads = $query->paginate(5)->appends(['barangay' => $barangay]);
+    
+        return view('barangay.barangay', [
+            'isfheads' => $isfheads,
+            'selectedBarangay' => $barangay
+        ]);
     }
+    // public function index(Request $request)
+    // {
+    //     // Fetch all Isfhead records
+    //     $isfheads = Isfhead::paginate(5);
+    //     // Return the records to the view
+    //     return view('barangay.barangay', ['isfheads' => $isfheads]);
+    // }
     
 
 

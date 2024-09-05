@@ -48,7 +48,7 @@ Route::get('/FormNumber', function () {
 
 Route::post('/isfhead', [IsfController::class, 'store'])->name('isfhead.store');
 
-Route::get('/barangay', [IsfController::class, 'index']);
+Route::get('/barangay', [IsfController::class, 'index'])->name('barangay.index');
 
 // routes/web.php
 

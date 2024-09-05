@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\SurveyForms; 
 
 class Isfhead extends Model
 {
@@ -50,4 +51,10 @@ class Isfhead extends Model
         'governmentResettelment',
         'whichProgram'
     ];
+
+
+    public function surveyForm()
+    {
+        return $this->belongsTo(SurveyForms::class, 'surveyId', 'surveyId');
+    }
 }
