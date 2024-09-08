@@ -32,13 +32,39 @@ class IsfController extends Controller
             'selectedBarangay' => $barangay
         ]);
     }
-    // public function index(Request $request)
-    // {
-    //     // Fetch all Isfhead records
-    //     $isfheads = Isfhead::paginate(5);
-    //     // Return the records to the view
-    //     return view('barangay.barangay', ['isfheads' => $isfheads]);
-    // }
+
+
+
+
+    public function headIndex(Request $request, $id)
+{
+    try {
+        // Fetch the specific Isfhead record by ID or fail, including members
+        $isfhead = Isfhead::with('members')->findOrFail($id);
+        
+        // Extract members from the Isfhead instance
+       
+       
+
+        // Return the view with the head and members data
+        return view('barangay.barangay', [
+            'isfhead' => $isfhead,
+            
+        ]);
+
+        // return response()->json([
+        //     'isfhead' => $isfhead,
+        //     'members' => $members
+        // ], 200);
+
+    } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+        return abort(404, 'ISF head not found');
+    }
+}
+
+
+    
+    
     
 
 
@@ -46,8 +72,8 @@ class IsfController extends Controller
     public function store(Request $request)
 {
     // Decode JSON membersData and merge it back into the request
-    // $membersData = json_decode($request->input('membersData'), true);
-    // $request->merge(['membersData' => $membersData]);
+    $membersData = json_decode($request->input('membersData'), true);
+    $request->merge(['membersData' => $membersData]);
    
     $validatedData = $request->validate([
 
@@ -135,7 +161,7 @@ class IsfController extends Controller
         'membersData.*.memberEstimatedIncome' => 'nullable|numeric',
             ]);
 
-        //    dd($validatedData);
+    
 
            
 
@@ -151,6 +177,7 @@ class IsfController extends Controller
             'interviewerName' => $validatedData['interviewerName'],
             'areaClassification' => $validatedData['areaClassification'],
         ]);
+
 
         $isfhead = Isfhead::create([
             'surveyId' => $surveyForm->id, 
@@ -239,7 +266,7 @@ class IsfController extends Controller
         DB::commit();
 
         return response()->json(['message' => 'Data Insertion Successful' ], 200);
-        dd($validatedData);
+        
     } catch (\Exception $e) {
         DB::rollBack();
         Log::error('Error saving data: ' . $e->getMessage());

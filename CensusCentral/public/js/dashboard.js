@@ -1,45 +1,46 @@
-const ctx = document.getElementById('myChart').getContext('2d');
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: [
-            'Baclaran', 'Banay-Banay', 'Banlic', 'Bigaa', 'Butong', 'Casile',
-            'Diezmo', 'Gulod', 'Mamatid', 'Marinig', 'Niugan', 'Pittland', 
-            'Pulo', 'Sala', 'San Isidro', 'Brgy. I', 'Brgy. II', 'Brgy. III'
-        ],
-        datasets: [{
-            label: '# of Population',
-            data: [
-                0, 1, 10, 20, 30, 40, 50, 
-                60, 70, 80, 90, 100, 110,
-                120, 130, 140, 150, 200
-                // Add corresponding data values
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: true, /* Keeps the chart from stretching vertically */
-        aspectRatio: 2,            /* Adjust aspect ratio as needed */
-        scales: {
-            x: {
-                beginAtZero: true
-            },
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the JSON data from the inline script
+    var chartDataElement = document.getElementById('chartData');
+    var data = chartDataElement ? JSON.parse(chartDataElement.textContent) : [];
+
+    // Create the chart with the parsed data
+    createPopulationChart(data);
 });
 
+function createPopulationChart(data) {
+    var ctx = document.getElementById('populationChart').getContext('2d');
 
-// document.getElementById('logout-button').addEventListener('click', function() {
-//   var confirmation = confirm('Are you sure you want to log out?');
-//   if (confirmation) {
-//       // Proceed with logout
-//       window.location.href = "{{ url('/login/login') }}";
-//   }
-//   // If the user cancels, do nothing
-// });
+    var labels = data.map(item => item.barangay);
+    var values = data.map(item => item.totalPopulation);
 
+    var chart = new Chart(ctx, {
+        type: 'bar', // Choose 'bar', 'line', 'pie', etc.
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Total Population',
+                data: values,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            onClick: function(event, elements) {
+                if (elements.length > 0) {
+                    var element = elements[0];
+                    var index = element.index; // Index of the clicked element
+                    var barangay = labels[index];
+
+                    // Redirect to the barangay section
+                    window.location.href = '/barangay' ;
+                }
+            }
+        }
+    });
+}

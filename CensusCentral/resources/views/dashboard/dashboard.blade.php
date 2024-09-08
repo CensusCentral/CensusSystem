@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('js/dashboard.js') }}" defer></script>
+    
 </head>
 <body>
    <input type="checkbox" id="menu-toggle">
@@ -101,16 +105,19 @@
             </div>
             
             <div class="page-content">
-            
+
+
+                {{-- ANALYTICS CARD --}}
                 <div class="analytics">
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>107,200</h2>
+                            <h2>{{ $overallTotalPopulation }}</h2>
                             <span class="las la-user-friends"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Person with Disabilities</small>
+                            
+                            <small>Isf Total Population</small>
                         </div>
                     </div>
 
@@ -146,19 +153,25 @@
 
                 </div>
 
-                <div class="charts">
-                    <div class="chart-scroll-container">
-                        <h2>Total Population per Barangay</h2>
-                        <canvas id="myChart"></canvas>
-                    </div>
 
-                </div> 
+                <div class="charts">
+                    <div style="width: 80%; margin: auto;">
+                        <h2>Total ISF Population by Barangay</h2>
+                        <canvas id="populationChart"></canvas>
+                    </div>
+                </div>
+            
+                <!-- Inline script to pass PHP data to JavaScript -->
+                <script id="chartData" type="application/json">
+                    {!! json_encode($data) !!}
+                </script>
+
             </div>     
         </main>  
     </div>
 
-    <!-- javascript for charts -->
+    {{-- <!-- javascript for charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="{{ asset('js/dashboard.js') }}"></script> --}}
 </body>
 </html>

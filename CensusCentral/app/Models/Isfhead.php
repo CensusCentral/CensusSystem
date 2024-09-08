@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\SurveyForms; 
+use App\Models\Isfmember; 
 
 class Isfhead extends Model
 {
@@ -57,4 +58,12 @@ class Isfhead extends Model
     {
         return $this->belongsTo(SurveyForms::class, 'surveyId', 'surveyId');
     }
+
+    public function members()
+{
+    return $this->hasMany(Isfmember::class, 'headId', 'id');
+}
+
+
+    
 }

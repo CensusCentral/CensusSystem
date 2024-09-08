@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Isfhead; 
 
 class isfmember extends Model
 {
@@ -31,5 +32,10 @@ class isfmember extends Model
     protected $casts = [
         'memberEstimatedIncome' => 'decimal:2',
     ];
+
+    public function isfhead()
+    {
+        return $this->belongsTo(Isfhead::class, 'headId', 'id');
+    }
 }
 

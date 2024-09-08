@@ -560,7 +560,7 @@
                     <div class="members-container">
 
                             
-                        <textarea id="membersData" name="membersData" style="display:block;"></textarea>
+                        <textarea id="membersData" name="membersData" style="display:none;"></textarea>
 
                             <div class="buttons">
 

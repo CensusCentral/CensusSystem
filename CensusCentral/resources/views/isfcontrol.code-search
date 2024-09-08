@@ -1,0 +1,28 @@
+# Query: isfcontrol
+# ContextLines: 1
+
+7 results - 3 files
+
+            CensusSystem\CensusCentral\app\Http\Controllers\IsfController.php:
+  11  
+  12: class IsfController extends Controller
+  13  {
+
+CensusSystem\CensusCentral\routes\api.php:
+   4  use Illuminate\Support\Facades\Route;
+   5: use App\Http\Controllers\IsfController;
+   6  use App\Http\Controllers\MemberController;
+
+  12  
+  13: Route::post('/Isfhead', [IsfController::class, 'store'])->name('Isfhead.store');
+  14: Route::put('/update/{id}', [IsfController::class, 'update']);
+  15: Route::delete('/delete/{id}', [IsfController::class, 'delete']);
+  16  
+
+CensusSystem\CensusCentral\routes\web.php:
+   5  use Illuminate\Support\Facades\Route;
+   6: use App\Http\Controllers\IsfController;
+   7  
+
+  24  
+  25: Route::post('/isfhead', [IsfController::class, 'store'])->name('isfhead.store');

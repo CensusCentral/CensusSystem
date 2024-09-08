@@ -39,26 +39,81 @@
     //     });
     // });
 
-	// // switch panel 
-	// $(document).ready(function() {
-	// 	// When the view icon is clicked
-	// 	$('.view').click(function() {
-	// 		$('.table-responsive').hide();
-	// 		$('.viewInformation').show();
-	// 	});
+	// switch panel 
+	$(document).ready(function() {
+		// When the view icon is clicked
+		$('.view').click(function() {
+			$('.table-responsive').hide();
+			$('.viewInformation').show();
+		});
 	  
-	// 	// When the back button is clicked
-	// 	$('#back').click(function() {
-	// 		$('.table-responsive').show();
-	// 		$('.viewInformation').hide();
-	// 	});
-	//   });
+		// When the back button is clicked
+		$('#back').click(function() {
+			$('.table-responsive').show();
+			$('.viewInformation').hide();
+		});
+	  });
 
 
 	function selectBarangay(barangay) {
 		document.getElementById('selected-barangay').value = barangay;
 		document.getElementById('barangay-form').submit();
 	}
+
+
+	'use strict';
+
+const Tabs = {
+  init() {
+    this.$tabs = $('ul.nav-tabs');
+    this.bindEvents();
+    this.checkHash();
+  },
+
+  bindEvents() {
+    // When clicking a tab, show the respective content
+    this.$tabs.on('click', 'a', this.tabClicked.bind(this));
+
+    // Handle animation end to reset animation states
+    $('.content-pane').on('transitionend webkitTransitionEnd', this.animationEnd.bind(this));
+  },
+
+  tabClicked(e) {
+    e.preventDefault();
+    const tab = $(e.target).attr('href');
+    this.toggleTab(tab);
+  },
+
+  checkHash() {
+    if (window.location.hash) {
+      this.toggleTab(window.location.hash);
+    }
+  },
+
+  toggleTab(tab) {
+    const $paneToShow = $(tab);
+    const $paneToHide = $(tab).closest('.container').find('.content-pane.is-active');
+
+    // Hide the currently active pane
+    $paneToHide.removeClass('is-active');
+
+    // Show the new pane
+    $paneToShow.addClass('is-active');
+
+    // Activate the clicked tab
+    this.$tabs.find('li.active').removeClass('active');
+    this.$tabs.find(`a[href="${tab}"]`).closest('li').addClass('active');
+  },
+
+  animationEnd(e) {
+    $(e.target).removeClass('is-animating is-exiting');
+  }
+};
+
+$(document).ready(() => {
+  Tabs.init();
+});
+
 	
 
 	  
