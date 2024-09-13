@@ -119,7 +119,6 @@
                         <div class="table-title">
                             <div class="row">
                                 
-                                    <h2>Barangay <b>Uno</b></h2>
                                     
 
                                     <div class="input-group d-flex justify-content-between align-items-center">
@@ -256,7 +255,8 @@
                     <div class="viewInfoWrapper">
                         <div class="buttons">
                             <button class="btn btn-primary" id="back">Back</button>
-                            <button class="btn btn-secondary">Edit</button>
+                            <button  class="btn btn-secondary" id="editBtn">Edit</button>
+
                         </div>
                         
                         <div class="houseHeadInfo">
@@ -277,277 +277,291 @@
                                   
                                         <div class="tab-content">
                                           <!-- TAB 1 FOR HOUSEHOLD HEAD DETAILS -->
-                                            <div id="tab1" class="content-pane is-active">
-                                              <div class="fields row">
+                                            <form id="householdForm" action="{{ route('barangay.update', $isfhead->id) }}" method="POST">
 
-                                                <input type="hidden" id="headId" name="headId" value="{{ $isfhead->id }}" readonly>
+                                                    @csrf
 
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label>Last Name</label>
-                                                        <input type="text" placeholder="Enter Last name" name="lastName" value="{{ $isfhead->lastName }}" required class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label>First Name</label>
-                                                        <input type="text" placeholder="Enter First name" name="firstName" value="{{ $isfhead->firstName }}" required class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label>Middle Name</label>
-                                                        <input type="text" placeholder="Enter Middle name" name="middleName" value="{{$isfhead->middleName }}" class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label>Maiden Name</label>
-                                                        <input type="text" placeholder="Enter Maiden name" name="maidenName" value="{{ $isfhead->maidenName }}" class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label>Date of Birth</label>
-                                                        <input type="date" name="dateOfBirth" value="{{ $isfhead->dateOfBirth }}" required class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label>Age</label>
-                                                        <input type="number" placeholder="Enter Age" name="age" value="{{ $isfhead->age }}" required class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label for="sex" class="details">Sex</label>
-                                                        <select id="sex" name="sex" required class="form-control" disabled>
-                                                            <option value="" disabled selected>Select Sex</option>
-                                                            <option value="Male" {{ $isfhead->sex == 'Male' ? 'selected' : '' }}>Male</option>
-                                                            <option value="Female" {{ $isfhead->sex == 'Female' ? 'selected' : '' }}>Female</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label for="civil" class="details">Civil Status</label>
-                                                        <select id="civil" name="civilStatus" required class="form-control" disabled>
-                                                            <option value="" disabled selected>Select Civil Status</option>
-                                                            <option value="Single" {{ $isfhead->civilStatus == 'Single' ? 'selected' : '' }}>Single</option>
-                                                            <option value="Married" {{ $isfhead->civilStatus == 'Married' ? 'selected' : '' }}>Married</option>
-                                                            <option value="Widower" {{ $isfhead->civilStatus == 'Widower' ? 'selected' : '' }}>Widower</option>
-                                                            <option value="Separated" {{ $isfhead->civilStatus == 'Separated' ? 'selected' : '' }}>Separated</option>
-                                                            <option value="Common-Law Partner" {{ $isfhead->civilStatus == 'Common-Law Partner' ? 'selected' : '' }}>Common-Law Partner</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label>Occupation</label>
-                                                        <input type="text" placeholder="Enter Occupation" name="occupation" value="{{ $isfhead->occupation }}" required class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label>Place of Work</label>
-                                                        <input type="text" placeholder="Enter Place of Work" name="workplace" value="{{ $isfhead->workplace }}" class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label>Present Address</label>
-                                                        <input type="text" placeholder="Enter Address" name="address" value="{{ $isfhead->address }}" required class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="input-field">
-                                                        <label for="member" class="details">Member of Vulnerable Community Group</label>
-                                                        <select id="member" name="communityGroup" required class="form-control" disabled>
-                                                            <option value="" disabled selected>Select Group</option>
-                                                            <option value="PWD" {{ $isfhead->communityGroup == 'PWD' ? 'selected' : '' }}>PWD</option>
-                                                            <option value="Senior Citizen" {{ $isfhead->communityGroup == 'Senior Citizen' ? 'selected' : '' }}>Senior Citizen</option>
-                                                            <option value="Solo Parent" {{ $isfhead->communityGroup == 'Solo Parent' ? 'selected' : '' }}>Solo Parent</option>
-                                                            <option value="LGBTQIA+" {{ $isfhead->communityGroup == 'LGBTQIA+' ? 'selected' : '' }}>LGBTQIA+</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-6 mb-3">
-                                                    <div class="input-field">
-                                                        <label>If a PWD, specify disability</label>
-                                                        <input type="text" placeholder="Enter disability" name="disability" value="{{ $isfhead->disability }}" disabled class="form-control">
-                                                    </div>
-                                                </div>
-                                            
-                                                <div class="col-md-6 mb-3">
-                                                    <div class="input-field">
-                                                        <label>If Member of LGBTQIA+, Gender Identification</label>
-                                                        <input type="text" placeholder="Enter Identification" name="gender" value="{{ $isfhead->gender }}" disabled class="form-control">
-                                                    </div>
-                                                </div>
-                                              </div>
+                                                    @method('PUT')
 
-                                              <div class="details spouse">
-                                                <span class="title">Partner Details</span>
-                                                <div class="fields row">
-                                                    <div class="col-md-3 mb-3">
-                                                        <div class="input-field">
-                                                            <label>Last Name</label>
-                                                            <input type="text" placeholder="Enter Last name" name="spouseLname" value="{{ $isfhead->spouseLname }}" class="form-control" disabled>
-                                                        </div>
-                                                    </div>
-                                                
-                                                    <div class="col-md-3 mb-3">
-                                                        <div class="input-field">
-                                                            <label>First Name</label>
-                                                            <input type="text" placeholder="Enter First name" name="spouseFname" value="{{ $isfhead->spouseFname }}" class="form-control" disabled>
-                                                        </div>
-                                                    </div>
-                                                
-                                                    <div class="col-md-3 mb-3">
-                                                        <div class="input-field">
-                                                            <label>Middle Name</label>
-                                                            <input type="text" placeholder="Enter Middle name" name="spouseMname" value="{{ $isfhead->spouseMname }}" class="form-control" disabled>
-                                                        </div>
-                                                    </div>
-                                                
-                                                    <div class="col-md-3 mb-3">
-                                                        <div class="input-field">
-                                                            <label>Maiden Name</label>
-                                                            <input type="text" placeholder="Enter Maiden name" name="spouseMaidenName" value="{{ $isfhead->spouseMaidenName }}" class="form-control" disabled>
-                                                        </div>
-                                                    </div>
-                                                
-                                                    <div class="col-md-3 mb-3">
-                                                        <div class="input-field">
-                                                            <label>Date of Birth</label>
-                                                            <input type="date" name="spouseDOB" value="{{ $isfhead->spouseDOB }}" class="form-control" disabled>
-                                                        </div>
-                                                    </div>
-                                                
-                                                    <div class="col-md-3 mb-3">
-                                                        <div class="input-field">
-                                                            <label>Age</label>
-                                                            <input type="number" placeholder="Enter Age" name="spouseAge" value="{{ $isfhead->spouseAge }}" class="form-control" disabled>
-                                                        </div>
-                                                    </div>
-                                                
-                                                    <div class="col-md-3 mb-3">
-                                                        <div class="input-field">
-                                                            <label for="spouseSex" class="details">Sex</label>
-                                                            <select id="spouseSex" name="spouseSex" class="form-control" disabled>
-                                                                <option value="" disabled>Select Sex</option>
-                                                                <option value="Male" {{ $isfhead->spouseSex == 'Male' ? 'selected' : '' }}>Male</option>
-                                                                <option value="Female" {{ $isfhead->spouseSex == 'Female' ? 'selected' : '' }}>Female</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                
-                                                    <div class="col-md-3 mb-3">
-                                                        <div class="input-field">
-                                                            <label>Community Group</label>
-                                                            <input type="text" placeholder="Enter Community Group" name="spouseCommunityGroup" value="{{ $isfhead->spouseCommunityGroup }}" class="form-control" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                            
-                                            <div id="tab2" class="content-pane">
-
-                                                <div class="details medical-history">
-                                                    <span class="title">Medical History</span>
-                                                    <textarea name="medicalHistory" class="form-control" rows="4" disabled>{{ $isfhead->MedicalHistory }}</textarea>
-                                                 </div>
-                                            
-                                                <!-- Household details section -->
-                                                <div class="details household">
-                                                    <span class="title">Household Details</span>
+                                                <div id="tab1" class="content-pane is-active">
                                                     <div class="fields row">
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Household Class</label>
-                                                                <input type="text" placeholder="Enter Household Class" name="householdClass" value="{{ $isfhead->HouseholdClass }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Household Size</label>
-                                                                <input type="number" placeholder="Enter Household Size" name="householdSize" value="{{ $isfhead->householdSize }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Year of Residency</label>
-                                                                <input type="number" placeholder="Enter Year of Residency" name="yearResidency" value="{{ $isfhead->yearResidency }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Double Household</label>
-                                                                <input type="text" placeholder="Enter Double Household" name="doubleHousehold" value="{{ $isfhead->doubleHousehold }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Indigenous or Not</label>
-                                                                <input type="text" placeholder="Enter Indigenous or Not" name="indigenousOrNot" value="{{ $isfhead->indigenousOrNot }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Place of Origin</label>
-                                                                <input type="text" placeholder="Enter Place of Origin" name="placeOrigin" value="{{ $isfhead->placeOrigin }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Reason for Establishing</label>
-                                                                <input type="text" placeholder="Enter Reason for Establishing" name="reasonEstablishing" value="{{ $isfhead->reasonEstablishing }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Tenurial Status</label>
-                                                                <input type="text" placeholder="Enter Tenurial Status" name="tenurialStatus" value="{{ $isfhead->tenurialStatus }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Government Resettlement</label>
-                                                                <input type="text" placeholder="Enter Government Resettlement" name="governmentResettelment" value="{{ $isfhead->governmentResettelment }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-3 mb-3">
-                                                            <div class="input-field">
-                                                                <label>Which Program</label>
-                                                                <input type="text" placeholder="Enter Program" name="whichProgram" value="{{ $isfhead->whichProgram }}" class="form-control" disabled>
-                                                            </div>
-                                                        </div>
+      
+                                                      <input type="hidden" id="headId" name="headId" value="{{ $isfhead->id }}" readonly>
+      
+                                                  
+                                                          
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label>Last Name</label>
+                                                              <input type="text" placeholder="Enter Last name" name="lastName" value="{{ $isfhead->lastName }}" required class="form-control" disabled>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label>First Name</label>
+                                                              <input type="text" placeholder="Enter First name" name="firstName" value="{{ $isfhead->firstName }}" required class="form-control" disabled>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label>Middle Name</label>
+                                                              <input type="text" placeholder="Enter Middle name" name="middleName" value="{{$isfhead->middleName }}" class="form-control" disabled>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label>Maiden Name</label>
+                                                              <input type="text" placeholder="Enter Maiden name" name="maidenName" value="{{ $isfhead->maidenName }}" class="form-control" disabled>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label>Date of Birth</label>
+                                                              <input type="date" name="dateOfBirth" value="{{ $isfhead->dateOfBirth }}" required class="form-control" disabled>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label>Age</label>
+                                                              <input type="number" placeholder="Enter Age" name="age" value="{{ $isfhead->age }}" required class="form-control" disabled>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label for="sex" class="details">Sex</label>
+                                                              <select id="sex" name="sex" required class="form-control" disabled>
+                                                                  <option value="" disabled selected>Select Sex</option>
+                                                                  <option value="Male" {{ $isfhead->sex == 'Male' ? 'selected' : '' }}>Male</option>
+                                                                  <option value="Female" {{ $isfhead->sex == 'Female' ? 'selected' : '' }}>Female</option>
+                                                              </select>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label for="civil" class="details">Civil Status</label>
+                                                              <select id="civil" name="civilStatus" required class="form-control" disabled>
+                                                                  <option value="" disabled selected>Select Civil Status</option>
+                                                                  <option value="Single" {{ $isfhead->civilStatus == 'Single' ? 'selected' : '' }}>Single</option>
+                                                                  <option value="Married" {{ $isfhead->civilStatus == 'Married' ? 'selected' : '' }}>Married</option>
+                                                                  <option value="Widower" {{ $isfhead->civilStatus == 'Widower' ? 'selected' : '' }}>Widower</option>
+                                                                  <option value="Separated" {{ $isfhead->civilStatus == 'Separated' ? 'selected' : '' }}>Separated</option>
+                                                                  <option value="Common-Law Partner" {{ $isfhead->civilStatus == 'Common-Law Partner' ? 'selected' : '' }}>Common-Law Partner</option>
+                                                              </select>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label>Occupation</label>
+                                                              <input type="text" placeholder="Enter Occupation" name="occupation" value="{{ $isfhead->occupation }}" required class="form-control" disabled>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label>Place of Work</label>
+                                                              <input type="text" placeholder="Enter Place of Work" name="workplace" value="{{ $isfhead->workplace }}" class="form-control" disabled>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label>Present Address</label>
+                                                              <input type="text" placeholder="Enter Address" name="address" value="{{ $isfhead->address }}" required class="form-control" disabled>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-3 mb-3">
+                                                          <div class="input-field">
+                                                              <label for="member" class="details">Member of Vulnerable Community Group</label>
+                                                              <select id="member" name="communityGroup" required class="form-control" disabled>
+                                                                  <option value="" disabled selected>Select Group</option>
+                                                                  <option value="PWD" {{ $isfhead->communityGroup == 'PWD' ? 'selected' : '' }}>PWD</option>
+                                                                  <option value="Senior Citizen" {{ $isfhead->communityGroup == 'Senior Citizen' ? 'selected' : '' }}>Senior Citizen</option>
+                                                                  <option value="Solo Parent" {{ $isfhead->communityGroup == 'Solo Parent' ? 'selected' : '' }}>Solo Parent</option>
+                                                                  <option value="LGBTQIA+" {{ $isfhead->communityGroup == 'LGBTQIA+' ? 'selected' : '' }}>LGBTQIA+</option>
+                                                              </select>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-6 mb-3">
+                                                          <div class="input-field">
+                                                              <label>If a PWD, specify disability</label>
+                                                              <input type="text" placeholder="Enter disability" name="disability" value="{{ $isfhead->disability }}" disabled class="form-control">
+                                                          </div>
+                                                      </div>
+                                                  
+                                                      <div class="col-md-6 mb-3">
+                                                          <div class="input-field">
+                                                              <label>If Member of LGBTQIA+, Gender Identification</label>
+                                                              <input type="text" placeholder="Enter Identification" name="gender" value="{{ $isfhead->gender }}" disabled class="form-control">
+                                                          </div>
+                                                      </div>
                                                     </div>
-                                                </div>
-                                              
-                                            </div>
+      
+                                                    <div class="details spouse">
+                                                      <span class="title">Partner Details</span>
+                                                      <div class="fields row">
+                                                          <div class="col-md-3 mb-3">
+                                                              <div class="input-field">
+                                                                  <label>Last Name</label>
+                                                                  <input type="text" placeholder="Enter Last name" name="spouseLname" value="{{ $isfhead->spouseLname }}" class="form-control" disabled>
+                                                              </div>
+                                                          </div>
+                                                      
+                                                          <div class="col-md-3 mb-3">
+                                                              <div class="input-field">
+                                                                  <label>First Name</label>
+                                                                  <input type="text" placeholder="Enter First name" name="spouseFname" value="{{ $isfhead->spouseFname }}" class="form-control" disabled>
+                                                              </div>
+                                                          </div>
+                                                      
+                                                          <div class="col-md-3 mb-3">
+                                                              <div class="input-field">
+                                                                  <label>Middle Name</label>
+                                                                  <input type="text" placeholder="Enter Middle name" name="spouseMname" value="{{ $isfhead->spouseMname }}" class="form-control" disabled>
+                                                              </div>
+                                                          </div>
+                                                      
+                                                          <div class="col-md-3 mb-3">
+                                                              <div class="input-field">
+                                                                  <label>Maiden Name</label>
+                                                                  <input type="text" placeholder="Enter Maiden name" name="spouseMaidenName" value="{{ $isfhead->spouseMaidenName }}" class="form-control" disabled>
+                                                              </div>
+                                                          </div>
+                                                      
+                                                          <div class="col-md-3 mb-3">
+                                                              <div class="input-field">
+                                                                  <label>Date of Birth</label>
+                                                                  <input type="date" name="spouseDOB" value="{{ $isfhead->spouseDOB }}" class="form-control" disabled>
+                                                              </div>
+                                                          </div>
+                                                      
+                                                          <div class="col-md-3 mb-3">
+                                                              <div class="input-field">
+                                                                  <label>Age</label>
+                                                                  <input type="number" placeholder="Enter Age" name="spouseAge" value="{{ $isfhead->spouseAge }}" class="form-control" disabled>
+                                                              </div>
+                                                          </div>
+                                                      
+                                                          <div class="col-md-3 mb-3">
+                                                              <div class="input-field">
+                                                                  <label for="spouseSex" class="details">Sex</label>
+                                                                  <select id="spouseSex" name="spouseSex" class="form-control" disabled>
+                                                                      <option value="" disabled>Select Sex</option>
+                                                                      <option value="Male" {{ $isfhead->spouseSex == 'Male' ? 'selected' : '' }}>Male</option>
+                                                                      <option value="Female" {{ $isfhead->spouseSex == 'Female' ? 'selected' : '' }}>Female</option>
+                                                                  </select>
+                                                              </div>
+                                                          </div>
+                                                      
+                                                          <div class="col-md-3 mb-3">
+                                                              <div class="input-field">
+                                                                  <label>Community Group</label>
+                                                                  <input type="text" placeholder="Enter Community Group" name="spouseCommunityGroup" value="{{ $isfhead->spouseCommunityGroup }}" class="form-control" disabled>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                      </div>
+                                                  </div>
+                                  
+                                                  <div id="tab2" class="content-pane">
+      
+                                                      <div class="details medical-history">
+                                                          <span class="title">Medical History</span>
+                                                          <textarea name="medicalHistory" class="form-control" rows="4" disabled>{{ $isfhead->MedicalHistory }}</textarea>
+                                                       </div>
+                                                  
+                                                      <!-- Household details section -->
+                                                      <div class="details household">
+                                                          <span class="title">Household Details</span>
+                                                          <div class="fields row">
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Household Class</label>
+                                                                      <input type="text" placeholder="Enter Household Class" name="householdClass" value="{{ $isfhead->HouseholdClass }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Household Size</label>
+                                                                      <input type="number" placeholder="Enter Household Size" name="householdSize" value="{{ $isfhead->householdSize }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Year of Residency</label>
+                                                                      <input type="number" placeholder="Enter Year of Residency" name="yearResidency" value="{{ $isfhead->yearResidency }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Double Household</label>
+                                                                      <input type="text" placeholder="Enter Double Household" name="doubleHousehold" value="{{ $isfhead->doubleHousehold }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Indigenous or Not</label>
+                                                                      <input type="text" placeholder="Enter Indigenous or Not" name="indigenousOrNot" value="{{ $isfhead->indigenousOrNot }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Place of Origin</label>
+                                                                      <input type="text" placeholder="Enter Place of Origin" name="placeOrigin" value="{{ $isfhead->placeOrigin }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Reason for Establishing</label>
+                                                                      <input type="text" placeholder="Enter Reason for Establishing" name="reasonEstablishing" value="{{ $isfhead->reasonEstablishing }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Tenurial Status</label>
+                                                                      <input type="text" placeholder="Enter Tenurial Status" name="tenurialStatus" value="{{ $isfhead->tenurialStatus }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Government Resettlement</label>
+                                                                      <input type="text" placeholder="Enter Government Resettlement" name="governmentResettelment" value="{{ $isfhead->governmentResettelment }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          
+                                                              <div class="col-md-3 mb-3">
+                                                                  <div class="input-field">
+                                                                      <label>Which Program</label>
+                                                                      <input type="text" placeholder="Enter Program" name="whichProgram" value="{{ $isfhead->whichProgram }}" class="form-control" disabled>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                    
+                                                  </div>
+
+                                                  <button type="submit" class="btn btn-success" id="saveBtn" style="display: none;">Save Update</button>
+                                            </form>
+                                           
+
+                                        
 
                                             <div id="tab3" class="content-pane">
                                                 <div class="table-wrapperMembers">
@@ -566,6 +580,7 @@
                                                                 <th>First Name</th>
                                                                 <th>Middle Name</th>
                                                                 <th>Relation To Head</th>
+                                                                <th>Actions</th>
                                                             </tr>
                                                         </thead>
 
@@ -577,6 +592,11 @@
                                                                         <td>{{ $member->memberfirstName }}</td>
                                                                         <td>{{ $member->memberMiddleName }}</td>
                                                                         <td>{{ $member->memberRelationToHead }}</td>
+                                                                        <td>
+                                                                            <a href="" class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xe417;</i></a>
+                                                                            <a href="" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xe417;</i></a>
+                                                                            <a href="#deleteMember" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                                        </td>
                                                                     </tr>
                                                                 @endforeach
                                                             @else

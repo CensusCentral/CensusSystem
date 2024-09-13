@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                       <a href="">
+                       <a href="{{url('FormA')}}">
                             <span class="fas fa-th"></span>
                             <small>Census Form</small>
                         </a>
@@ -109,57 +109,63 @@
 
                 {{-- ANALYTICS CARD --}}
                 <div class="analytics">
-
-                    <div class="card">
+                    <div class="card" data-chart="population" id="populationCard">
                         <div class="card-head">
                             <h2>{{ $overallTotalPopulation }}</h2>
                             <span class="las la-user-friends"></span>
                         </div>
                         <div class="card-progress">
-                            
-                            <small>Isf Total Population</small>
+                            <small>ISF Total Population</small>
                         </div>
                     </div>
-
-                    <div class="card">
+                
+                    <div class="card" data-chart="pwd" id="pwdCard">
                         <div class="card-head">
-                            <h2>340,230</h2>
+                            
                             <span class="las la-user-friends"></span>
                         </div>
                         <div class="card-progress">
-                            <small>4P’s  Pre-Qualified Beneficiaries</small>
+                            <small>4P’s Pre-Qualified Beneficiaries</small>
                         </div>
                     </div>
-
-                    <div class="card">
+                
+                    <div class="card" data-chart="senior" id="seniorCard">
                         <div class="card-head">
-                            <h2>653,200</h2>
+                           
                             <span class="las la-user-friends"></span>
                         </div>
                         <div class="card-progress">
                             <small>Senior Citizen</small>
                         </div>
                     </div>
-
-                    <div class="card">
+                
+                    <div class="card" data-chart="informal" id="informalCard">
                         <div class="card-head">
-                            <h2>47,500</h2>
                             <span class="las la-user-friends"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Informal Settlers Family</small>
+                            <small>PWD</small>
                         </div>
                     </div>
 
+                    <div class="card" data-chart="senior" id="seniorCard">
+                        <div class="card-head">
+                           
+                            <span class="las la-user-friends"></span>
+                        </div>
+                        <div class="card-progress">
+                            <small> Housing Loan Pre-Qualified Beneficiaries</small>
+                        </div>
+                    </div>
                 </div>
-
-
+                
                 <div class="charts">
                     <div style="width: 80%; margin: auto;">
-                        <h2>Total ISF Population by Barangay</h2>
+                        <h2 id="chartTitle">Total ISF Population by Barangay</h2>
                         <canvas id="populationChart"></canvas>
                     </div>
                 </div>
+                
             
                 <!-- Inline script to pass PHP data to JavaScript -->
                 <script id="chartData" type="application/json">

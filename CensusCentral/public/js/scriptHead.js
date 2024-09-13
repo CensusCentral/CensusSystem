@@ -160,24 +160,24 @@ document.addEventListener('DOMContentLoaded', function() {
             maidenNameField.value = ''; // Clear the value when disabled
         }
 
-        // Toggle disability field based on community group
-        if (communityGroupField.value === 'PWD') {
-            disabilityField.disabled = false; // Enable the disability field
-            genderField.disabled = true;
-            genderField.value = '';
-        } 
-        else if(communityGroupField.value === 'LGBTQIA+'){
+        // // Toggle disability field based on community group
+        // if (communityGroupField.value === 'PWD') {
+        //     disabilityField.disabled = false; // Enable the disability field
+        //     genderField.disabled = true;
+        //     genderField.value = '';
+        // } 
+        // else if(communityGroupField.value === 'LGBTQIA+'){
 
-                genderField.disabled = false;
-                disabilityField.disabled = true; // Disable the disability field
-                disabilityField.value = ''; 
+        //         genderField.disabled = false;
+        //         disabilityField.disabled = true; // Disable the disability field
+        //         disabilityField.value = ''; 
 
-        }else {
-            disabilityField.disabled = true; // Disable the disability field
-            disabilityField.value = ''; // Clear the value when disabled
-            genderField.disabled = true;
-            genderField.value = '';
-        }
+        // }else {
+        //     disabilityField.disabled = true; // Disable the disability field
+        //     disabilityField.value = ''; // Clear the value when disabled
+        //     genderField.disabled = true;
+        //     genderField.value = '';
+        // }
 
         if(governmentField.value === 'Yes'){
 
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add event listeners for changes in the sex and community group fields
     sexField.addEventListener('change', updateFieldStates);
-    communityGroupField.addEventListener('change', updateFieldStates);
+    // communityGroupField.addEventListener('change', updateFieldStates);
     governmentField.addEventListener('change',updateFieldStates);
     barangayField.addEventListener('change',updateFieldStates);
     

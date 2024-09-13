@@ -54,6 +54,14 @@ class GraphController extends Controller
             ], 500);
         }
     }
+
+
+
+    public function ChartChange(){
+
+
+        
+    }
     
 
 }

@@ -49,11 +49,15 @@ Route::get('/FormNumber', function () {
 
 // FROM ISFCONTROLLER CRUD FUNCTIONS
 Route::get('/barangay', [IsfController::class, 'index'])->name('barangay.index');
+
 Route::get('barangay/headIndex/{id}', [IsfController::class, 'headIndex'])->name('barangay.headIndex');
+
 Route::post('/Isfhead', [IsfController::class, 'store'])->name('isfhead.store');
+
+Route::put('barangay/update/{id}', [IsfController::class, 'update'])->name('barangay.update');
 
 
 Route::get('/dashboard', [GraphController::class, 'totalPopulationByAllBarangays']);
 
-// routes/web.php
+
 

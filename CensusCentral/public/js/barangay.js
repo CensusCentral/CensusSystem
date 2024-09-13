@@ -39,6 +39,27 @@
     //     });
     // });
 
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('householdForm');
+      const editBtn = document.getElementById('editBtn');
+      const saveBtn = document.getElementById('saveBtn');
+      const formElements = form.querySelectorAll('input, select, textarea');
+
+      editBtn.addEventListener('click', function() {
+          formElements.forEach(element => element.disabled = false);
+          editBtn.style.display = 'none';
+          saveBtn.style.display = 'inline-block';
+      });
+
+    //   saveBtn.addEventListener('click', function() {
+    //     form.submit(); // Submit the form
+    //     formElements.forEach(element => element.disabled = true); // Disable fields after submission
+    // });
+    
+  });
+
+
 	// switch panel 
 	$(document).ready(function() {
 		// When the view icon is clicked

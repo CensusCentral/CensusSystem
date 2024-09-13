@@ -281,58 +281,52 @@ class IsfController extends Controller
     
 
 
-    public function update($id, Request $req)
-    {
-        // Find the model or fail with a 404 error
-        $updateISF = Isfhead::findOrFail($id);
-    
-        // Validation of incoming request data
-        $validatedData = $req->validate([
-            'lastName' => 'required',
-            'firstName' => 'required',
-            'middleName' => 'nullable',
-            'maidenName' => 'nullable',
-            'dateOfBirth' => 'required|date',
-            'age' => 'required|numeric',
-            'sex' => 'required',
-            'civilStatus' => 'required',
-            'occupation' => 'required',
-            'gender' => 'required',
-            'communityGroup' => 'required',
-            'workplace' => 'nullable',
-            'address' => 'required',
-            
-            'spouseLname' => 'nullable',
-            'spouseFname' => 'nullable',
-            'spouseMname' => 'nullable',
-            'spouseMaidenName' => 'nullable',
-            'spouseDOB' => 'nullable|date',
-            'spouseAge' => 'nullable|numeric',
-            'spouseSex' => 'nullable',
-           
-    
-            'HouseholdClass' => 'required',
-            'MedicalHistory' => 'required',
-            'householdSize' => 'required|numeric',
-            'yearResidency' => 'required|numeric',
-            'IndigenousOrNot' => 'required',
-            'doubleHousehold' => 'required',
-            'placeOrigin' => 'required',
-            'reasonEstablishing' => 'required',
-            'tenurialStatus' => 'required',
-            'governmentResettelment' => 'required',
-            'whichProgram' => 'required'
+public function update(Request $request, $id)
+{
+    DB::beginTransaction();
 
+    try {
+        // Fetch the ISFHead
+        $isfHead = Isfhead::findOrFail($id);
 
-            
-        ]);
-    
-        // Update the model with the validated data
-        $updateISF->update($validatedData);
-    
-        // Return a JSON response for API or redirect for web applications
-        return response()->json(['message' => 'Data updated successfully'], 200);
+        // Update ISFHead
+        $isfHead->update($request->only([
+            'lastName', 'firstName', 'middleName', 'maidenName',
+            'dateOfBirth', 'age', 'sex', 'civilStatus',
+            'occupation', 'workplace', 'address', 'communityGroup',
+            'gender', 'disability',
+            'spouseLname', 'spouseFname', 'spouseMname', 'spouseMaidenName',
+            'spouseDOB', 'spouseAge', 'spouseSex',
+            'MedicalHistory', 'HouseholdClass', 'yearResidency',
+            'householdSize', 'doubleHousehold', 'indigenousOrNot',
+            'placeOrigin', 'reasonEstablishing', 'tenurialStatus',
+            'governmentResettelment', 'whichProgram'
+        ]));
+
+        // Update or create HouseholdCondition
+        $householdCondition = HouseholdCondition::updateOrCreate(
+            ['ownerId' => $isfHead->id],
+            $request->only([
+                'houseAge', 'typeOfStructure', 'useOfStructure',
+                'NoOfFloors', 'typeOfHouse', 'EstimatedFloorArea',
+                'toiletType', 'waterSource', 'garbageDisposal',
+                'electricitySource', 'modeOfHouse', 'relationToOwner'
+            ])
+        );
+
+        DB::commit();
+
+        return response()->json([
+            'message' => 'Household updated successfully',
+            'isfHead' => $isfHead,
+            'householdCondition' => $householdCondition
+        ], 200);
+
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return response()->json(['message' => 'Error updating household', 'error' => $e->getMessage()], 500);
     }
+}
 
 
 

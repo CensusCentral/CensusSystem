@@ -5,13 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Household Info</title>
     <link rel="stylesheet" href="css/FormAstyle.css">
+    {{-- DINAGDAG KOLANG TO TEST LANG --}}
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    {{-- PATI ETO --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 
 <body>
+    {{-- SIDE NAV
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3><span>Cabuyao</span></h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img" style="background-image: url(images/cudhaoLogo.png)"></div>
+                <h4>CUDHAO</h4>
+                <small>Administrator</small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                       <a href="{{url('dashboard')}}" class="active">
+                            <span class="fas fa-desktop"></span>
+                            <small>Dashboard</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="">
+                            <span class="fas fa-th"></span>
+                            <small>Census Form</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="{{url('barangay')}}">
+                            <span class="fas fa-table"></span>
+                            <small>Members</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="{{url('reports')}}">
+                            <span class="fas fa-chart-bar"></span>
+                            <small>Reports</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="{{url('penalties')}}">
+                            <span class="fas fa-exclamation-triangle"></span>
+                            <small>Penalties</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="{{url('analysis')}}">
+                            <span class="fas fa-clipboard"></span>
+                            <small>Analysis</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('accounts')}}">
+                             <span class="fas fa-address-book"></span>
+                             <small>Accounts</small>
+                         </a>
+                     </li>
+
+                </ul>
+            </div>
+        </div>
+    </div> --}}
+
+
+    {{-- CONTENT DITO --}}
     <div class="container">
 
-        <header>INFORMATION ON THE HOUSEHOLD</header>
+        {{-- <header>INFORMATION ON THE HOUSEHOLD</header> --}}
 
         <form id="form" method="post" action="{{route('Isfhead.store')}}" >
                 
@@ -22,16 +93,10 @@
                     <div class="form-section">
                         <div class="details">
                             <span class="title">Survey Form</span>
-                            <span class="title">Household Head</span>
-    
     
                          <!---asdasdasdasd-->
                             <div class="fields">
-                                <!-- Survey Number (Survey ID) Display -->
-                                <div class="input-field">
-                                    <label>Survey Number</label>
-                                    <label id="formNo">This is where the survey Id will be displayed</label>
-                                </div>
+                                
                     
                                 <!-- Survey Date -->
                                 <div class="input-field">
@@ -180,27 +245,56 @@
                                     <label>Present Address</label>
                                     <input type="text" placeholder="Enter Address" name="address" required>
                                 </div>
-    
+
+                                {{-- NEW DESIGN --}}
                                 <div class="input-field">
-                                    <label for="member" class="details">Member of vunerable community group</label>
-                                    <select id="member" name="communityGroup" required>
-                                        <option value="" disabled selected>Select Group</option>
-                                        <option value="PWD">PWD</option>
-                                        <option value="Senior Citizen">Senior Citizen</option>
-                                        <option value="Solo Parent">Solo parent</option>
-                                        <option value="LGBTQIA+">LGBTQIA+</option>
-                                    </select>
+                                    <label>Estimated Income</label>
+                                    <input type="number" placeholder="Enter Estimated Income" name="estimatedIncome" required>
                                 </div>
     
                                 <div class="input-field">
-                                    <label>If a PWD, specify disability</label>
-                                    <input type="text" placeholder="Enter disability" name="disability" disabled>
+                                    <label class="details">Member of vulnerable community group</label>
+                                    <div class="checkbox-group">
+                                        <div>
+                                            <input type="checkbox" id="pwd" name="communityGroup[]" value="PWD">
+                                            <label for="pwd">PWD</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="senior" name="communityGroup[]" value="Senior Citizen">
+                                            <label for="senior">Senior Citizen</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="solo-parent" name="communityGroup[]" value="Solo Parent">
+                                            <label for="solo-parent">Solo Parent</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="lgbtqia" name="communityGroup[]" value="LGBTQIA+">
+                                            <label for="lgbtqia">LGBTQIA+</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="pagibig" name="communityGroup[]" value="PAGIBIG Housing Loan Beneficiary">
+                                            <label for="pagibig">PAGIBIG Housing Loan Beneficiary</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="4ps" name="communityGroup[]" value="4PS Beneficiaries">
+                                            <label for="4ps">4PS Beneficiaries</label>
+                                        </div>
+                                    </div>
                                 </div>
-    
-                                <div class="input-field">
-                                    <label>If Member of LGBTQI, Gender Identification</label>
-                                    <input type="text" placeholder="Enter Identification" name="gender" disabled>
-                                </div>  
+                                
+                            
+
+                                    <div class="input-field">
+                                        <label>If a PWD, specify disability</label>
+                                        <input type="text" placeholder="Enter disability" name="disability" disabled>
+                                    </div>
+        
+                                    <div class="input-field">
+                                        <label>If Member of LGBTQI, Gender Identification</label>
+                                        <input type="text" placeholder="Enter Identification" name="gender" disabled>
+                                    </div>  
+                                
+                                
                             </div>
     
                             <div class="input-field">
@@ -620,7 +714,7 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <div class="form-section-member">
-            <header>INFORMATION OF HOUSEHOLD MEMBERS</header>
+           
             <form id="householdForm">
                 <div class="details member">
                     <div class="pop-input-field">

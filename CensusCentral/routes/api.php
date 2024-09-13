@@ -17,10 +17,13 @@ Route::get('/Isfhead/index', [IsfController::class, 'index'])->name('Isfhead.ind
 Route::get('/barangay/headIndex/{id}', [IsfController::class, 'headIndex']);
 
 Route::get('/barangay', [IsfController::class, 'index']);
-
-
-
 Route::get('/dashboard/population', [GraphController::class, 'totalPopulationByAllBarangays']);
+
+Route::put('barangay/update/{id}', [IsfController::class, 'update'])->name('barangay.update');
+
+
+
+
 
 
 

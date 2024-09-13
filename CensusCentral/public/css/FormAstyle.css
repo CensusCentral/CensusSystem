@@ -461,4 +461,22 @@ form .buttons button , .backBtn {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+    white-space: nowrap; /* Prevents the checkboxes from wrapping */
+}
 
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group label {
+    margin-left: 5px;
+}
+.input-field-container {
+    display: flex;
+    justify-content: space-between; /* Aligns the fields side by side with space between */
+    gap: 20px; /* Adds spacing between input fields */
+}
