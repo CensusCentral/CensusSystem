@@ -31,23 +31,23 @@
             <div class="profile">
                 <div class="profile-img bg-img" style="background-image: url(images/cudhaoLogo.png)"></div>
                 <h4>CUDHAO</h4>
-                <small>Administrator</small>
+                <small>4ps Administrator</small>
             </div>
 
             <div class="side-menu">
                 <ul>
                     <li>
-                       <a href="{{url('barangay')}}">
-                            <span class="fas fa-table"></span>
-                            <small>Members</small>
-                        </a>
-                    </li>
-                    <li>
-                       <a href="{{url('reports')}}">
-                            <span class="fas fa-chart-bar"></span>
-                            <small>Reports</small>
-                        </a>
-                    </li>
+                        <a href="{{url('4psTableView')}}">
+                             <span class="fas fa-table"></span>
+                             <small>Members</small>
+                         </a>
+                     </li>
+                     <li>
+                        <a href="{{url('4psReportView')}}">
+                             <span class="fas fa-chart-bar"></span>
+                             <small>Reports</small>
+                         </a>
+                     </li>
 
                 </ul>
             </div>

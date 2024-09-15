@@ -50,6 +50,10 @@ Route::get('/4psTableView', function () {
     return view('4psTableView/4psTableView');
 });
 
+Route::get('/4psReportView', function () {
+    return view('4psReportView/4psReportView');
+});
+
 // FROM ISFCONTROLLER CRUD FUNCTIONS
 Route::get('/barangay', [IsfController::class, 'index'])->name('barangay.index');
 
