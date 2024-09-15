@@ -92,7 +92,7 @@
 
                     <div class="form-section">
                         <div class="details">
-                            <span class="title">Survey Form</span>
+                            <header>Survey form</header> 
     
                          <!---asdasdasdasd-->
                             <div class="fields">
@@ -177,7 +177,7 @@
     
                         <div class="head-details">
     
-                            <span class="title">Household Head</span>
+                        <header>HOUSEHOLD HEAD</header> 
     
                             <div class="fields">
                                 <div class="input-field">
@@ -368,8 +368,9 @@
                         <!-- THIRD SECTION --->
                         <div class="form-section">
                             <div class="details medical">
-                                <span class="title">Medical History</span>
-    
+                            <header>MEDICAL DETAILS</header> 
+
+                                   
                                 <div class="fields">
                                     <div class="input-field">
                                         <label>Medical History</label>

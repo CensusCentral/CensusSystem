@@ -16,7 +16,6 @@ body {
 }
 
 .container {
-    max-height: 80vh; /* 80% of the viewport height */
     overflow-y: auto; /* Vertical scrollbar when content exceeds max height */
     overflow-x: hidden; /* Prevent horizontal scrolling */
     position: relative;
@@ -30,33 +29,6 @@ body {
     overflow: hidden; 
     transition: height 0.3s ease; 
     box-sizing: border-box;
-}
-
-form {
-    max-height: 80vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-form::-webkit-scrollbar {
-    width: 10px; 
-}
-
-form::-webkit-scrollbar-thumb {
-    background-color: #0093CB; 
-    border-radius: 4px; 
-    border: 2px solid #fff; 
-}
-
-form::-webkit-scrollbar-track {
-    background: #f0f0f0; 
-    border-radius: 4px; 
-}
-
-form::-webkit-scrollbar-thumb:hover {
-    background-color: #007bb5; 
 }
 
 .form-section {
@@ -98,22 +70,20 @@ form .buttons button, .backBtn {
 }
 
 .container header {
-    position: relative;
+    position: static;
     font-size: 20px;
     font-weight: 600;
     color: #333;
+    text-align: left; /* Align header text to the left */
 }
 
 .container header::before {
-    content: "";
     position: absolute;
     bottom: -2px;
+    left: 0; /* Align the pseudo-element to the left */
     height: 3px;
     width: 27px;
-    border-radius: 8px;
-    background-color: #0093CB;
 }
-
 .container form {
     position: relative;
     margin-top: 16px;
@@ -357,9 +327,11 @@ form .buttons button , .backBtn {
 }
 
 .form-section-member header {
-    font-size: 20px; 
-    font-weight: bold;
-    margin-bottom: 10px;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    text-align: left; /* Align header text to the left */
 }
 
 /* FLEXBOX STYLING FOR INPUT FIELDS */
