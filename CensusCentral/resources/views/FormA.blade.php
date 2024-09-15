@@ -266,10 +266,6 @@
                                             <label for="senior">Senior Citizen</label>
                                         </div>
                                         <div>
-                                            <input type="checkbox" id="solo-parent" name="communityGroup[]" value="Solo Parent">
-                                            <label for="solo-parent">Solo Parent</label>
-                                        </div>
-                                        <div>
                                             <input type="checkbox" id="lgbtqia" name="communityGroup[]" value="LGBTQIA+">
                                             <label for="lgbtqia">LGBTQIA+</label>
                                         </div>
@@ -284,9 +280,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                                
-                            
 
                                     <div class="input-field">
                                         <label>If a PWD, specify disability</label>
@@ -489,10 +482,9 @@
 
 
                     <div class="form-section">
-                        <header>HOUSING/COMMUNITY CONDITION/STRUCTURE DESCRIPTION</header>
         
                         <div class="details med">
-                            <span class="title">Household Info</span>
+                        <header>HOUSING/COMMUNITY CONDITION/STRUCTURE DESCRIPTION</header>
         
                             <div class="fields">
                                 <div class="input-field">

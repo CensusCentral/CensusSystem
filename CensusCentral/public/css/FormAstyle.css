@@ -177,8 +177,11 @@ form .fields .input-field {
     margin: 8px 0;
 }
 
-.input-field input:is(:focus, :valid) {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+.input-field select,
+.input-field input[type="date"],
+.input-field input[type="text"],
+.input-field input[type="number"] {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
 
 .input-field input[type="date"] {
@@ -491,6 +494,44 @@ form .buttons button , .backBtn {
     margin-left: 5px; 
     font-size: 14px; 
 }
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between checkboxes */
+    margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+    -webkit-appearance: none; /* For Safari */
+    appearance: none; /* Reset default appearance */
+
+    border: 2px solid #333;
+    border-radius: 4px; /* Rounded corners for a custom look */
+    background-color: white;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: #0093CB; /* Checked state color */
+}
+
+.checkbox-group label {
+    font-size: 16px;
+    margin-left: 5px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+}
+
 
 .input-field-container {
     display: flex;
