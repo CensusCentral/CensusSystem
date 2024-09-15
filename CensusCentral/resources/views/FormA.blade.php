@@ -252,7 +252,9 @@
                                     <input type="number" placeholder="Enter Estimated Income" name="estimatedIncome" required>
                                 </div>
     
-                                <div class="input-field">
+                            <div class="details ifmember">
+
+                                <div class="input-field ">
                                     <label class="details">Member of vulnerable community group</label>
                                     <div class="checkbox-group">
                                         <div>
@@ -281,6 +283,8 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
                                 
                             
 
@@ -359,7 +363,7 @@
                                 
                             </div>
                         </div>
-                        </div>
+                    </div>
     
                         <!-- THIRD SECTION --->
                         <div class="form-section">

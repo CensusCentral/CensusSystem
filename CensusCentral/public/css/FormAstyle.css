@@ -7,9 +7,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
-
-
 body {
     min-height: 100vh;
     display: flex;
@@ -19,22 +16,53 @@ body {
 }
 
 .container {
+    max-height: 80vh; /* 80% of the viewport height */
+    overflow-y: auto; /* Vertical scrollbar when content exceeds max height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
     position: relative;
     max-width: 950px;
     width: 100%;
     border-radius: 6px;
-    padding: 30px;
-    margin: 0 15px;
+    margin: 20px auto; /* Maintain margins */
+    padding: 20px;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Prevent content overflow */
-    transition: height 0.3s ease; /* Smooth transition for height changes */
+    overflow: hidden; 
+    transition: height 0.3s ease; 
+    box-sizing: border-box;
+}
+
+form {
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+form::-webkit-scrollbar {
+    width: 10px; 
+}
+
+form::-webkit-scrollbar-thumb {
+    background-color: #0093CB; 
+    border-radius: 4px; 
+    border: 2px solid #fff; 
+}
+
+form::-webkit-scrollbar-track {
+    background: #f0f0f0; 
+    border-radius: 4px; 
+}
+
+form::-webkit-scrollbar-thumb:hover {
+    background-color: #007bb5; 
 }
 
 .form-section {
-    display: none; /* Initially hides all form sections */
+    display: none; 
     margin-top: 15px;
-    position: absolute; /* Absolutely position each form section */
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
@@ -133,11 +161,32 @@ form.secActive .form.first{
     flex-wrap: wrap;
 }
 
+form .fields {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px; 
+}
+
 form .fields .input-field {
     display: flex;
-    width: calc(100% / 3 - 15px);
     flex-direction: column;
+    flex: 1 1 calc(33.333% - 15px); 
     margin: 4px 0;
+    min-width: 200px; 
+}
+
+@media (max-width: 750px) {
+    form .fields .input-field {
+        flex: 1 1 calc(50% - 10px); 
+    }
+}
+
+@media (max-width: 550px) {
+    form .fields .input-field {
+        flex: 1 1 100%; 
+    }
 }
 
 .input-field label {
@@ -198,12 +247,6 @@ form .fields .input-field {
     cursor: pointer;
 }
 
-
-
-
-
-
-
 .container form button,
 .container form .backBtn {
     font-size: 14px;
@@ -245,7 +288,6 @@ form .buttons button , .backBtn {
     background-color: #007bb5;
 }
 
-
 @media (max-width: 750px) {
 
     .container {
@@ -269,7 +311,6 @@ form .buttons button , .backBtn {
     }
 }
 
-
 /* THIS CSS IS FOR THE MODALS */
 
 /* MODAL STYLING */
@@ -288,11 +329,11 @@ form .buttons button , .backBtn {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 3% auto; /* Adjusted to reduce top margin for better fit */
+    margin: 3% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 90%; /* Increased the width of the modal */
-    max-width: 900px; /* Increased max width */
+    width: 90%; 
+    max-width: 900px; 
 }
 
 .close {
@@ -316,7 +357,7 @@ form .buttons button , .backBtn {
 }
 
 .form-section-member header {
-    font-size: 20px; /* Slightly larger font size */
+    font-size: 20px; 
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -326,12 +367,12 @@ form .buttons button , .backBtn {
 .details.member {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Spacing between the input fields */
+    gap: 20px; 
 }
 
 .pop-input-field {
-    flex: 1 1 calc(50% - 20px); /* Each field takes up roughly 50% width minus the gap */
-    min-width: 300px; /* Ensures that fields don’t shrink too much */
+    flex: 1 1 calc(50% - 20px); 
+    min-width: 300px; 
 }
 
 .pop-input-field label {
@@ -362,20 +403,18 @@ form .buttons button , .backBtn {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #4CAF50; /* Example button color */
+    background-color: #4CAF50; 
     color: white;
     cursor: pointer;
 }
 
 .pop-buttons button#closeModal {
-    background-color: #f44336; /* Different color for the close button */
+    background-color: #f44336; 
 }
 
 .pop-buttons button:hover {
     opacity: 0.9;
 }
-
-
 
 /* THIS IS FOR THE TABLE DESIGN */
 
@@ -420,35 +459,35 @@ form .buttons button , .backBtn {
 }
 
 #table-wrapper {
-    overflow-x: auto; /* Enable horizontal scrolling */
-    width: 100%; /* Make sure it takes up the full width of the container */
+    overflow-x: auto; 
+    width: 100%; 
 }
 
 
 .button-group {
-    display: flex; /* Use flexbox to align buttons side by side */
-    gap: 5px; /* Optional: Adds space between the buttons */
+    display: flex; 
+    gap: 5px; 
 }
 
 .button-group button {
-    padding: 6px 12px; /* Adjust padding as needed */
-    margin: 0; /* Remove any default margins */
+    padding: 6px 12px; 
+    margin: 0; 
     border: 1px solid #ccc;
     background-color: #f0f0f0;
     cursor: pointer;
-    flex-grow: 1; /* Optional: Makes buttons the same size */
+    flex-grow: 1; 
     text-align: center;
 }
 
 .button-group button:hover {
-    background-color: #ddd; /* Change color on hover */
+    background-color: #ddd;
 }
 
 .action-button {
     display: inline-block;
     padding: 8px 16px;
     margin: 4px;
-    background-color: #007bff; /* Blue color */
+    background-color: #007bff; 
     color: white;
     text-align: center;
     cursor: pointer;
@@ -458,25 +497,31 @@ form .buttons button , .backBtn {
 }
 
 .action-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
 }
 
-.checkbox-group {
+.input-field .checkbox-group {
+    display: grid; 
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 10px 15px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    border-radius: 5px; 
+    padding: 10px; 
+}
+
+.input-field .checkbox-group div {
     display: flex;
-    gap: 15px;
-    white-space: nowrap; /* Prevents the checkboxes from wrapping */
+    align-items: center; 
 }
 
-.checkbox-group div {
-    display: flex;
-    align-items: center;
+.input-field .checkbox-group label {
+    margin-left: 5px; 
+    font-size: 14px; 
 }
 
-.checkbox-group label {
-    margin-left: 5px;
-}
 .input-field-container {
     display: flex;
-    justify-content: space-between; /* Aligns the fields side by side with space between */
-    gap: 20px; /* Adds spacing between input fields */
+    justify-content: space-between; 
+    gap: 20px; 
 }

@@ -69,7 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function adjustContainerHeight() {
         const activeForm = forms[currentFormIndex];
         const activeFormHeight = activeForm.scrollHeight;
-        container.style.height = `${activeFormHeight + 200}px`; // Add some padding to prevent overflow
+        const maxHeight = window.innerHeight * 0.8; // 80% of viewport height
+    
+        // Adjust container height, but don't exceed max height
+        container.style.height = `${Math.min(activeFormHeight + 200, maxHeight)}px`;
     }
 
     // Function to show the current form and hide others
